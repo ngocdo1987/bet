@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151213152935) do
+ActiveRecord::Schema.define(version: 20151214054056) do
 
   create_table "bet_money_lines", force: :cascade do |t|
     t.integer  "user_id"
@@ -44,6 +44,22 @@ ActiveRecord::Schema.define(version: 20151213152935) do
   add_index "bet_spreads", ["match_id"], name: "index_bet_spreads_on_match_id"
   add_index "bet_spreads", ["odd_id"], name: "index_bet_spreads_on_odd_id"
   add_index "bet_spreads", ["user_id"], name: "index_bet_spreads_on_user_id"
+
+  create_table "bet_total_points", force: :cascade do |t|
+    t.integer  "user_id"
+    t.integer  "odd_id"
+    t.integer  "match_id"
+    t.float    "stake"
+    t.float    "profit"
+    t.string   "option"
+    t.string   "result"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bet_total_points", ["match_id"], name: "index_bet_total_points_on_match_id"
+  add_index "bet_total_points", ["odd_id"], name: "index_bet_total_points_on_odd_id"
+  add_index "bet_total_points", ["user_id"], name: "index_bet_total_points_on_user_id"
 
   create_table "leagues", force: :cascade do |t|
     t.string   "league_name"
