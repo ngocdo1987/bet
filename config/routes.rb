@@ -1,6 +1,14 @@
 Rails.application.routes.draw do
-  resources :leagues
-  resources :leagues
-  get '/', to: 'pages#home'
+  root 'pages#home'
+  
   get '/home', to: 'pages#home'
+  
+  resources :recipes
+  resources :chefs
+  
+  resources :leagues
+  resources :matches
+  resources :odd_spreads
+  resources :odd_money_lines
+  resources :odd_total_points
 end
