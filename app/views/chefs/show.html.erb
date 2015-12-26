@@ -1,0 +1,16 @@
+<p>
+    <h1><%= @chef.chefname %></h1>
+</p>
+<div class="row">
+    <div class="col-md-4 pull-right center">
+        <%= gravatar_for @chef, size: 200 %>
+        <p>
+            <h5><%= @chef.chefname %></h5>
+        </p>
+    </div>
+    <div class="col-md-8">
+        
+    </div>
+</div>
+
+<h5><%= link_to "Return to chefs listing", chefs_path, class: "btn btn-warning btn-small" %></h5>

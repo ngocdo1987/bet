@@ -1,0 +1,17 @@
+<p>
+    <h1>Create new chef</h1>
+    <hr/>
+</p>
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @chef do |f| %>
+            <%= f.label :chefname %>
+            <%= f.text_field :chefname %>
+            
+            <%= f.label :email %>
+            <%= f.text_field :email %>
+           
+            <%= f.submit 'Create chef', class: "btn btn-success" %>
+        <% end %>
+    </div>
+</div>

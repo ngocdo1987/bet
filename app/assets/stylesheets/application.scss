@@ -5,3 +5,14 @@ body {
   min-height: 2000px;
   padding-top: 70px;
 }
+
+input, textarea, select {
+  border: 1px solid #d2d2d2;
+  border-radius: 5px;
+  width: 100%;
+  margin-bottom: 15px;
+}
+
+input {
+  height: auto !important;
+}

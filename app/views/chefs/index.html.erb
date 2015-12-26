@@ -1,0 +1,17 @@
+<h1>List chefs</h1>
+
+<h5><%= link_to "Add chef", new_chef_path, class: "btn btn-warning btn-small" %></h5>
+
+<% @chefs.each do |chef| %>
+    <div class="row">
+        <div class="col-md-2">
+            <section class="chef_info center">
+                
+            </section>
+        </div>
+        <div class="col-lg-8 well">
+            <h4><%= link_to chef.chefname, chef_path(chef) %></h4>
+            <p><%= chef.email %></p>
+        </div>
+    </div>
+<% end %>
