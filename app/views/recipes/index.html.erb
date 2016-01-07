@@ -2,6 +2,8 @@
 
 <h5><%= link_to "Add repice", new_recipe_path, class: "btn btn-warning btn-small" %></h5>
 
+<center><%= will_paginate %></center>
+
 <% @recipes.each do |recipe| %>
     <div class="row">
         <div class="col-md-2">
@@ -20,3 +22,5 @@
         </div>
     </div>
 <% end %>
+
+<center><%= will_paginate %></center>
