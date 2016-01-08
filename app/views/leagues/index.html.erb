@@ -1,0 +1,31 @@
+<h1>List leagues</h1>
+
+<h5><%= link_to "Add league", new_league_path, class: "btn btn-warning btn-small" %></h5>
+
+<center><%= will_paginate %></center>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <td>League name</td>
+                <td>League type</td>
+                <td>Active</td>
+                <td></td>
+            </tr>
+            <% @leagues.each do |league| %>
+            <tr>
+                <td><%= link_to league.league_name, edit_league_path(league) %></td>
+                <td><%= league.league_type %></td>
+                <td><%= league.active %></td>
+                <td>
+                    <%= link_to "Edit", edit_league_path(league) %> | 
+                    <%= link_to "Delete" %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+<center><%= will_paginate %></center>

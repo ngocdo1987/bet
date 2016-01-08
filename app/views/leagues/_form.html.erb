@@ -1,0 +1,18 @@
+<%= render 'shared/errors', obj: @league %>
+
+<div class="row">
+    <div class="well col-md-8 col-md-offset-2">
+        <%= form_for @league do |f| %>
+            <%= f.label :league_name %>
+            <%= f.text_field :league_name %>
+            
+            <%= f.label :league_type %>
+            <%= f.text_field :league_type %>
+            
+            <%= f.label :active %>
+            <%= f.text_field :active %>
+            
+            <%= f.submit(@league.new_record? ? 'Create league' : 'Edit league', class: "btn btn-success") %> 
+        <% end %>
+    </div>
+</div>
