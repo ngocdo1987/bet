@@ -25,7 +25,13 @@
             Away score: <%= @match.away_score %>
         </p>
         <p>
-            Calculated: <%= if @match.calculated == 1 ? 'Yes' : 'No' %>
+            Calculated: <%= @match.calculated == 1 ? 'Yes' : 'No' %>
+        </p>
+        <p>
+            Created at: <%= @match.created_at %>
+        </p>
+        <p>
+            Updated at: <%= @match.updated_at %>
         </p>
     </div>
 </div>

@@ -1,8 +1,9 @@
 <%= render 'shared/errors', obj: @match %>
 
 <div class="row">
+    <%= form_for @match do |f| %>
     <div class="well col-md-3">
-        <%= form_for @match do |f| %>
+        
             <%= f.label :league_id %>
             <%= f.collection_select(:league_id, @leagues, :id, :league_name) %>
             
@@ -38,51 +39,52 @@
             <% end %>
             
             <%= f.submit(@match.new_record? ? 'Create match' : 'Edit match', class: "btn btn-success") %>
-        <% end %>
+        
     </div>
     <div class="col-md-3">
         <center><b>Spread</b></center>
-        <%= form_for @odd_spread do |f| %>
-            <%= f.label :home_hdc %>
-            <%= f.text_field :home_hdc %>
+        <%= f.fields_for :odd_spreads do |os| %>
+            <%= os.label :home_hdc %>
+            <%= os.text_field :home_hdc %>
             
-            <%= f.label :away_hdc %>
-            <%= f.text_field :away_hdc %>
+            <%= os.label :away_hdc %>
+            <%= os.text_field :away_hdc %>
             
-            <%= f.label :home_odd %>
-            <%= f.text_field :home_odd %>
+            <%= os.label :home_odd %>
+            <%= os.text_field :home_odd %>
             
-            <%= f.label :away_odd %>
-            <%= f.text_field :away_odd %>
+            <%= os.label :away_odd %>
+            <%= os.text_field :away_odd %>
         <% end %>
     </div>
     <div class="col-md-3">
         <center><b>Money Line</b></center>
-        <%= form_for @odd_money_line do |f| %>
+        <%= f.fields_for :odd_money_lines do |oml| %>
+            <%= oml.label :home_odd %>
+            <%= oml.text_field :home_odd %>
             
-            <%= f.label :home_odd %>
-            <%= f.text_field :home_odd %>
-            
-            <%= f.label :away_odd %>
-            <%= f.text_field :away_odd %>
+            <%= oml.label :away_odd %>
+            <%= oml.text_field :away_odd %>
         <% end %>
     </div>
     <div class="col-md-3">
         <center><b>Total Point</b></center>
-        <%= form_for @odd_total_point do |f| %>
-            <%= f.label :over_hdc %>
-            <%= f.text_field :over_hdc %>
+        <%= f.fields_for :odd_total_points do |otp| %>
+            <%= otp.label :over_hdc %>
+            <%= otp.text_field :over_hdc %>
             
-            <%= f.label :under_hdc %>
-            <%= f.text_field :under_hdc %>
+            <%= otp.label :under_hdc %>
+            <%= otp.text_field :under_hdc %>
             
-            <%= f.label :over_odd %>
-            <%= f.text_field :over_odd %>
+            <%= otp.label :over_odd %>
+            <%= otp.text_field :over_odd %>
             
-            <%= f.label :under_odd %>
-            <%= f.text_field :under_odd %>
+            <%= otp.label :under_odd %>
+            <%= otp.text_field :under_odd %>
         <% end %>
     </div>
+    
+    <% end %>
 </div>
 
 <script type="text/javascript">
