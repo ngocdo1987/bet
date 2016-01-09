@@ -26,6 +26,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 gem 'will_paginate', '~> 3.0.6'
 gem 'bootstrap-will_paginate'
 gem 'tinymce-rails'
+gem 'momentjs-rails', '>= 2.9.0'
+gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

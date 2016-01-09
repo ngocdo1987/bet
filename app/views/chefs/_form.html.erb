@@ -7,7 +7,7 @@
             <%= f.text_field :chefname %>
             
             <%= f.label :email %>
-            <%= f.text_field :email %>
+            <%= f.email_field :email %>
            
             <%= f.submit(@chef.new_record? ? 'Create chef' : 'Edit chef', class: "btn btn-success") %>
         <% end %>

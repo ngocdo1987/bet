@@ -7,4 +7,6 @@ class Match < ActiveRecord::Base
     validates :league_id, presence: true
     validates :home_team, presence: true
     validates :away_team, presence: true
+    validates :home_number, presence: true
+    validates :away_number, presence: true
 end

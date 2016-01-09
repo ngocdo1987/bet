@@ -1,18 +1,92 @@
 <%= render 'shared/errors', obj: @match %>
 
 <div class="row">
-    <div class="well col-md-8 col-md-offset-2">
+    <div class="well col-md-3">
         <%= form_for @match do |f| %>
-            <%= f.label :name %>
-            <%= f.text_field :name %>
+            <%= f.label :league_id %>
+            <%= f.collection_select(:league_id, @leagues, :id, :league_name) %>
             
-            <%= f.label :summary %>
-            <%= f.text_field :summary %>
+            <%= f.label :home_team %>
+            <%= f.text_field :home_team %>
             
-            <%= f.label :description %>
-            <%= f.text_area :description, rows: 10 %>
+            <%= f.label :away_team %>
+            <%= f.text_field :away_team %>
+            
+            <%= f.label :home_number %>
+            <%= f.number_field :home_number %>
+            
+            <%= f.label :away_number %>
+            <%= f.number_field :away_number %>
+            
+            <%= f.label :match_time %>
+            <%= f.text_field :match_time %>
+            
+            <%= f.label :active %>
+            <%= f.select(:active, [['True', true], ['False', false]]) %>
+            
+            <% if @match.new_record? == false %>
+            
+                <%= f.label :home_score %>
+                <%= f.number_field :home_score %>
+            
+                <%= f.label :away_score %>
+                <%= f.number_field :away_score %>
+                
+                <%= f.label :calculated %>
+                <%= f.select(:calculated, [['No', 0], ['Yes', 1]]) %>
+            
+            <% end %>
             
             <%= f.submit(@match.new_record? ? 'Create match' : 'Edit match', class: "btn btn-success") %>
         <% end %>
     </div>
+    <div class="col-md-3">
+        <center><b>Spread</b></center>
+        <%= form_for @odd_spread do |f| %>
+            <%= f.label :home_hdc %>
+            <%= f.text_field :home_hdc %>
+            
+            <%= f.label :away_hdc %>
+            <%= f.text_field :away_hdc %>
+            
+            <%= f.label :home_odd %>
+            <%= f.text_field :home_odd %>
+            
+            <%= f.label :away_odd %>
+            <%= f.text_field :away_odd %>
+        <% end %>
+    </div>
+    <div class="col-md-3">
+        <center><b>Money Line</b></center>
+        <%= form_for @odd_money_line do |f| %>
+            
+            <%= f.label :home_odd %>
+            <%= f.text_field :home_odd %>
+            
+            <%= f.label :away_odd %>
+            <%= f.text_field :away_odd %>
+        <% end %>
+    </div>
+    <div class="col-md-3">
+        <center><b>Total Point</b></center>
+        <%= form_for @odd_total_point do |f| %>
+            <%= f.label :over_hdc %>
+            <%= f.text_field :over_hdc %>
+            
+            <%= f.label :under_hdc %>
+            <%= f.text_field :under_hdc %>
+            
+            <%= f.label :over_odd %>
+            <%= f.text_field :over_odd %>
+            
+            <%= f.label :under_odd %>
+            <%= f.text_field :under_odd %>
+        <% end %>
+    </div>
 </div>
+
+<script type="text/javascript">
+    $(function () {
+        $('#match_match_time').datetimepicker();
+    });
+</script>

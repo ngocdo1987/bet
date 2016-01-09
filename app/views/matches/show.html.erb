@@ -1,0 +1,35 @@
+<p>
+    <h1><%= @match.home_team %> vs <%= @match.away_team %></h1>
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            League: <%= @match.league.league_name %>
+        </p>
+        <p>
+            Home number: <%= @match.home_number %>
+        </p>
+        <p>
+            Away number: <%= @match.away_number %>
+        </p>
+        <p>
+            Match time: <%= @match.match_time %>
+        </p>
+        <p>
+            Active: <%= @match.active %>
+        </p>
+        <p>
+            Home score: <%= @match.home_score %>
+        </p>
+        <p>
+            Away score: <%= @match.away_score %>
+        </p>
+        <p>
+            Calculated: <%= if @match.calculated == 1 ? 'Yes' : 'No' %>
+        </p>
+    </div>
+</div>
+
+<h5>
+    <%= link_to "Return to matches listing", matches_path, class: "btn btn-warning btn-small" %> 
+</h5>

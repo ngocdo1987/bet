@@ -10,7 +10,7 @@
             <%= f.text_field :league_type %>
             
             <%= f.label :active %>
-            <%= f.text_field :active %>
+            <%= f.select(:active, [['True', true], ['False', false]]) %>
             
             <%= f.submit(@league.new_record? ? 'Create league' : 'Edit league', class: "btn btn-success") %> 
         <% end %>
