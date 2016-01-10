@@ -43,6 +43,26 @@
     </div>
     <div class="col-md-3">
         <center><b>Spread</b></center>
+        
+        <% if @odd_spreads.blank? == false %>
+        <table class="table">
+            <tr>
+                <th>HH</th>
+                <th>AH</th>
+                <th>HO</th>
+                <th>AW</th>
+            </tr>
+            <% @odd_spreads.each do |os| %>
+            <tr>
+                <td><%= os.home_hdc %></td>
+                <td><%= os.away_hdc %></td>
+                <td><%= os.home_odd %></td>
+                <td><%= os.home_odd %></td>
+            </tr>
+            <% end %>
+        </table>
+        <% end %>
+        
         <%= f.fields_for :odd_spreads do |os| %>
             <%= os.label :home_hdc %>
             <%= os.text_field :home_hdc %>
@@ -59,6 +79,22 @@
     </div>
     <div class="col-md-3">
         <center><b>Money Line</b></center>
+        
+        <% if @odd_money_lines.blank? == false %>
+        <table class="table">
+            <tr>
+                <th>HO</th>
+                <th>AO</th>
+            </tr>
+            <% @odd_money_lines.each do |oml| %>
+            <tr>
+                <td><%= oml.home_odd %></td>
+                <td><%= oml.away_odd %></td>
+            </tr>
+            <% end %>
+        </table>
+        <% end %>
+        
         <%= f.fields_for :odd_money_lines do |oml| %>
             <%= oml.label :home_odd %>
             <%= oml.text_field :home_odd %>
@@ -69,6 +105,26 @@
     </div>
     <div class="col-md-3">
         <center><b>Total Point</b></center>
+               
+        <% if @odd_total_points.blank? == false %>
+        <table class="table">
+            <tr>
+                <th>OH</th>
+                <th>UH</th>
+                <th>OO</th>
+                <th>UO</th>
+            </tr>
+            <% @odd_total_points.each do |otp| %>
+            <tr>
+                <td><%= otp.over_hdc %></td>
+                <td><%= otp.under_hdc %></td>
+                <td><%= otp.over_odd %></td>
+                <td><%= otp.under_odd %></td>
+            </tr>
+            <% end %>
+        </table>
+        <% end %>
+               
         <%= f.fields_for :odd_total_points do |otp| %>
             <%= otp.label :over_hdc %>
             <%= otp.text_field :over_hdc %>
