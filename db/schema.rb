@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151216161737) do
+ActiveRecord::Schema.define(version: 20160110111417) do
 
   create_table "bet_money_lines", force: :cascade do |t|
     t.integer  "user_id"
@@ -74,6 +74,7 @@ ActiveRecord::Schema.define(version: 20151216161737) do
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "league_image"
   end
 
   create_table "matches", force: :cascade do |t|

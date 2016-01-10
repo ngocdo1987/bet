@@ -2,9 +2,12 @@
 
 <div class="row">
     <div class="well col-md-8 col-md-offset-2">
-        <%= form_for @league do |f| %>
+        <%= form_for(@league, html: {multipart: true}) do |f| %>
             <%= f.label :league_name %>
             <%= f.text_field :league_name %>
+            
+            <%= f.label :league_image %>
+            <%= f.file_field :league_image, accept: 'image/jpeg,image/png,image/gif' %>
             
             <%= f.label :league_type %>
             <%= f.text_field :league_type %>
@@ -16,3 +19,12 @@
         <% end %>
     </div>
 </div>
+
+<script type="text/javascript">
+    $('#league_league_image').bind('change', function(){
+        size_in_megabytes = this.files[0].size/1024/1024;
+        if(size_in_megabytes > 5) {
+            alert('Maximum league image file size is 5MB. Please choose a smaller file.');
+        }
+    });
+</script>

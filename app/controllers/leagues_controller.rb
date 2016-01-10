@@ -37,6 +37,6 @@ class LeaguesController < ApplicationController
     
     private
         def league_params
-            params.require(:league).permit(:league_name, :league_type, :active)        
+            params.require(:league).permit(:league_name, :league_image, :league_type, :active)        
         end
 end

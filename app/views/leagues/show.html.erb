@@ -7,6 +7,9 @@
             League name: <%= @league.league_name %>
         </p>
         <p>
+            <%= image_tag(@league.league_image.url, size: "150x150", class: "gravatar") if @league.league_image? %>
+        </p>
+        <p>
             League type: <%= @league.league_type %>
         </p>
         <p>

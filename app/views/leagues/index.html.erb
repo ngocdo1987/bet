@@ -8,14 +8,18 @@
     <div class="col-md-12">
         <table class="table">
             <tr>
-                <td>League name</td>
-                <td>League type</td>
-                <td>Active</td>
-                <td></td>
+                <th>League name</th>
+                <th>League image</th>
+                <th>League type</th>
+                <th>Active</th>
+                <th></th>
             </tr>
             <% @leagues.each do |league| %>
             <tr>
                 <td><%= link_to league.league_name, edit_league_path(league) %></td>
+                <td>
+                    <%= image_tag(league.league_image.url, size: "80x80", class: "gravatar") if league.league_image? %>
+                </td>
                 <td><%= league.league_type %></td>
                 <td><%= league.active %></td>
                 <td>
