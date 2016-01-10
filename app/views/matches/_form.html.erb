@@ -75,6 +75,10 @@
             
             <%= os.label :away_odd %>
             <%= os.text_field :away_odd %>
+            
+            <% if @match.new_record? == false %>
+            <%= link_to 'Add spread', 'javascript:void(0)', class: "btn btn-success" %> 
+            <% end %>
         <% end %>
     </div>
     <div class="col-md-3">
@@ -101,6 +105,10 @@
             
             <%= oml.label :away_odd %>
             <%= oml.text_field :away_odd %>
+            
+            <% if @match.new_record? == false %>
+            <%= link_to 'Add money line', 'javascript:void(0)', class: "btn btn-success" %> 
+            <% end %>
         <% end %>
     </div>
     <div class="col-md-3">
@@ -137,6 +145,10 @@
             
             <%= otp.label :under_odd %>
             <%= otp.text_field :under_odd %>
+            
+            <% if @match.new_record? == false %>
+            <%= link_to 'Add total point', 'javascript:void(0)', class: "btn btn-success" %> 
+            <% end %>
         <% end %>
     </div>
     
