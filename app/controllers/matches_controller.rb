@@ -1,10 +1,12 @@
 class MatchesController < ApplicationController
     def index
         @matches = Match.paginate(page: params[:page], per_page: 20)
+        @mt = 'List matches'
     end
    
     def show
         @match = Match.find(params[:id])   
+        @mt = 'Show ' + @match.home_team + ' vs ' + @match.away_team
     end
     
     def new
@@ -13,11 +15,13 @@ class MatchesController < ApplicationController
         @odd_spread = OddSpread.new
         @odd_money_line = OddMoneyLine.new
         @odd_total_point = OddTotalPoint.new
+        @mt = 'Create match'
     end
    
     def create
         @match = Match.new(match_params)
         @leagues = League.all
+        @mt = 'Create match'
         
         if @match.save
             @odd_spread = OddSpread.new(odd_spread_params[:odd_spreads])
@@ -48,11 +52,13 @@ class MatchesController < ApplicationController
         @odd_spreads = @match.odd_spreads.order(created_at: :desc)
         @odd_money_lines = @match.odd_money_lines.order(created_at: :desc)
         @odd_total_points = @match.odd_total_points.order(created_at: :desc)
+        @mt = 'Edit ' + @match.home_team + ' vs ' + @match.away_team
     end
    
     def update
         @match = Match.find(params[:id])
         @leagues = League.all
+        @mt = 'Edit ' + @match.home_team + ' vs ' + @match.away_team
         
         if @match.update(match_params)
             @odd_spread = OddSpread.new(odd_spread_params[:odd_spreads])

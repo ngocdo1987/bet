@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160110111417) do
+ActiveRecord::Schema.define(version: 20160111141800) do
 
   create_table "bet_money_lines", force: :cascade do |t|
     t.integer  "user_id"
@@ -142,6 +142,13 @@ ActiveRecord::Schema.define(version: 20160110111417) do
     t.string   "username"
     t.string   "password"
     t.string   "email"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "videos", force: :cascade do |t|
+    t.string   "name"
+    t.string   "url"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

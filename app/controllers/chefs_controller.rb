@@ -1,18 +1,22 @@
 class ChefsController < ApplicationController
     def index
         @chefs = Chef.paginate(page: params[:page], per_page: 5)
+        @mt = 'List chefs'
     end
     
     def show
         @chef = Chef.find(params[:id])
+        @mt = 'Show ' + @chef.chefname
     end
     
     def new
         @chef = Chef.new
+        @mt = 'Create chef'
     end
     
     def create
         @chef = Chef.new(chef_params)
+        @mt = 'Create chef'
         if @chef.save
             flash[:success] = "Your chef was created successfully!"
             redirect_to chefs_path
@@ -23,10 +27,12 @@ class ChefsController < ApplicationController
     
     def edit
         @chef = Chef.find(params[:id])
+        @mt = 'Edit ' + @chef.chefname
     end
 
     def update
         @chef = Chef.find(params[:id])
+        @mt = 'Edit ' + @chef.chefname
         if @chef.update(chef_params)
             flash[:success] = "Your chef was updated successfully!"
             redirect_to chef_path(@chef)

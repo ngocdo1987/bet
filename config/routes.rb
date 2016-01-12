@@ -11,4 +11,5 @@ Rails.application.routes.draw do
   resources :odd_spreads
   resources :odd_money_lines
   resources :odd_total_points
+  resources :videos
 end
