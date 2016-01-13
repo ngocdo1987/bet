@@ -1,0 +1,147 @@
+= render 'shared/errors', obj: @match
+
+div class="row crud-form"
+    = form_for @match do |f|
+        div class="well col-md-3"
+        
+            = f.label :league_id
+            = f.collection_select(:league_id, @leagues, :id, :league_name)
+            
+            = f.label :home_team
+            = f.text_field :home_team
+            
+            = f.label :away_team
+            = f.text_field :away_team
+            
+            = f.label :home_number
+            = f.number_field :home_number
+            
+            = f.label :away_number
+            = f.number_field :away_number
+            
+            = f.label :match_time
+            = f.text_field :match_time
+            
+            = f.label :active
+            = f.select(:active, [['True', true], ['False', false]])
+            
+            - if @match.new_record? == false
+            
+                = f.label :home_score
+                = f.number_field :home_score
+            
+                = f.label :away_score
+                = f.number_field :away_score
+                
+                = f.label :calculated
+                = f.select(:calculated, [['No', 0], ['Yes', 1]])
+            
+            
+            = f.submit(@match.new_record? ? 'Create match' : 'Edit match', class: "btn btn-success")
+        
+        div.col-md-3
+            center
+                b Spread
+            
+            - if @odd_spreads.blank? == false
+                table.table
+                    tr
+                        th HH
+                        th AH
+                        th HO
+                        th AO
+                    - @odd_spreads.each do |os|
+                        tr
+                            td
+                                = os.home_hdc
+                            td
+                                = os.away_hdc
+                            td
+                                = os.home_odd
+                            td
+                                = os.away_odd
+            
+            = f.fields_for :odd_spreads do |os|
+                = os.label :home_hdc
+                = os.text_field :home_hdc
+                
+                = os.label :away_hdc
+                = os.text_field :away_hdc
+                
+                = os.label :home_odd
+                = os.text_field :home_odd
+                
+                = os.label :away_odd
+                = os.text_field :away_odd
+                
+                - if @match.new_record? == false
+                    = link_to 'Add spread', 'javascript:void(0)', class: "btn btn-success"
+        
+        div.col-md-3
+            center
+                b Money Line
+            
+            - if @odd_money_lines.blank? == false
+                table.table
+                    tr
+                        th HO
+                        th AO
+                    - @odd_money_lines.each do |oml|
+                        <tr>
+                            td
+                                = oml.home_odd
+                            td
+                                = oml.away_odd
+            
+            = f.fields_for :odd_money_lines do |oml|
+                = oml.label :home_odd
+                = oml.text_field :home_odd
+                
+                = oml.label :away_odd
+                = oml.text_field :away_odd
+                
+                - if @match.new_record? == false
+                    = link_to 'Add money line', 'javascript:void(0)', class: "btn btn-success"
+
+        div.col-md-3
+            center
+                b Total Point
+                   
+            - if @odd_total_points.blank? == false
+                table.table
+                    tr
+                        th OH
+                        th UH
+                        th OO
+                        th UO
+                    - @odd_total_points.each do |otp|
+                        tr
+                            td
+                                = otp.over_hdc
+                            td
+                                = otp.under_hdc
+                            td
+                                = otp.over_odd
+                            td
+                                = otp.under_odd
+                   
+            = f.fields_for :odd_total_points do |otp|
+                = otp.label :over_hdc
+                = otp.text_field :over_hdc
+                
+                = otp.label :under_hdc
+                = otp.text_field :under_hdc
+                
+                = otp.label :over_odd
+                = otp.text_field :over_odd
+                
+                = otp.label :under_odd
+                = otp.text_field :under_odd
+                
+                - if @match.new_record? == false
+                    = link_to 'Add total point', 'javascript:void(0)', class: "btn btn-success"
+
+javascript:
+    $(function () {
+        $('#match_match_time').datetimepicker();
+    });

@@ -1,0 +1,7 @@
+div class="row filter-row"
+    div class="col-md-6 pull-right"
+        = form_tag("/videos", method: "get") do
+            div.col-md-6
+                = text_field_tag :name, "", placeholder: "Search ...", class: "form-control"
+            div.col-md-6
+                = submit_tag "Search", class: "btn btn-success"

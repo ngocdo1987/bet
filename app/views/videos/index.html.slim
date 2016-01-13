@@ -1,0 +1,32 @@
+h1 List videos
+
+h5
+    = link_to "Add video", new_video_path, class: "btn btn-warning btn-small"
+
+= render 'filter'
+
+center
+    = will_paginate
+
+div.row
+    div.col-md-12
+        table.table
+            tr
+                th Name
+                th URL
+                th
+            - @videos.each do |video|
+                tr
+                    td
+                        = link_to video.name, edit_video_path(video)
+                    td
+                        iframe width="420" height="315" src="#{video.url}" frameborder="0" allowfullscreen
+                    td
+                        = link_to "Show", video_path(video)
+                        = " | "
+                        = link_to "Edit", edit_video_path(video)
+                        = " | "
+                        = link_to "Delete"
+
+center
+    = will_paginate
