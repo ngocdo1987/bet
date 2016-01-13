@@ -1,22 +1,5 @@
-class Match < ActiveRecord::Base
-    belongs_to :league
-    has_many :odd_spreads
-    has_many :odd_money_lines
-    has_many :odd_total_points
-    
-    validates :league_id, presence: true
-    validates :home_team, presence: true
-    validates :away_team, presence: true
-    validates :home_number, presence: true
-    validates :away_number, presence: true
-    
-    def self.search(all_params)
-        all_filters = {
-            'home_team' => 'LIKE', 
-            'away_team' => 'LIKE',
-            'league_id' => '=',
-            'active' => '='
-        }
+class Base < ActiveRecord::Base
+    def self.search(all_filters, all_params)
         conditions = []
         
         all_filters.each_pair do |k, v|
@@ -34,5 +17,5 @@ class Match < ActiveRecord::Base
         conditions = conditions.join(" AND ")
         
         return self.where(conditions).paginate(page: all_params[:page], per_page: 10)     
-    end
+    end    
 end

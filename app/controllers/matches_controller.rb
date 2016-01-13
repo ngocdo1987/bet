@@ -1,6 +1,7 @@
 class MatchesController < ApplicationController
     def index
-        @matches = Match.paginate(page: params[:page], per_page: 20)
+        @matches = Match.search(params)
+        @leagues = League.all
         @mt = 'List matches'
     end
    

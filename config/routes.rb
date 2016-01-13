@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   
   resources :leagues
   resources :matches
+  resources :teams
   resources :odd_spreads
   resources :odd_money_lines
   resources :odd_total_points

@@ -1,19 +1,24 @@
-class Match < ActiveRecord::Base
+class Team < ActiveRecord::Base
     belongs_to :league
-    has_many :odd_spreads
-    has_many :odd_money_lines
-    has_many :odd_total_points
     
+    validates :name, presence: true, length: { minimum: 3 }
+    validates :total_matches, numericality: true
+    validates :total_points, numericality: true
     validates :league_id, presence: true
-    validates :home_team, presence: true
-    validates :away_team, presence: true
-    validates :home_number, presence: true
-    validates :away_number, presence: true
+    mount_uploader :image, TeamImageUploader
+    validate :image_size
+    
+    private
+        def image_size
+            if image.size > 5.megabytes
+                errors.add(:image, "should be less than 5MB")        
+            end
+        end
     
     def self.search(all_params)
         all_filters = {
-            'home_team' => 'LIKE', 
-            'away_team' => 'LIKE',
+            'name' => 'LIKE', 
+            'description' => 'LIKE',
             'league_id' => '=',
             'active' => '='
         }
@@ -33,6 +38,6 @@ class Match < ActiveRecord::Base
         
         conditions = conditions.join(" AND ")
         
-        return self.where(conditions).paginate(page: all_params[:page], per_page: 10)     
+        return self.where(conditions).paginate(page: all_params[:page], per_page: 10)            
     end
 end

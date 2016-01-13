@@ -1,27 +1,6 @@
 class LeaguesController < ApplicationController
     def index
-        all_filters = {
-            'league_name' => 'LIKE', 
-            'league_type' => '=',
-            'active' => '='
-        }
-        conditions = []
-        
-        all_filters.each_pair do |k, v|
-            filter_var = params[k].blank? ? '' : params[k]
-            if v == 'LIKE'
-                secure_var = League.sanitize("%#{filter_var}%")   
-            else
-                secure_var = League.sanitize("#{filter_var}")         
-            end
-            
-            conditions.push("#{k} #{v} " + secure_var) if filter_var != ''
-        end
-        
-        conditions = conditions.join(" AND ")
-        
-        @leagues = League.where(conditions).paginate(page: params[:page], per_page: 10)
-        
+        @leagues = League.search(params)
         @mt = 'List leagues'
     end
     
