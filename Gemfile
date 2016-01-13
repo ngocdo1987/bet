@@ -40,6 +40,7 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 
 # Slim
 gem 'slim'
+gem 'slim-rails'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

@@ -1,0 +1,42 @@
+<h1>List matches</h1>
+
+<h5><%= link_to "Add match", new_match_path, class: "btn btn-warning btn-small" %></h5>
+
+<%= render 'filter' %>
+
+<center><%= will_paginate %></center>
+
+<div class="row">
+    <div class="col-md-12">
+        <table class="table">
+            <tr>
+                <th>Home team</th>
+                <th>Away team</th>
+                <th>League</th>
+                <th>Match time</th>
+                <th>Active</th>
+                <th></th>
+            </tr>
+            <% @matches.each do |match| %>
+            <tr>
+                <td>
+                    <%= link_to "(#{match.home_number}) #{match.home_team}", edit_match_path(match) %>
+                </td>
+                <td>
+                    <%= link_to "(#{match.away_number}) #{match.away_team}", edit_match_path(match) %>
+                </td>
+                <td><%= match.league.league_name %></td>
+                <td><%= match.match_time %></td>
+                <td><%= match.active %></td>
+                <td>
+                    <%= link_to "Show", match_path(match) %> |     
+                    <%= link_to "Edit", edit_match_path(match) %> | 
+                    <%= link_to "Delete" %>
+                </td>
+            </tr>
+            <% end %>
+        </table>
+    </div>
+</div>
+
+<center><%= will_paginate %></center>

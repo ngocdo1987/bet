@@ -1,0 +1,32 @@
+<p>
+    <h1><%= @team.name %></h1>
+</p>
+<div class="row">
+    <div class="col-md-12">
+        <p>
+            League: <%= @team.league.league_name %>
+        </p>
+        <p>
+            <%= image_tag(@team.image.url, size: "150x150", class: "gravatar") if @team.image? %>
+        </p>
+        <p>
+            Description: <%= @team.description %>
+        </p>
+        <p>
+            Total matches: <%= @team.total_matches %>
+        </p>
+        <p>
+            Total points: <%= @team.total_points %>
+        </p>
+        <p>
+            Created at: <%= @team.created_at %>
+        </p>
+        <p>
+            Updated at: <%= @team.updated_at %>
+        </p>
+    </div>
+</div>
+
+<h5>
+    <%= link_to "Return to teams listing", matches_path, class: "btn btn-warning btn-small" %> 
+</h5>

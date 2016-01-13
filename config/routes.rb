@@ -1,7 +1,8 @@
 Rails.application.routes.draw do
-  root 'pages#home'
+  root 'index#index'
   
-  get '/home', to: 'pages#home'
+  get '/slim', to: 'index#slim'
+  get '/admin', to: 'pages#home'
   
   resources :recipes
   resources :chefs
