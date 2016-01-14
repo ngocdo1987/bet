@@ -15,8 +15,7 @@ div.row
             = f.label :active
             = f.select(:active, [['True', true], ['False', false]])
             
-            = f.submit(@league.new_record? ? 'Create league' : 'Edit league', class: "btn btn-success") 
-        end
+            = f.submit(@league.new_record? ? 'Create league' : 'Edit league', class: "btn btn-success")
 
 javascript:
     $('#league_league_image').bind('change', function(){

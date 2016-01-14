@@ -1,15 +1,15 @@
 = form_tag("/teams", method: "get") do
-div class="row filter-row"
+    div class="row filter-row"
     
-    div.col-md-12
-        div.col-md-3
-            = text_field_tag :name, "", placeholder: "Name", class: "form-control"
+        div.col-md-12
+            div.col-md-3
+                = text_field_tag :name, "", placeholder: "Name", class: "form-control"
         
-        div.col-md-3
-            = text_field_tag :description, "", placeholder: "Description", class: "form-control"
+            div.col-md-3
+                = text_field_tag :description, "", placeholder: "Description", class: "form-control"
         
-        div.col-md-3
-            = select_tag :league_id, options_from_collection_for_select(@leagues, 'id', 'league_name'), include_blank: "League", class: "form-control"
+            div.col-md-3
+                = select_tag :league_id, options_from_collection_for_select(@leagues, 'id', 'league_name'), include_blank: "League", class: "form-control"
         
-        div.col-md-3
-            = submit_tag "Search", class: "btn btn-success"
+            div.col-md-3
+                = submit_tag "Search", class: "btn btn-success"

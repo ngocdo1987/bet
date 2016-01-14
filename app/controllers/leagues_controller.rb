@@ -1,22 +1,24 @@
 class LeaguesController < ApplicationController
+    require './lib/ar'
+    
     def index
-        @leagues = League.search(params)
-        @mt = 'List leagues'
+        @leagues = Ar.search(League, params)
+        @mt = "List leagues"
     end
     
     def show
         @league = League.find(params[:id])
-        @mt = 'Show ' + @league.league_name
+        @mt = "Show #{@league.league_name}"
     end
     
     def new
         @league = League.new
-        @mt = 'Create league'
+        @mt = "Create league"
     end
 
     def create
         @league = League.new(league_params)
-        @mt = 'Create league'
+        @mt = "Create league"
         if @league.save
             flash[:success] = "Your league was created successfully!"
             redirect_to leagues_path
@@ -27,12 +29,12 @@ class LeaguesController < ApplicationController
     
     def edit
         @league = League.find(params[:id])
-        @mt = 'Edit ' + @league.league_name
+        @mt = "Edit #{@league.league_name}"
     end
     
     def update
         @league = League.find(params[:id])
-        @mt = 'Edit ' + @league.league_name
+        @mt = "Edit #{@league.league_name}"
         if @league.update(league_params)
             flash[:success] = "Your league was updated successfully!"
             redirect_to league_path(@league)

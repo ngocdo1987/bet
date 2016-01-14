@@ -1,23 +1,23 @@
 class RecipesController < ApplicationController
     def index
         @recipes = Recipe.paginate(page: params[:page], per_page: 5)
-        @mt = 'List recipes'
+        @mt = "List recipes"
     end
     
     def show
         @recipe = Recipe.find(params[:id])
-        @mt = 'Show ' + @recipe.name
+        @mt = "Show #{@recipe.name}"
     end
     
     def new
         @recipe = Recipe.new
-        @mt = 'Create recipe'
+        @mt = "Create recipe"
     end
     
     def create
         @recipe = Recipe.new(recipe_params)     
         @recipe.chef = Chef.find(2)
-        @mt = 'Create recipe'
+        @mt = "Create recipe"
         
         if @recipe.save
             flash[:success] = "Your recipe was created successfully!"
@@ -29,12 +29,12 @@ class RecipesController < ApplicationController
     
     def edit
         @recipe = Recipe.find(params[:id])    
-        @mt = 'Edit ' + @recipe.name
+        @mt = "Edit #{@recipe.name}"
     end
     
     def update
         @recipe = Recipe.find(params[:id])
-        @mt = 'Edit ' + @recipe.name
+        @mt = "Edit #{@recipe.name}"
         if @recipe.update(recipe_params)
             flash[:success] = "Your recipe was updated successfully!"
             redirect_to recipe_path(@recipe)

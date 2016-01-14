@@ -28,7 +28,10 @@ div.row
                     td
                         = league.active
                     td
+                        = link_to "Show", league_path(league)
+                        = " | "
                         = link_to "Edit", edit_league_path(league) 
+                        = " | "
                         = link_to "Delete"
 
 center

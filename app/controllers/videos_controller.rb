@@ -1,6 +1,8 @@
 class VideosController < ApplicationController
+    require './lib/ar'
+    
     def index
-        @videos = Video.search(params)
+        @videos = Ar.search(Video, params)
         @mt = 'List videos'
     end
     
