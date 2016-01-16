@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'index#index'
   
+  get '/whois', to: 'index#whois'
   get '/slim', to: 'index#slim'
   get '/admin', to: 'pages#home'
   

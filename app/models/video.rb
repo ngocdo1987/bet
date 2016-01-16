@@ -3,7 +3,7 @@ class Video < ActiveRecord::Base
     validates :url, presence: true, length: { minimum: 10 }
     
     def self.all_filters
-        all_filters = {
+        {
             name: 'LIKE'
         }
     end

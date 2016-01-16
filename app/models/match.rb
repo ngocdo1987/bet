@@ -11,7 +11,7 @@ class Match < ActiveRecord::Base
     validates :away_number, presence: true
     
     def self.all_filters
-        return {
+        {
             home_team: 'LIKE', 
             away_team: 'LIKE',
             league_id: '=',

@@ -6,7 +6,7 @@ class League < ActiveRecord::Base
     validate :league_image_size
     
     def self.all_filters
-        return {
+        {
             league_name: 'LIKE', 
             league_type: '=',
             active: '='

@@ -9,7 +9,7 @@ class Team < ActiveRecord::Base
     validate :image_size
     
     def self.all_filters
-        return {
+        {
             name: 'LIKE', 
             description: 'LIKE',
             league_id: '=',
