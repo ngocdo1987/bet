@@ -1,9 +1,6 @@
 module Whois
     require 'open-uri'
     require 'json'
-    require 'rexml/document'
-    require 'rexml/xpath'
-    require 'yaml'
     
     # whoisxmlapi.com API
     def self.get_domain_info(domain)
