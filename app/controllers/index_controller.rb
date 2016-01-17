@@ -27,6 +27,10 @@ class IndexController < ApplicationController
         @result = url != '' ? WebCapture.capture(url) : ''
     end
     
+    def imgur_uploader
+        @mt = 'Imgur Uploader'
+    end
+    
     def slim
         render :layout => false        
     end

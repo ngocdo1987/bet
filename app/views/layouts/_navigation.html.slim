@@ -21,14 +21,20 @@ nav class="navbar navbar-default navbar-fixed-top"
           = link_to "Teams", teams_path
         li class=(controller_name == 'videos' ? 'active' : '')
           = link_to "Videos", videos_path
-        li class=(controller_name == 'index' && action_name == 'whois' ? 'active' : '')  
-          = link_to "Whois", "/whois"
-        li class=(controller_name == 'index' && action_name == 'domain_check' ? 'active' : '')
-          = link_to "Domain check", "/domain_check"
-        li class=(controller_name == 'index' && action_name == 'web_capture' ? 'active' : '')
-          = link_to "Web Capture", "/web_capture"
-        li class=(controller_name == 'rake' ? 'active' : '')
-          = link_to "Rails CMD", "/rake"
+        li.dropdown
+          = link_to "Mini Tools <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"
+          ul.dropdown-menu
+            li
+              = link_to "Whois", "/whois"
+            li
+              = link_to "Domain check", "/domain_check"
+            li
+              = link_to "Web Capture", "/web_capture"
+            li
+              = link_to "Rails CMD", "/rake"
+            li
+              = link_to "Imgur Uploader", "/imgur_uploader"
+
       ul class="nav navbar-nav navbar-right"
         li
           = link_to "Login", ""

@@ -1,0 +1,16 @@
+h1
+    = @mt
+    
+div.row
+    div.col-md-12
+        p Upload image to imgur.com via API
+= form_tag '/imgur_uploader', multipart: true do
+    div.row
+        div.col-md-9
+            = file_field_tag :image
+            
+        div.col-md-3
+            = submit_tag "UPLOAD", class: "btn btn-danger"
+            
+div.row
+    div.col-md-12
