@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get '/web_capture', to: 'index#web_capture'
   post '/web_capture', to: 'index#web_capture'
   
+  get '/rake', to: 'rake#index'
+  post '/rake', to: 'rake#index'
+  
   get '/slim', to: 'index#slim'
   get '/admin', to: 'pages#home'
   

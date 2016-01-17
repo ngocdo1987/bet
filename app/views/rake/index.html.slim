@@ -1,0 +1,20 @@
+= form_tag("/rake", method: "post") do
+    div.row
+        div.col-md-12 
+            p 
+                = "Enter Rails command, example "
+                i
+                    b rake db:migrate 
+                    = "or " 
+                    b rails generate migration create_tables
+        div.col-md-9
+            = text_field_tag :task, "", placeholder: "Rails/Rake task command", class: "form-control"
+            
+        div.col-md-3
+            = submit_tag "RUN", class: "btn btn-danger"
+            
+div.row
+    br
+    br
+    = debug(@result) if @result.blank? == false
+    
