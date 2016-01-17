@@ -23,6 +23,8 @@ nav class="navbar navbar-default navbar-fixed-top"
           = link_to "Videos", videos_path
         li class=(controller_name == 'index' && action_name == 'whois' ? 'active' : '')  
           = link_to "Whois", "/whois"
+        li class=(controller_name == 'index' && action_name == 'domain_check' ? 'active' : '')
+          = link_to "Domain check", "/domain_check"
         li class=(controller_name == 'index' && action_name == 'web_capture' ? 'active' : '')
           = link_to "Web Capture", "/web_capture"
       ul class="nav navbar-nav navbar-right"

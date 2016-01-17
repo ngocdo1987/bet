@@ -21,4 +21,12 @@ module Whois
         
         return result
     end
+    
+    # instantdomainsearch.com API
+    def self.get_domain_check(domain)
+        request_url = "https://instantdomainsearch.com/all/#{domain}?tldTags=popular&partTld=&country=&limit=20&hilite=strong"
+        result = open(request_url).read
+        result = JSON.parse(result)
+        return result
+    end
 end

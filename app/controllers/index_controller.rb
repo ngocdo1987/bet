@@ -12,36 +12,19 @@ class IndexController < ApplicationController
         @domain = domain
     end
     
+    def domain_check
+        require './lib/whois'
+        @mt = 'Domain check'
+        domain = params[:domain].blank? ? '' : params[:domain]
+        @result = domain == '' ? '' : Whois.get_domain_check(domain)
+        @result = @result.split("\n")
+    end
+    
     def web_capture
-        require 'screenshot_machine'
-        
-        url = params[:url].blank? ? '' : params[:url]
-        
-        if url != ''
-            ScreenshotMachine.configure do |config|
-                config.key        = 'b23eb6'
-                config.size       = 'X'
-                config.format     = 'JPG'
-                config.cacheLimit = 14
-                config.timeout    = 200
-            end
-            
-            sm = ScreenshotMachine::Generator.new(url)
-            # Returns a binary stream of the file
-            file_name = Digest::MD5.hexdigest("#{url}b23eb6")
-            file_path ||= "#{Rails.root}/public/captures/#{file_name}.jpg"
-            f = File.new(file_path,  "wb")
-            f.write(sm.screenshot)
-            f.close
-            
-            @result = file_name
-        else
-            @result = ''        
-        end    
-
+        require './lib/web_capture'
         @mt = 'Web Capture'
-        
-        @url = url
+        url = params[:url].blank? ? '' : params[:url]
+        @result = url != '' ? WebCapture.capture(url) : ''
     end
     
     def slim

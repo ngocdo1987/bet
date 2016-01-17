@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20160112154620) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "bet_money_lines", force: :cascade do |t|
     t.integer  "user_id"
     t.integer  "odd_id"
@@ -25,9 +28,9 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "bet_money_lines", ["match_id"], name: "index_bet_money_lines_on_match_id"
-  add_index "bet_money_lines", ["odd_id"], name: "index_bet_money_lines_on_odd_id"
-  add_index "bet_money_lines", ["user_id"], name: "index_bet_money_lines_on_user_id"
+  add_index "bet_money_lines", ["match_id"], name: "index_bet_money_lines_on_match_id", using: :btree
+  add_index "bet_money_lines", ["odd_id"], name: "index_bet_money_lines_on_odd_id", using: :btree
+  add_index "bet_money_lines", ["user_id"], name: "index_bet_money_lines_on_user_id", using: :btree
 
   create_table "bet_spreads", force: :cascade do |t|
     t.integer  "user_id"
@@ -41,9 +44,9 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "bet_spreads", ["match_id"], name: "index_bet_spreads_on_match_id"
-  add_index "bet_spreads", ["odd_id"], name: "index_bet_spreads_on_odd_id"
-  add_index "bet_spreads", ["user_id"], name: "index_bet_spreads_on_user_id"
+  add_index "bet_spreads", ["match_id"], name: "index_bet_spreads_on_match_id", using: :btree
+  add_index "bet_spreads", ["odd_id"], name: "index_bet_spreads_on_odd_id", using: :btree
+  add_index "bet_spreads", ["user_id"], name: "index_bet_spreads_on_user_id", using: :btree
 
   create_table "bet_total_points", force: :cascade do |t|
     t.integer  "user_id"
@@ -57,9 +60,9 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "bet_total_points", ["match_id"], name: "index_bet_total_points_on_match_id"
-  add_index "bet_total_points", ["odd_id"], name: "index_bet_total_points_on_odd_id"
-  add_index "bet_total_points", ["user_id"], name: "index_bet_total_points_on_user_id"
+  add_index "bet_total_points", ["match_id"], name: "index_bet_total_points_on_match_id", using: :btree
+  add_index "bet_total_points", ["odd_id"], name: "index_bet_total_points_on_odd_id", using: :btree
+  add_index "bet_total_points", ["user_id"], name: "index_bet_total_points_on_user_id", using: :btree
 
   create_table "chefs", force: :cascade do |t|
     t.string   "chefname"
@@ -81,10 +84,10 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.integer  "league_id"
     t.string   "home_team"
     t.string   "away_team"
-    t.integer  "home_number", limit: 3
-    t.integer  "away_number", limit: 3
-    t.integer  "home_score",  limit: 1
-    t.integer  "away_score",  limit: 1
+    t.integer  "home_number"
+    t.integer  "away_number"
+    t.integer  "home_score",  limit: 2
+    t.integer  "away_score",  limit: 2
     t.datetime "match_time"
     t.string   "status"
     t.boolean  "calculated"
@@ -93,7 +96,7 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "matches", ["league_id"], name: "index_matches_on_league_id"
+  add_index "matches", ["league_id"], name: "index_matches_on_league_id", using: :btree
 
   create_table "odd_money_lines", force: :cascade do |t|
     t.integer  "match_id"
@@ -103,7 +106,7 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "odd_money_lines", ["match_id"], name: "index_odd_money_lines_on_match_id"
+  add_index "odd_money_lines", ["match_id"], name: "index_odd_money_lines_on_match_id", using: :btree
 
   create_table "odd_spreads", force: :cascade do |t|
     t.integer  "match_id"
@@ -115,7 +118,7 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "odd_spreads", ["match_id"], name: "index_odd_spreads_on_match_id"
+  add_index "odd_spreads", ["match_id"], name: "index_odd_spreads_on_match_id", using: :btree
 
   create_table "odd_total_points", force: :cascade do |t|
     t.integer  "match_id"
@@ -127,7 +130,7 @@ ActiveRecord::Schema.define(version: 20160112154620) do
     t.datetime "updated_at"
   end
 
-  add_index "odd_total_points", ["match_id"], name: "index_odd_total_points_on_match_id"
+  add_index "odd_total_points", ["match_id"], name: "index_odd_total_points_on_match_id", using: :btree
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"

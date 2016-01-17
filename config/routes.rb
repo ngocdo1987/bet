@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   get '/whois', to: 'index#whois'
   post '/whois', to: 'index#whois'
   
+  get '/domain_check', to: 'index#domain_check'
+  post '/domain_check', to: 'index#domain_check'
+  
   get '/web_capture', to: 'index#web_capture'
   post '/web_capture', to: 'index#web_capture'
   

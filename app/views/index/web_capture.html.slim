@@ -1,12 +1,16 @@
+div.row
+    p Capture all websites to image
 = form_tag("/web_capture", method: "post") do 
     div.row
         div.col-md-9
             = text_field_tag :url, "", placeholder: "URL", class: "form-control"
             
         div.col-md-3
-            = submit_tag "Capture", class: "btn btn-success"
+            = submit_tag "Capture", class: "btn btn-danger"
             
 div.row
-    p
+    br
+    br
+    center
         = image_tag("/captures/#{@result}.jpg") if @result != ''
     

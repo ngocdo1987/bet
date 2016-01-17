@@ -1,10 +1,12 @@
+div.row
+    p Get Whois information for domain
 = form_tag("/whois", method: "post") do
     div.row
         div.col-md-9
             = text_field_tag :domain, "", placeholder: "Domain", class: "form-control"
             
         div.col-md-3
-            = submit_tag "Search", class: "btn btn-success"
+            = submit_tag "Search", class: "btn btn-danger"
             
 div.row
     - if @whois_result != ''
