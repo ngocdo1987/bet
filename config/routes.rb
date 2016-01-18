@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :tags
   root 'index#index'
   
   get '/whois', to: 'index#whois'
@@ -29,4 +30,6 @@ Rails.application.routes.draw do
   resources :odd_money_lines
   resources :odd_total_points
   resources :videos
+  
+  resources :categories
 end

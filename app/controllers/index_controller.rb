@@ -1,7 +1,7 @@
 class IndexController < ApplicationController
     
     def index
-    
+        render :layout => 'recipe' 
     end
     
     def whois

@@ -2,7 +2,8 @@ h1
     = @mt
     
 div.row
-    p Capture all websites to image
+    div.col-md-12
+        p Capture all websites to image
 = form_tag("/web_capture", method: "post") do 
     div.row
         div.col-md-9
@@ -12,8 +13,9 @@ div.row
             = submit_tag "Capture", class: "btn btn-danger"
             
 div.row
-    br
-    br
-    center
-        = image_tag("/captures/#{@result}.jpg") if @result != ''
+    div.col-md-12
+        br
+        br
+        center
+            = image_tag("/captures/#{@result}.jpg") if @result != ''
     

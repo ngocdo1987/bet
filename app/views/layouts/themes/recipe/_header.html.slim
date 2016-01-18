@@ -1,0 +1,79 @@
+<!--header-->
+header
+    div class="header header-main fadeIn"
+        div.container
+            div.row
+                div.col-lg-2
+                    div.logo-wrapper
+                        a href="index.html"
+                            = image_tag 'themes/recipe/logo.png'
+                            
+                div.col-lg-10
+                    div.outer-nav
+                        div.wrapper-links
+                            ul.header-social-icons
+                                li
+                                    a href="#"
+                                        i class="fa fa-facebook"
+                                li
+                                    a href="#"
+                                        i class="fa fa-twitter"
+                                li
+                                    a href="#"
+                                        i class="fa fa-google-plus"
+                                
+                            span class="sign-in-buttons"
+                                = link_to 'Login', '#', class: 'login'
+                                = link_to 'Register', '#', class: 'register'
+                        
+                        div class="wrapper-main-nav"
+                            nav class="nav-collapse responsive-menu"
+                                ul.main-menu
+                                    li
+                                        = link_to 'Home', '#'
+                                        ul
+                                            li
+                                                = link_to 'var one', '#'
+                                            li
+                                                = link_to 'var one', '#'
+                                            li
+                                                = link_to 'var one', '#'
+                                            li
+                                                = link_to 'var one', '#'
+                                            li
+                                                = link_to 'var one', '#'
+                                    
+                                    li
+                                        = link_to 'Recent Recipes', '#'
+                                        ul
+                                            li
+                                                = link_to 'recipe listing list view', '#'
+                                            li
+                                                = link_to 'recipe listing grid view', '#'
+                                                
+                                    li
+                                        = link_to 'Recipe Detail', '#'
+                                        ul
+                                            li
+                                                = link_to 'recipe detail version 1', '#'
+                                            li
+                                                = link_to 'recipe detail version 1', '#'
+                                    
+                                    li
+                                        = link_to 'Chefs', '#'
+                                        
+                                    li
+                                        = link_to 'Blog', '#'
+                                        ul
+                                            li
+                                                = link_to 'Single post', '#'
+                                                
+                                    li
+                                        = link_to 'elements', '#'
+                                        
+                                    li
+                                        = link_to 'contact', '#'
+                                        
+                                    li
+                                        = link_to 'Submit recipe', '#', class: 'submit-recipe'
+<!--header ends-->

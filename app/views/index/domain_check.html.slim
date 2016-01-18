@@ -2,7 +2,8 @@ h1
     = @mt
     
 div.row
-    p Check domain availablity
+    div.col-md-12
+        p Check domain availablity
 = form_tag("/domain_check", method: "post") do 
     div.row
         div.col-md-9
@@ -12,6 +13,7 @@ div.row
             = submit_tag "Check Available", class: "btn btn-danger"
             
 div.row
-    br
-    br
-    = debug @result if @result.blank? == false
+    div.col-md-12
+        br
+        br
+        = debug @result if @result.blank? == false

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160117150609) do
+ActiveRecord::Schema.define(version: 20160118021547) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -63,6 +63,17 @@ ActiveRecord::Schema.define(version: 20160117150609) do
   add_index "bet_total_points", ["match_id"], name: "index_bet_total_points_on_match_id", using: :btree
   add_index "bet_total_points", ["odd_id"], name: "index_bet_total_points_on_odd_id", using: :btree
   add_index "bet_total_points", ["user_id"], name: "index_bet_total_points_on_user_id", using: :btree
+
+  create_table "categories", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.integer  "parent_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "ancestry"
+  end
+
+  add_index "categories", ["parent_id"], name: "index_categories_on_parent_id", using: :btree
 
   create_table "chefs", force: :cascade do |t|
     t.string   "chefname"
@@ -140,6 +151,16 @@ ActiveRecord::Schema.define(version: 20160117150609) do
     t.datetime "updated_at"
     t.integer  "chef_id"
   end
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "ancestry"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "tags", ["ancestry"], name: "index_tags_on_ancestry", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.string   "name"

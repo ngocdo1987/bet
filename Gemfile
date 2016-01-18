@@ -42,7 +42,9 @@ gem 'slim'
 gem 'slim-rails'
 
 # Imgur
-gem 'imgurapi'
+gem 'curb'
+
+gem 'ancestry'
 
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'

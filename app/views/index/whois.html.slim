@@ -2,7 +2,8 @@ h1
     = @mt
     
 div.row
-    p Get Whois information for domain
+    div.col-md-12
+        p Get Whois information for domain
 = form_tag("/whois", method: "post") do
     div.row
         div.col-md-9
@@ -12,63 +13,64 @@ div.row
             = submit_tag "Search", class: "btn btn-danger"
             
 div.row
-    - if @whois_result != ''
-        h1 
-            center #{@domain} Whois Information
-        
-        - if @whois_result['WhoisRecord']['administrativeContact']    
-            b Administrative Contact
-            br
-            = "Name: #{@whois_result['WhoisRecord']['administrativeContact']['name']}"
-            br
-            = "Street1: #{@whois_result['WhoisRecord']['administrativeContact']['street1']}"
-            br
-            = "City: #{@whois_result['WhoisRecord']['administrativeContact']['city']}"
-            br
-            = "State: #{@whois_result['WhoisRecord']['administrativeContact']['state']}" 
-            br
-            = "Postal Code: #{@whois_result['WhoisRecord']['administrativeContact']['postalCode']}"
-            br
-            = "Country: #{@whois_result['WhoisRecord']['administrativeContact']['country']}"
-            br
-            = "Email: #{@whois_result['WhoisRecord']['administrativeContact']['email']}" 
-            br
-            = "Telephone: #{@whois_result['WhoisRecord']['administrativeContact']['telephone']}"
-            br
-            = "Fax: #{@whois_result['WhoisRecord']['administrativeContact']['fax']}"
-            br
+    div.col-md-12
+        - if @whois_result != ''
+            h1 
+                center #{@domain} Whois Information
+            
+            - if @whois_result['WhoisRecord']['administrativeContact']    
+                b Administrative Contact
+                br
+                = "Name: #{@whois_result['WhoisRecord']['administrativeContact']['name']}"
+                br
+                = "Street1: #{@whois_result['WhoisRecord']['administrativeContact']['street1']}"
+                br
+                = "City: #{@whois_result['WhoisRecord']['administrativeContact']['city']}"
+                br
+                = "State: #{@whois_result['WhoisRecord']['administrativeContact']['state']}" 
+                br
+                = "Postal Code: #{@whois_result['WhoisRecord']['administrativeContact']['postalCode']}"
+                br
+                = "Country: #{@whois_result['WhoisRecord']['administrativeContact']['country']}"
+                br
+                = "Email: #{@whois_result['WhoisRecord']['administrativeContact']['email']}" 
+                br
+                = "Telephone: #{@whois_result['WhoisRecord']['administrativeContact']['telephone']}"
+                br
+                = "Fax: #{@whois_result['WhoisRecord']['administrativeContact']['fax']}"
+                br
+                br
+                
+            - if @whois_result['WhoisRecord']['technicalContact']
+                b Technical Contact
+                br
+                = "Name: #{@whois_result['WhoisRecord']['technicalContact']['name']}"
+                br
+                = "Street1: #{@whois_result['WhoisRecord']['technicalContact']['street1']}"
+                br
+                = "City: #{@whois_result['WhoisRecord']['technicalContact']['city']}"
+                br
+                = "State: #{@whois_result['WhoisRecord']['technicalContact']['state']}" 
+                br
+                = "Postal Code: #{@whois_result['WhoisRecord']['technicalContact']['postalCode']}"
+                br
+                = "Country: #{@whois_result['WhoisRecord']['technicalContact']['country']}"
+                br
+                = "Email: #{@whois_result['WhoisRecord']['technicalContact']['email']}" 
+                br
+                = "Telephone: #{@whois_result['WhoisRecord']['technicalContact']['telephone']}"
+                br
+                = "Fax: #{@whois_result['WhoisRecord']['technicalContact']['fax']}"
+                br
+                br
+            
+            b Status
+            = simple_format @whois_result['WhoisRecord']['status']
+            
+            
+            b All information
+            = simple_format @whois_result['WhoisRecord']['rawText']
             br
             
-        - if @whois_result['WhoisRecord']['technicalContact']
-            b Technical Contact
-            br
-            = "Name: #{@whois_result['WhoisRecord']['technicalContact']['name']}"
-            br
-            = "Street1: #{@whois_result['WhoisRecord']['technicalContact']['street1']}"
-            br
-            = "City: #{@whois_result['WhoisRecord']['technicalContact']['city']}"
-            br
-            = "State: #{@whois_result['WhoisRecord']['technicalContact']['state']}" 
-            br
-            = "Postal Code: #{@whois_result['WhoisRecord']['technicalContact']['postalCode']}"
-            br
-            = "Country: #{@whois_result['WhoisRecord']['technicalContact']['country']}"
-            br
-            = "Email: #{@whois_result['WhoisRecord']['technicalContact']['email']}" 
-            br
-            = "Telephone: #{@whois_result['WhoisRecord']['technicalContact']['telephone']}"
-            br
-            = "Fax: #{@whois_result['WhoisRecord']['technicalContact']['fax']}"
-            br
-            br
-        
-        b Status
-        = simple_format @whois_result['WhoisRecord']['status']
-        
-        
-        b All information
-        = simple_format @whois_result['WhoisRecord']['rawText']
-        br
-        
-        
-        = simple_format(raw(JSON.pretty_generate(@whois_result).gsub(" ","&nbsp;")))
+            
+            = simple_format(raw(JSON.pretty_generate(@whois_result).gsub(" ","&nbsp;")))
