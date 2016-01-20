@@ -1,0 +1,62 @@
+/! banner
+.banner.banner-blog
+  .container
+    .main-heading
+      h1 #{@mt}
+.advance-search
+  /! advance search form
+  .container
+    .wrapper-search
+      .container-tags
+        span.tag
+          span.tag-inner
+            | Find Recipes
+            i.fa.fa-angle-down
+      .outer-advance-search
+        form#advance-search action="#" 
+          fieldset
+            .inner-advance-search
+              .form-field
+                label for="ingredient"  ingredient
+                select#ingredient.advance-selectable name="ingredient" 
+                  option selected="selected" value="ing1"  Any Ingredient
+                  option value="ing2"  Butter
+                  option value="ing3"  Cheese
+                  option value="ing4"  Cream
+                  option value="ing5"  Yeast
+              .form-field
+                label for="course"  course
+                select#course.advance-selectable name="course" 
+                  option selected="selected" value="ing1"  Any Course
+                  option value="ing2"  Butter
+                  option value="ing3"  Cheese
+                  option value="ing4"  Cream
+                  option value="ing5"  Yeast
+              .form-field
+                label for="cuisine"  cuisine
+                select#cuisine.advance-selectable name="cuisine" 
+                  option selected="selected" value="ing1"  Any Cuisine
+                  option value="ing2"  Butter
+                  option value="ing3"  Cheese
+                  option value="ing4"  Cream
+                  option value="ing5"  Yeast
+              .form-field
+                label for="time"  Cooking Time
+                select#time.advance-selectable name="time" 
+                  option selected="selected" value="ing1"  Any Cooking Time
+                  option value="ing2"  Butter
+                  option value="ing3"  Cheese
+                  option value="ing4"  Cream
+                  option value="ing5"  Yeast
+              .form-field
+                label for="calories"  calories
+                select#calories.advance-selectable name="calories" 
+                  option selected="selected" value="ing1"  Any Calories
+                  option value="ing2"  Butter
+                  option value="ing3"  Cheese
+                  option value="ing4"  Cream
+                  option value="ing5"  Yeast
+              button type="submit" 
+                i.fa.fa-search
+  /! advance search form ends
+/! banner ends

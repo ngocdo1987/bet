@@ -24,6 +24,5 @@ module Bet
     config.active_record.raise_in_transactional_callbacks = true
     config.tinymce.install = :compile
     
-    config.assets.precompile += ['themes/recipe/*']
   end
 end

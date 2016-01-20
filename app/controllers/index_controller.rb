@@ -1,7 +1,43 @@
 class IndexController < ApplicationController
+    layout :custom_layout
     
     def index
-        render :layout => 'recipe' 
+        @header = "header"
+        @mt = "Food & Taste - Quality recipes"
+    end
+    
+    def recipes
+        @header = "header1"
+        @mt = "List recipes"
+    end
+    
+    def recipe
+        @recipe = Recipe.find(params[:id])
+        @mt = @recipe.name
+    end
+    
+    def chefs
+        @header = "header1"
+        @chefs = Chef.all
+        @mt = "Our chefs"
+    end
+    
+    def chef
+        @chef = Chef.find(params[:id])
+        @mt = @chef.chefname
+    end    
+    
+    def blog
+        @header = "header1"
+        @mt = "Blog"     
+    end
+    
+    def contact
+        @mt = "Contact"     
+    end
+    
+    def submit_recipe
+        @mt = "Submit recipe"     
     end
     
     def whois
@@ -34,4 +70,14 @@ class IndexController < ApplicationController
     def slim
         render :layout => false        
     end
+    
+    private
+        def custom_layout
+            case action_name
+            when 'index', 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'submit_recipe'
+                'recipe'
+            else
+                'application'
+            end
+        end    
 end

@@ -1,6 +1,12 @@
 Rails.application.routes.draw do
-  resources :tags
+  
   root 'index#index'
+  
+  get '/list-recipes', to: 'index#recipes'
+  get '/our-chefs', to: 'index#chefs'
+  get '/blog', to: 'index#blog'
+  get '/contact', to: 'index#contact'
+  get '/submit-recipe', to: 'index#submit_recipe'
   
   get '/whois', to: 'index#whois'
   post '/whois', to: 'index#whois'
@@ -32,4 +38,5 @@ Rails.application.routes.draw do
   resources :videos
   
   resources :categories
+  resources :tags
 end

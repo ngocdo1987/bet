@@ -1,0 +1,45 @@
+/! header
+header
+  .header.header-var1.fade-load-down
+    .responsive-menu
+    .nav-var1
+      .container
+        .row
+          .col-md-5
+            .left-nav
+              nav.nav-collapse
+                ul.main-menu.left
+                  li
+                    = link_to 'Home', root_path
+                  li
+                    = link_to 'List recipes', '/list-recipes'
+                  li
+                    = link_to 'Our chefs', '/our-chefs'
+          .col-md-2
+            .logo-wrapper
+              = link_to image_tag('/themes/recipes/images/logo.png', alt: 'logo'), root_path
+          .col-md-5
+            .right-nav
+              .wrapper-links
+                ul.header-social-icons
+                  li
+                    a href="#" 
+                      i.fa.fa-facebook
+                  li
+                    a href="#" 
+                      i.fa.fa-twitter
+                  li
+                    a href="#" 
+                      i.fa.fa-google-plus
+                span.sign-in-buttons
+                  a.login href="#"  Login
+                  a.register href="#"  Register
+              nav.nav-collapse
+                ul.main-menu.right
+                  li
+                    = link_to 'Blog', '/blog'
+                  li
+                    = link_to 'Contact', '/contact'
+                  li
+                    = link_to 'Submit recipe', '/submit-recipe'
+/! header ends

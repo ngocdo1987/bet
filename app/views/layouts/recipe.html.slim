@@ -3,16 +3,16 @@ html
     head
         title #{@mt}
         
-        = render 'layouts/themes/recipe/css'
+        = render "layouts/themes/recipe/css"
         
         = csrf_meta_tags
     body
-        = render 'layouts/themes/recipe/preloader'
+        = render "layouts/themes/recipe/preloader"
         
-        = render 'layouts/themes/recipe/header'
+        = render "layouts/themes/recipe/#{@header}"
         
         == yield
         
-        = render 'layouts/themes/recipe/footer'
+        = render "layouts/themes/recipe/footer"
         
-        = render 'layouts/themes/recipe/js'
+        = render "layouts/themes/recipe/js"

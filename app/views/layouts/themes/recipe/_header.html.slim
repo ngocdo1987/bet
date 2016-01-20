@@ -5,8 +5,7 @@ header
             div.row
                 div.col-lg-2
                     div.logo-wrapper
-                        a href="index.html"
-                            = image_tag 'themes/recipe/logo.png'
+                        = link_to image_tag('/themes/recipes/images/logo.png'), root_path
                             
                 div.col-lg-10
                     div.outer-nav
@@ -30,50 +29,20 @@ header
                             nav class="nav-collapse responsive-menu"
                                 ul.main-menu
                                     li
-                                        = link_to 'Home', '#'
-                                        ul
-                                            li
-                                                = link_to 'var one', '#'
-                                            li
-                                                = link_to 'var one', '#'
-                                            li
-                                                = link_to 'var one', '#'
-                                            li
-                                                = link_to 'var one', '#'
-                                            li
-                                                = link_to 'var one', '#'
+                                        = link_to 'Home', root_path
                                     
                                     li
-                                        = link_to 'Recent Recipes', '#'
-                                        ul
-                                            li
-                                                = link_to 'recipe listing list view', '#'
-                                            li
-                                                = link_to 'recipe listing grid view', '#'
-                                                
-                                    li
-                                        = link_to 'Recipe Detail', '#'
-                                        ul
-                                            li
-                                                = link_to 'recipe detail version 1', '#'
-                                            li
-                                                = link_to 'recipe detail version 1', '#'
+                                        = link_to 'List Recipes', '/list-recipes'
                                     
                                     li
-                                        = link_to 'Chefs', '#'
+                                        = link_to 'Our Chefs', '/our-chefs'
                                         
                                     li
-                                        = link_to 'Blog', '#'
-                                        ul
-                                            li
-                                                = link_to 'Single post', '#'
-                                                
+                                        = link_to 'Blog', '/blog'
+                                    
                                     li
-                                        = link_to 'elements', '#'
+                                        = link_to 'Contact', '/contact'
                                         
                                     li
-                                        = link_to 'contact', '#'
-                                        
-                                    li
-                                        = link_to 'Submit recipe', '#', class: 'submit-recipe'
+                                        = link_to 'Submit recipe', '/submit-recipe', class: 'submit-recipe'
 <!--header ends-->
