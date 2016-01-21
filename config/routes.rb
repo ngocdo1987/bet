@@ -20,6 +20,9 @@ Rails.application.routes.draw do
   get '/imgur_uploader', to: 'index#imgur_uploader'
   post '/imgur_uploader', to: 'index#imgur_uploader'
   
+  get '/sms', to: 'index#sms'
+  post '/sms', to: 'index#sms'
+  
   get '/rake', to: 'rake#index'
   post '/rake', to: 'rake#index'
   

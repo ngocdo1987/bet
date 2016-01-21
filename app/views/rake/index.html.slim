@@ -1,20 +1,15 @@
-h1
+h3
     = @mt
+    i
+        |  Enter Rails command, example rake db:migrate or rails generate migration create_tables
     
 = form_tag("/rake", method: "post") do
-    div.row
-        div.col-md-12 
-            p 
-                = "Enter Rails command, example "
-                i
-                    b rake db:migrate 
-                    = "or " 
-                    b rails generate migration create_tables
-        div.col-md-9
-            = text_field_tag :task, "", placeholder: "Rails/Rake task command", class: "form-control"
+    div.row.contact-form
+        div.col-md-8.col-xs-8.col-sm-8.col-lg-8
+            = text_field_tag :task, "", placeholder: "Rails/Rake task or Linux command"
             
-        div.col-md-3
-            = submit_tag "RUN", class: "btn btn-danger"
+        div.col-md-4.col-xs-4.col-sm-4.col-lg-4
+            = submit_tag "RUN", class: "btn btn-color hover-animate"
             
 div.row
     br

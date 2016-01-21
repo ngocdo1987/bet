@@ -1,6 +1,8 @@
 require 'open3'
 
 class RakeController < ApplicationController
+    layout 'mini_tools'
+    
     def index
         if params[:task].blank? == false
             rails_cmd = params[:task]
