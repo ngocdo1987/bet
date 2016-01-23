@@ -1,0 +1,65 @@
+header#masthead.site-header role="banner" 
+  .header-area.header-area-has-logo.header-area-has-search
+    .site-branding
+      = link_to image_tag('/themes/football/images/footballclub-logo.png', alt: 'Football Club'), '/football', class: 'site-logo', rel: 'home'
+      hgroup style="color: 222222"
+        h1.site-title
+          = link_to 'Football Club', '/football', rel: 'home'
+        h2.site-description Official SportsPress Theme
+    /! .site-branding
+    nav#site-navigation.main-navigation role="navigation" 
+      button.menu-toggle aria-controls="menu" aria-expanded="false" 
+        span.dashicons.dashicons-menu
+        | Primary Menu
+      .menu-primary-menu-container
+        ul#menu-primary-menu.menu
+          li
+            = link_to 'Home', '/football'
+          li
+            = link_to 'Fixtures & Results', '/football/fixtures-and-results'
+            ul.sub-menu
+              li
+                = link_to 'Blocks Layout', '#'
+              li
+                = link_to 'Calendar Layout', '#'
+              li
+                = link_to 'List Layout', '#'
+          li
+            = link_to 'Standings', '/football/standings'
+            ul.sub-menu
+              li
+                = link_to 'By Competition', '#'
+                ul.sub-menu
+                  li
+                    = link_to 'Primary League', '#'
+                  li
+                    = link_to 'Secondary League', '#'
+              li
+                = link_to 'By Season', '#'
+                ul.sub-menu
+                  li
+                    = link_to 'This Season', '#'
+                  li
+                    = link_to 'Last Season', '#'
+          li
+            = link_to 'Players & Staff', '#'
+            ul.sub-menu
+              li
+                = link_to 'Team Profile', '#'
+              li
+                = link_to 'Players', '#'
+                ul.sub-menu
+                  li
+                    = link_to 'Gallery Layout', '#'
+                  li
+                    = link_to 'List Layout', '#'
+              li
+                = link_to 'Staff', '#'
+          li
+            = link_to 'Blog', '/football/blog'
+      form.search-form action="" method="get" role="search" 
+        label
+          span.screen-reader-text Search for:
+          input.search-field name="s" placeholder=("Search &hellip;") title=("Search for:") type="search" value="" /
+        input.search-submit title="Search" type="submit" value="" /
+    /! #site-navigation

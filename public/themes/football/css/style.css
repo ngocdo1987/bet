@@ -1,0 +1,1021 @@
+/*
+ Theme Name:   Football Club
+ Theme URI:    http://themeboy.com/footballclub
+ Version:      4.0
+ Description:  Football Club is more than a theme, itâ€™s a powerful tool to manage and connect your club to the world.
+ Author:       ThemeBoy
+ Author URI:   http://themeboy.com
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Template:     rookie
+*/
+
+/* Elements */
+body {
+	font-size: 13px;
+	font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", sans-serif;
+	color: #222;
+	background: #dadada;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: inherit;
+}
+
+a {
+	color: #d4000f;
+}
+
+table {
+	font-size: 12px;
+}
+
+th {
+	padding: 6px 8px;
+	line-height: 1;
+	background: #fff;
+	font-weight: bold;
+}
+
+td {
+	padding: 8px;
+	background: #f5f5f5;
+}
+
+tbody tr td {
+	border-bottom: 1px solid #fff;
+}
+
+tbody tr:last-child td {
+	border-bottom: none;
+}
+
+input {
+	font-family: "HelveticaNeue", "Helvetica Neue", "Helvetica", "Arial", "Lucida Grande", sans-serif;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+textarea {
+	border-radius: 0;
+}
+
+input[type="submit"] {
+	color: #fff;
+	background: #aeaeae;
+	box-shadow: inset 0px -24px 48px -20px rgba(0,0,0,0.25);
+	font-weight: bold;
+}
+
+input[type="submit"]:hover {
+	background: #d4000f;
+}
+
+/* Layout */
+.site {
+	box-shadow: 0 0 12px rgba(0,0,0,0.2);
+	width: 1000px;
+	max-width: 93.75%;
+	margin: 24px auto 0;
+	position: relative;
+}
+
+.site-widgets {
+	background: #fff;
+	padding: 8px;
+	border-bottom: 1px solid #ccc;
+}
+
+.site-widgets .widget {
+	margin: 0;
+}
+
+.site-branding {
+	background: #f5f5f5;
+	text-transform: uppercase;
+}
+
+.site-title {
+	font-family: HelveticaNeue-CondensedBlack, HelveticaNeue-CondensedBold, Impact, Futura-CondensedExtraBold, AvenirNextCondensed-Bold, "Helvetica Narrow","Arial Narrow", Haettenschweiler, "Franklin Gothic Bold", Charcoal, "Helvetica Inserat", "Bitstream Vera Sans Bold", "Arial Black", sans-serif;
+	font-size: 60px;
+	line-height: 1;
+}
+
+.site-description {
+	color: #d4000f;
+	font-weight: bold;
+	line-height: 1;
+}
+
+.main-navigation {
+	font-size: 13px;
+	min-height: 34px;
+	font-weight: bold;
+	background: #333;
+	box-shadow: inset 0px 15px 10px -10px rgba(255,255,255,0.3);
+}
+
+.main-navigation li {
+	border-right: 1px solid rgba(255, 255, 255, 0.15);
+	line-height: 14px;
+	margin-right: -1px;
+}
+
+.main-navigation ul ul li,
+.main-navigation ul ul li a {
+	border: none;
+	margin: 0;
+}
+
+.main-navigation a {
+	color: #fff;
+	font-size: 13px;
+	opacity: 0.6;
+	padding: 10px 12px;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+	border-right: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.main-navigation .nav-menu > .current-menu-item > a,
+.main-navigation .nav-menu > .current-menu-parent > a,
+.main-navigation .nav-menu > .current-menu-ancestor > a,
+.main-navigation .nav-menu > .current_page_item > a,
+.main-navigation .nav-menu > .current_page_parent > a,
+.main-navigation .nav-menu > .current_page_ancestor > a {
+	opacity: 1;
+}
+
+.main-navigation li:hover a {
+	background: #d4000f;
+	color: #fff;
+	opacity: 1;
+	text-shadow: none;
+}
+
+.main-navigation ul ul {
+	background: #d4000f;
+	padding-bottom: 10px;
+}
+
+.main-navigation ul ul li {
+	border: none;
+	line-height: 1.5;
+}
+
+.main-navigation ul ul a {
+	padding: 10px 12px 2px;
+}
+
+.main-navigation ul ul a:hover {
+	text-decoration: underline;
+}
+
+.main-navigation .menu-toggle {
+	color: #fff;
+	background: transparent;
+	font-weight: bold;
+}
+
+.main-navigation.toggled .menu-toggle {
+	background: #d4000f;
+}
+
+.main-navigation .search-form label {
+	border-right: 1px solid rgba(0, 0, 0, 0.5);
+	display: inline-block;
+	height: 34px;
+	padding: 7px 12px;
+	margin-bottom: -10px;
+}
+
+.main-navigation .search-form .search-field {
+	height: 20px;
+	font-size: 11px;
+}
+
+.main-navigation .search-form .search-submit {
+	background: transparent;
+	font-size: 13px;
+	line-height: 14px;
+	padding: 10px 12px;
+	color: #fff;
+	opacity: 0.6;
+	text-shadow: 1px 1px 0 rgba(0, 0, 0, 0.5);
+	border-left: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.main-navigation .search-form .search-submit:hover {
+	opacity: 1;
+}
+
+.site-content {
+	background: #fff;
+}
+
+.hentry {
+	margin: 0;
+	display: block;
+	clear: both;
+	border-bottom: 1px solid #ccc;
+	margin-bottom: 28px;
+}
+
+.single .hentry {
+	border-bottom: none;
+}
+
+.hentry:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.page .hentry {
+	border-bottom: none;
+}
+
+.page-template-template-homepage .hentry {
+	margin-bottom: 0;
+}
+
+.entry-thumbnail {
+	margin: -28px -28px 28px;
+}
+
+.article-thumbnail {
+	padding: 8px;
+	border: 1px solid #ccc;
+	background: #f5f5f5;
+	margin: 0 auto 28px;
+}
+
+.article-thumbnail img {
+	display: block;
+}
+
+.entry-header {
+	margin: -28px -28px 28px;
+	padding: 12px 28px;
+	line-height: 32px;
+	border-top: 1px solid #ccc;
+	border-bottom: 1px solid #ccc;
+	background: #f5f5f5;
+	box-shadow: inset 0px -70px 70px -70px rgba(0,0,0,0.1);
+	overflow: auto;
+}
+
+.hentry:first-child .entry-header {
+	border-top: none;
+}
+
+.entry-header a,
+.entry-header a:hover {
+	color: inherit;
+}
+
+.posted-on,
+.taxonomy-description {
+	font-weight: bold;
+	font-size: 11px;
+	color: #333;
+}
+
+.posted-on a {
+	color: inherit;
+}
+
+.entry-header .posted-on,
+.entry-header .taxonomy-description {
+	float: right;
+}
+
+.entry-header .taxonomy-description p {
+	margin-bottom: 0;
+}
+
+.entry-title {
+	font-size: 26px;
+	margin: 0;
+}
+
+.entry-header .entry-title {
+	clear: none;
+	display: block;
+	float: left;
+}
+
+.entry-header .entry-details {
+	display: inline;
+}
+
+.entry-header .entry-thumbnail {
+	margin: -12px -28px 12px;
+	background: #222;
+}
+
+.entry-header .entry-thumbnail img {
+	width: auto;
+	height: auto;
+	max-width: 100%;
+	margin: 0 auto;
+}
+
+.entry-header .entry-meta {
+	display: none;
+}
+
+.article-header .posted-on {
+	display: block;
+	margin-bottom: 16px;
+}
+
+.content-area {
+	padding: 28px;
+}
+
+.page-template-template-homepage .content-area {
+	padding: 8px;
+}
+
+.entry-footer {
+	padding: 0 28px 40px;
+}
+
+.entry-tag-links {
+	display: none;
+}
+
+/* Search Form */
+.search-form .search-field {
+	border: none;
+	box-shadow: inset 0 1px 3px rgba(0,0,0,0.25);
+	background-color: #f5f5f5;
+}
+
+/* Widgets */
+.widget-area {
+	padding: 8px;
+}
+
+.widget {
+	margin-bottom: 8px;
+	border: 1px solid #ccc;
+	padding: 8px;
+	background: #fff;
+}
+
+.not-found .widget {
+	border: none;
+	padding: 0;
+	background: transparent;
+	margin-top: 28px;
+}
+
+.widget-area .widget {
+	outline: 8px solid #f5f5f5;
+}
+
+.widget-title,
+.widgettitle {
+	background: #d4000f;
+	color: #fff;
+	font-size: 12px;
+	padding: 6px 8px;
+	margin: -7px -7px 8px;
+	font-weight: bold;
+	line-height: 1;
+	box-shadow: inset 0px -12px 24px -10px rgba(0,0,0,0.25);
+}
+
+.not-found .widget .widget-title,
+.not-found .widget .widgettitle {
+	background: transparent;
+	box-shadow: none;
+	color: #222;
+	margin-top: 28px;
+}
+
+.widget iframe {
+	display: block;
+}
+
+.widget .textwidget {
+	padding: 8px;
+}
+
+.widget .gallery {
+	margin: 0;
+}
+
+.widget_search .search-form {
+	margin: 0;
+}
+
+.widget_recent_entries ul,
+.widget_pages ul,
+.widget_categories ul,
+.widget_archive ul,
+.widget_recent_comments ul,
+.widget_nav_menu ul,
+.widget_links ul,
+.widget_meta ul,
+.widget_recent_entries li:last-child,
+.widget_pages li:last-child,
+.widget_categories li:last-child,
+.widget_archive li:last-child,
+.widget_recent_comments li:last-child,
+.widget_nav_menu li:last-child,
+.widget_links li:last-child,
+.widget_meta li:last-child {
+	margin-bottom: 0;
+}
+
+/* Footer */
+.site-footer {
+	background: #333;
+	padding: 0;
+}
+
+.site-footer .footer-logo {
+	padding: 28px;
+}
+
+.site-info {
+	width: 1000px;
+	max-width: 93.75%;
+	margin: 0 auto;
+	padding: 5px 0 100px;
+	font-size: 13px;
+	font-weight: bold;
+}
+
+.site-info a {
+	color: inherit;
+}
+
+.site-footer {
+	color: #fff;
+	color: rgba(255, 255, 255, 0.5);
+}
+
+.site-footer a {
+	color: inherit;
+}
+
+.site-footer a:hover {
+	color: #fff;
+}
+
+.site-footer .footer-widget-region {
+	padding: 28px 28px 0;
+}
+
+.footer-widgets .widget {
+	padding: 0;
+	border: none;
+	background: transparent;
+	margin-bottom: 28px;
+}
+
+.footer-widgets .widget-title,
+.footer-widgets .sp-table-caption {
+	padding: 0;
+	margin: 0 0 10px;
+	background: transparent;
+	box-shadow: none;
+	font-size: 16px;
+	opacity: 0.8;
+}
+
+.footer-widgets .textwidget {
+	padding: 0;
+}
+
+.footer-widgets .sp-view-all-link {
+	color: #fff;
+	text-shadow: none;
+	box-shadow: none;
+	float: right;
+}
+
+/* Galleries */
+.gallery-item {
+	display: block;
+	float: left;
+	width: 100px;
+	position: relative;
+}
+
+.gallery-item img {
+	width: 100px;
+	max-width: 100%;
+}
+
+/* SportsPress */
+
+aside[class^="widget_sp_"],
+aside[class*=" widget_sp_"] {
+	padding: 1px;
+}
+
+aside[class^="widget_sp_"] .widget-title,
+aside[class*=" widget_sp_"] .widget-title {
+	margin: 0 0 1px;
+}
+
+.sp-data-table a {
+	color: inherit;
+}
+
+.sp-data-table .data-number,
+.sp-data-table .data-rank {
+	text-align: right;
+}
+
+.sp-template {
+	margin-bottom: 8px;
+	border: 1px solid #ccc;
+	padding: 1px;
+	background: #fff;
+	clear: both;
+}
+
+.sp-template:after {
+	content: "";
+	display: table;
+	clear: both;
+}
+
+.widget .sp-template {
+	margin: 0;
+	padding: 0;
+	border: none;
+	background: #f5f5f5;
+}
+
+.widget .gallery .sp-template {
+	background: transparent;
+}
+
+.sp-template-event-logos,
+.sp-template-event-staff,
+.sp-template-team-logo,
+.sp-template-details,
+.sp-template-tournament-winner,
+.sp-template-tournament-bracket {
+	margin: 0 0 16px;
+	padding: 0;
+	border: none;
+	background: transparent;
+	clear: none;
+}
+
+.sp-template-event-logos .sp-event-logos .sp-team-logo .sp-team-result {
+	background: #d4000f;
+	color: #fff;
+	border: 1px solid #fff;
+	outline: 1px solid #ccc;
+	margin: 0.5em 0;
+}
+
+.single-sp_team .has-post-thumbnail .entry-header .entry-title {
+	float: none;
+}
+
+.sp-template-photo {
+	padding: 10px;
+}
+
+.single-sp_player .entry-header .entry-title strong {
+	color: #fff;
+	background: #d4000f;
+	display: block;
+	float: left;
+	margin: -12px 12px -12px -28px;
+	padding: 12px 20px;
+}
+
+.sp-template-gallery .gallery-item {
+	padding: 5px;
+}
+
+.sp-template-gallery .gallery-caption {
+	position: static;
+}
+
+.sp-template-gallery .gallery-item .gallery-caption{
+	position: relative;
+}
+
+.sp-template-gallery .gallery-item strong {
+	font-weight: bold;
+	position: absolute;
+	top: -24px;
+	left: 0;
+	background: #d4000f;
+	color: #fff;
+	font-size: 13px;
+	height: 24px;
+	line-height: 24px;
+	padding: 0 8px;
+	width: auto;
+	margin-top: -1px;
+	margin-left: -1px;
+}
+
+.sp-template-gallery .gallery-caption,
+.sp-template-gallery .gallery-caption.has-number {
+	padding: 4px;
+	clear: both;
+	background: #f5f5f5;
+	border: 1px solid #ccc;
+	font-size: 12px;
+	font-weight: bold;
+	text-align: left;
+	line-height: 16px;
+	color: #666;
+	white-space: normal;
+	overflow: visible;
+	text-overflow: clip;
+}
+
+.sp-template-gallery .gallery-item:hover .gallery-caption {
+	color: #222;
+}
+
+.sp-table-caption,
+.sp-template .player-group-name {
+	background: #d4000f;
+	color: #fff;
+	font-size: 12px;
+	padding: 6px 8px;
+	margin: 0 0 1px;
+	font-weight: bold;
+	line-height: 1;
+	box-shadow: inset 0px -12px 24px -10px rgba(0,0,0,0.25);
+}
+
+.sp-highlight {
+	background: #fff;
+	font-weight: bold;
+}
+
+.sp-heading {
+	background: #d4000f;
+	color: #fff;
+	font-weight: bold;
+}
+
+.widget_sportspress .widget-title,
+.widget_sportspress .widgettitle {
+	background: #333;
+}
+
+.widget_calendar tbody tr td,
+.sp-calendar tbody tr td {
+	border-bottom: 1px solid #fff;
+	border-right: 1px solid #fff;
+}
+
+.widget_calendar tbody tr td:last-child,
+.sp-calendar tbody tr td:last-child {
+	border-right: none;
+}
+
+.sp-view-all-link {
+	margin: 0;
+}
+
+.sp-gallery-link {
+	clear: both;
+}
+
+.sp-view-all-link a,
+.widget_calendar tfoot td {
+	margin: 0;
+	padding: 6px 8px;
+	line-height: 1;
+	font-weight: bold;
+	color: inherit;
+	color: #888;
+	background: #fff;
+	border-top: 1px solid #fff;
+	font-size: 12px;
+	text-shadow: 1px 1px 0 #fff;
+	box-shadow: inset 0px -12px 24px -10px rgba(0,0,0,0.15);
+}
+
+.sp-view-all-link a {
+	display: block;
+}
+
+.sp-view-all-link a:hover {
+	color: #222;
+}
+
+.sp-list-wrapper dl {
+	background: #f5f5f5;
+	padding: 12px 16px 0;
+}
+
+.widget_calendar tfoot td a {
+	color: inherit;
+}
+
+.widget_calendar tfoot td a:hover {
+	color: #d4000f;
+}
+
+.sp-template-event-performance-icons {
+	width: 49.576%;
+	clear: none;
+	margin-bottom: 28px;
+}
+
+.sp-template-event-performance-icons:nth-child(2n) {
+	padding-left: 0;
+}
+
+.sp-event-blocks .team-logo {
+	margin-top: 0;
+	margin-bottom: 0;
+	max-width: 50px;
+}
+
+.sp-event-blocks .logo-odd {
+	margin-left: 0;
+}
+
+.sp-event-blocks .logo-even {
+	margin-right: 0;
+}
+
+.sp-event-blocks .sp-event-date {
+	line-height: 20px;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.sp-event-blocks .sp-event-time,
+.sp-event-blocks .sp-event-results {
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 0;
+	margin-bottom: 4px;
+}
+
+.sp-event-blocks .sp-event-title {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 16px;
+}
+
+.widget .sp-event-blocks .sp-event-title {
+	margin: 0;
+}
+
+.widget .sp-event-blocks .sp-event-title a {
+	color: #d4000f;
+}
+
+.sp-template-countdown,
+.widget .sp-template-countdown {
+	padding: 8px;
+}
+
+.sp-template-countdown .event-name {
+	font-size: 14px;
+	font-weight: bold;
+	text-transform: uppercase;
+	line-height: 16px;
+	text-align: center;
+	margin-bottom: 4px;
+}
+
+.sp-template-countdown h5 {
+	padding: 0;
+	text-align: center;
+}
+
+.sp-template-countdown time span {
+	padding: 0;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.sp-template-countdown time span small {
+	font-weight: normal;
+}
+
+.sp-template-details dl {
+	overflow: hidden;
+	margin: 0;
+}
+
+.sp-footer-sponsors .sp-sponsors {
+	border-top: 1px solid #ccc;
+}
+
+.sp-league-table .sp-highlight {
+	color: #d4000f;
+	background: #f5f5f5;
+}
+
+.sp-league-menu {
+	box-shadow: 0 0 12px rgba(0,0,0,0.2);
+}
+
+.sp-data-table tbody tr.odd td,
+.sp-data-table tbody tr.alternate td,
+.sp-calendar tbody td#today {
+	background: #f0f0f0;
+}
+
+.sp-template-event-statistics {
+	border: none;
+	padding: 0;
+}
+
+.sp-template-event-statistics td {
+	background: transparent;
+}
+
+.sp-statistic-ratio,
+tbody tr:last-child .sp-statistic-ratio {
+	padding: 1px;
+	border: 1px solid #ccc;
+	display: block;
+	width: 100%;
+}
+
+.sp-statistic-value {
+	padding: 1px 8px;
+}
+
+.sp-statistic-value:first-child {
+	text-align: right;
+}
+
+.sp-statistic-bar {
+	background: #333;
+	box-shadow: inset 0px 15px 10px -10px rgba(255,255,255,0.3);
+}
+
+.sp-statistic-bar-fill {
+	background: #d4000f;
+	box-shadow: inset 0px -12px 24px -10px rgba(0,0,0,0.25);
+}
+
+.sp-event-performance-teams .sp-template-event-performance-icons,
+.sp-event-performance-teams .sp-template-event-performance-icons:nth-child(2n) {
+	padding: 1px;
+	width: 49.5%;
+}
+
+/* MegaSlider */
+
+.megaslider {
+	margin: 0;
+}
+
+.megaslider__row--active {
+	box-shadow: inset 0px -70px 70px -70px rgba(0,0,0,0.4);
+}
+
+.megaslider__row--active,
+.megaslider__row--active:hover {
+	background: #d4000f;
+}
+
+@media screen and (max-width: 600px) {
+	.main-navigation .search-form label {
+		width: 75%;
+	}
+
+	.main-navigation .search-form .search-field {
+		width: 100%;
+	}
+
+	.main-navigation .search-form .search-submit {
+		background: #d4000f;
+		opacity: 1;
+	}
+}
+
+
+@media screen and (max-width: 1199px) {
+	/* WP Social Sidebar */
+
+	.wp-social-sidebar {
+		position: absolute;
+		top: 100%;
+		width: 100%;
+	}
+}
+
+@media screen and (min-width: 1025px) {
+	.site-branding {
+		margin-top: 0;
+		padding: 30px 20px;
+	}
+}
+
+@media screen and (min-width: 801px) {
+	.sp-has-venue.sp-has-results .sp-template-event-details,
+	.sp-has-venue.sp-has-results .sp-template-event-results {
+		width: 69.5%;
+		padding: 1px;
+		clear: none;
+	}
+
+	.sp-has-venue.sp-has-results .sp-template-event-venue {
+		width: 29.5%;
+		padding: 1px;
+		clear: none;
+	}
+
+	.sp-event-performance-teams .sp-template-event-performance-icons,
+	.sp-event-performance-teams .sp-template-event-performance-icons:nth-child(2n) {
+		padding: 1px;
+	}
+
+	.site-footer .footer-widget-region {
+		padding-left: 0;
+	}
+
+	.site-footer .footer-widget-region:first-child {
+		padding-left: 28px;
+	}
+
+	.sp-inline-statistics .sp-event-performance-teams .sp-template-event-performance {
+		width: 29.5%;
+	}
+}
+
+@media screen and (min-width: 783px) {
+	.sp-widget-align-left {
+		padding-right: 4px;
+	}
+
+	.sp-widget-align-right {
+		padding-left: 4px;
+	}
+}
+
+@media screen and (min-width: 601px) {
+	.site-logo {
+		margin: -1em 0;
+	}
+
+	.site-logo img {
+		display: block;
+		margin-top: -34px;
+		max-height: 150px;
+	}
+
+	.site-branding hgroup {
+		padding-left: 20px;
+	}
+
+	.main-navigation ul {
+		margin: 0;
+	}
+
+	.content-area {
+		width: 65.3%;
+		border-right: 1px solid #ccc;
+	}
+
+	.page-template-template-homepage .content-area {
+		border: none;
+		padding: 8px 0 20px 8px;
+	}
+
+	.content-area-full-width {
+		width: 100%;
+	}
+
+	.article-thumbnail {
+		margin-right: 16px;
+	}
+
+	.widget-area {
+		border-left: 1px solid #ccc;
+		width: 34.8%;
+		padding: 16px 16px 8px;
+		margin-left: -1px;
+	}
+
+	.page-template-template-homepage .widget-area {
+		border: none;
+	}
+}

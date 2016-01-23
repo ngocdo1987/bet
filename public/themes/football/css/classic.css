@@ -1,0 +1,29 @@
+/* Classic style */
+
+.wp-social-sidebar a {
+	border-radius: 50%;
+	margin: 0 5px;
+}
+
+.wp-social-sidebar-icon {
+	color: #a9a9a9;
+	background: #fff;
+	padding: 5px;
+	border-radius: 50%;
+	box-shadow: 0 0 3px rgba(0,0,0,0.15);
+}
+
+.wp-social-sidebar-icon:hover {
+	color: #fff;
+	box-shadow: none;
+}
+
+@media screen and (min-width: 1200px) {
+	.wp-social-sidebar {
+		left: 30px;
+	}
+
+	.wp-social-sidebar a {
+		margin: 0 0 10px;
+	}
+}
