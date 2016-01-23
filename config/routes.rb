@@ -29,6 +29,12 @@ Rails.application.routes.draw do
   get '/slim', to: 'index#slim'
   get '/admin', to: 'pages#home'
   
+  get '/football', to: 'football#index'
+  get '/football/fixtures-and-results', to: 'football#fixtures_and_results'
+  get '/football/standings', to: 'football#standings'
+  get '/football/players_and_staff', to: 'football#players_and_staff'
+  get '/football/blog', to: 'football#blog'
+  
   resources :recipes
   resources :chefs
   
