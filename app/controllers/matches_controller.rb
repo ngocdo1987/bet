@@ -4,7 +4,7 @@ class MatchesController < ApplicationController
     def index
         @matches = Ar.search(Match, params)
         @leagues = League.all
-        @mt = "List matches"
+        @mt = 'List matches'
     end
    
     def show
@@ -18,13 +18,13 @@ class MatchesController < ApplicationController
         @odd_spread = OddSpread.new
         @odd_money_line = OddMoneyLine.new
         @odd_total_point = OddTotalPoint.new
-        @mt = "Create match"
+        @mt = 'Create match'
     end
    
     def create
         @match = Match.new(match_params)
         @leagues = League.all
-        @mt = "Create match"
+        @mt = 'Create match'
         
         if @match.save
             @odd_spread = OddSpread.new(odd_spread_params[:odd_spreads])
@@ -39,7 +39,7 @@ class MatchesController < ApplicationController
             @odd_total_point.match = @match
             @odd_total_point.save
                 
-            flash[:success] = "Your match was created successfully!"
+            flash[:success] = 'Your match was created successfully!'
             redirect_to matches_path
         else
             render :new
@@ -76,7 +76,7 @@ class MatchesController < ApplicationController
             @odd_total_point.match = @match
             @odd_total_point.save
             
-            flash[:success] = "Your match was updated successfully!"
+            flash[:success] = 'Your match was updated successfully!'
             redirect_to match_path(@match)
         else
             render :edit        

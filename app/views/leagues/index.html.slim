@@ -3,13 +3,13 @@ h1 List leagues
 h5
     = link_to "Add league", new_league_path, class: "btn btn-warning btn-small"
 
-= render 'filter'
+= render "filter"
 
 center
     = will_paginate
 
-div.row
-    div.col-md-12
+.row
+    .col-md-12
         table.table
             tr
                 th League name

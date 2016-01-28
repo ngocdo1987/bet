@@ -1,14 +1,14 @@
-div class="row filter-row"
-    div class="col-md-12"
+.row.filter-row
+    .col-md-12
         = form_tag("/leagues", method: "get") do
-            div.col-md-3
+            .col-md-3
                 = select_tag :league_type, options_for_select([['League type', ''], ['Football', 'Football'], ['Basketball', 'Basketball']]), class: "form-control"    
             
-            div.col-md-3
+            .col-md-3
                 = select_tag :active, options_for_select([['Active', ''], ['True', 1], ['False', 0]]), class: "form-control"    
             
-            div.col-md-3
+            .col-md-3
                 = text_field_tag :league_name, "", placeholder: "Search ...", class: "form-control"
             
-            div.col-md-3
+            .col-md-3
                 = submit_tag "Search", class: "btn btn-success"

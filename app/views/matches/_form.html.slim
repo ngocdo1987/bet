@@ -1,8 +1,8 @@
 = render 'shared/errors', obj: @match
 
-div class="row crud-form"
+.row.crud-form
     = form_for @match do |f|
-        div class="well col-md-3"
+        .well.col-md-3
         
             = f.label :league_id
             = f.collection_select(:league_id, @leagues, :id, :league_name)
@@ -39,7 +39,7 @@ div class="row crud-form"
             
             = f.submit(@match.new_record? ? 'Create match' : 'Edit match', class: "btn btn-success")
         
-        div.col-md-3
+        .col-md-3
             center
                 b Spread
             
@@ -77,7 +77,7 @@ div class="row crud-form"
                 - if @match.new_record? == false
                     = link_to 'Add spread', 'javascript:void(0)', class: "btn btn-success"
         
-        div.col-md-3
+        .col-md-3
             center
                 b Money Line
             
@@ -103,7 +103,7 @@ div class="row crud-form"
                 - if @match.new_record? == false
                     = link_to 'Add money line', 'javascript:void(0)', class: "btn btn-success"
 
-        div.col-md-3
+        .col-md-3
             center
                 b Total Point
                    

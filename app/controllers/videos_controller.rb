@@ -8,7 +8,7 @@ class VideosController < ApplicationController
     
     def show
         @video = Video.find(params[:id])        
-        @mt = 'Show ' + @video.name    
+        @mt = "Show #{@video.name}"    
     end
     
     def new
@@ -20,7 +20,7 @@ class VideosController < ApplicationController
         @video = Video.new(video_params)
         @mt = 'Create video'
         if @video.save
-            flash[:success] = "Your video was created successfully!" 
+            flash[:success] = 'Your video was created successfully!'
             redirect_to videos_path
         else
             render :new        
@@ -29,14 +29,14 @@ class VideosController < ApplicationController
     
     def edit
         @video = Video.find(params[:id])
-        @mt = 'Edit ' + @video.name
+        @mt = "Edit #{@video.name}"
     end
     
     def update
         @video = Video.find(params[:id])
-        @mt = 'Edit ' + @video.name
+        @mt = "Edit #{@video.name}"
         if @video.update(video_params)
-            flash[:success] = "Your video was updated successfully!"
+            flash[:success] = 'Your video was updated successfully!'
             redirect_to video_path(@video)
         else
             render :edit        

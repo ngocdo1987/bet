@@ -4,25 +4,25 @@ h3
         |  Check domain availablity
     
 = form_tag("/domain_check", method: "post") do 
-    div.row.contact-form
-        div.col-md-8.col-xs-8.col-sm-8.col-lg-8
+    .row.contact-form
+        .col-md-8.col-xs-8.col-sm-8.col-lg-8
             = text_field_tag :domain, "", placeholder: "Domain"
             
-        div.col-md-4.col-xs-4.col-sm-4.col-lg-4
+        .col-md-4.col-xs-4.col-sm-4.col-lg-4
             = submit_tag "Check Available", class: "btn btn-color hover-animate"
             
-div.row
-    div.col-md-12
+.row
+    .col-md-12
         - if @result.blank? == false
-            div.col-md-4
+            .col-md-4
                 h3 Popular TLDs
                 - @result.each do |r|
                     - r = JSON.parse(r)
                     - if r['isRegistered'].nil? == false
-                        div.row
-                            div.col-md-6.bottom-20
+                        .row
+                            .col-md-6.bottom-20
                                 = "#{r['label']}.#{r['tld']}"
-                            div.col-md-6.bottom-20   
+                            .col-md-6.bottom-20   
                                 
                                 - if r['isRegistered'] == true
                                     font color="red"
@@ -30,25 +30,25 @@ div.row
                                 - if r['isRegistered'] == false
                                     font color="green"
                                         | AVAILABLE
-            div.col-md-4
+            .col-md-4
                 h3 Suggestions
                 - @result.each do |r|
                     - r = JSON.parse(r)
                     - if r['synonyms'].nil? == false
-                        div.row
-                            div.col-md-6.bottom-20
+                        .row
+                            .col-md-6.bottom-20
                                 = "#{r['synonyms'].join(" ")}.#{r['tld']}"
-                            div.col-md-6.bottom-20
+                            .col-md-6.bottom-20
                                 
-            div.col-md-4
+            .col-md-4
                 h3 For sale
                 - @result.each do |r|
                     - r = JSON.parse(r)
                     - if r['isRegistered'].nil? == true && r['synonyms'].nil? == true
-                        div.row
-                            div.col-md-6.bottom-20
+                        .row
+                            .col-md-6.bottom-20
                                 = "#{r['label']}.#{r['tld']}".html_safe
-                            div.col-md-6.bottom-20
+                            .col-md-6.bottom-20
                                 font color="blue"
                                     - if r['price'] == 0
                                         | AUCTION

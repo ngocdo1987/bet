@@ -1,7 +1,7 @@
 = render 'shared/errors', obj: @team
 
-div.row
-    div class="well col-md-8 col-md-offset-2 crud-form"
+.row
+    .well.col-md-8.col-md-offset-2.crud-form
         = form_for(@team, html: {multipart: true}) do |f|
             = f.label :league_id
             = f.collection_select(:league_id, @leagues, :id, :league_name)

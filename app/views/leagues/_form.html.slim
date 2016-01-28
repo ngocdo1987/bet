@@ -1,7 +1,7 @@
 = render 'shared/errors', obj: @league
 
-div.row
-    div class="well col-md-8 col-md-offset-2 crud-form"
+.row
+    .well.col-md-8.col-md-offset-2.crud-form
         = form_for(@league, html: {multipart: true}) do |f|
             = f.label :league_name
             = f.text_field :league_name

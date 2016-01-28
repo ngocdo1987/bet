@@ -3,7 +3,7 @@ class LeaguesController < ApplicationController
     
     def index
         @leagues = Ar.search(League, params)
-        @mt = "List leagues"
+        @mt = 'List leagues'
     end
     
     def show
@@ -13,14 +13,14 @@ class LeaguesController < ApplicationController
     
     def new
         @league = League.new
-        @mt = "Create league"
+        @mt = 'Create league'
     end
 
     def create
         @league = League.new(league_params)
-        @mt = "Create league"
+        @mt = 'Create league'
         if @league.save
-            flash[:success] = "Your league was created successfully!"
+            flash[:success] = 'Your league was created successfully!'
             redirect_to leagues_path
         else
             render :new        
@@ -36,7 +36,7 @@ class LeaguesController < ApplicationController
         @league = League.find(params[:id])
         @mt = "Edit #{@league.league_name}"
         if @league.update(league_params)
-            flash[:success] = "Your league was updated successfully!"
+            flash[:success] = 'Your league was updated successfully!'
             redirect_to league_path(@league)
         else
             render :edit     

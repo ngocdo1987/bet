@@ -4,7 +4,7 @@ class TeamsController < ApplicationController
     def index
         @teams = Ar.search(Team, params)
         @leagues = League.all
-        @mt = "List teams"
+        @mt = 'List teams'
     end
     
     def show
@@ -15,16 +15,16 @@ class TeamsController < ApplicationController
     def new
         @team = Team.new
         @leagues = League.all
-        @mt = "Create team"
+        @mt = 'Create team'
     end
     
     def create
         @team = Team.new(team_params)
         @leagues = League.all
-        @mt = "Create team"
+        @mt = 'Create team'
         
         if @team.save
-            flash[:success] = "Your team was created successfully!"
+            flash[:success] = 'Your team was created successfully!'
             redirect_to teams_path
         else
             render :new    
@@ -43,7 +43,7 @@ class TeamsController < ApplicationController
         @mt = "Edit #{@team.name}"
         
         if @team.update(team_params)
-            flash[:success] = "Your team was updated successfully!"    
+            flash[:success] = 'Your team was updated successfully!' 
         else
             render :edit        
         end

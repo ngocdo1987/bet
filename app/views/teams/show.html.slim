@@ -2,8 +2,8 @@ p
     h1
         = @team.name
         
-div.row
-    div.col-md-12
+.row
+    .col-md-12
         p League: #{@team.league.league_name}
         p
             = image_tag(@team.image.url, size: "150x150", class: "gravatar") if @team.image?

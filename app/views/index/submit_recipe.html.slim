@@ -1,4 +1,4 @@
-= render "layouts/themes/recipe/banner"
+= render 'layouts/themes/recipe/banner'
 
 .recipes-home-body.inner-page
   .container
@@ -12,14 +12,14 @@
           .submit-recipe-form
             form action="#" method="post" 
               label for="title"  Recipe Title
-              input#title name="title" type="text" /
-              br/
+              input#title name="title" type="text"
+              br
               label for="short-description"  Short Description
               textarea#short-description.short-text cols="30" name="short-des" rows="10" 
               label for="recipe-content"  Recipe Contents
               textarea#recipe-content cols="30" name="content" rows="10" 
               label for="upload-image"  Upload Images
-              input#upload-image name="fileUpload" type="file" /
+              input#upload-image name="fileUpload" type="file"
               fieldset.ingredient-set
                 label for="ingredients"  Ingredients
                 ul.list-sortable.ingredients-list
@@ -27,7 +27,7 @@
                     .add-fields
                       span.handler-list
                         i.fa.fa-arrows
-                      input#ingredients name="ingredients[]" type="text" /
+                      input#ingredients name="ingredients[]" type="text"
                       span.del-list
                         i.fa.fa-trash
                 span.add-button.add-ing
@@ -45,36 +45,36 @@
                 span.add-button.add-steps
                   i.fa.fa-plus
               label.video-based-recipe Video Based Recipe
-              br/
+              br
               label for="radio-yes" 
-                input#radio-yes.radio-btn checked="" name="video-recipe" type="radio" value="yes" /
+                input#radio-yes.radio-btn checked="" name="video-recipe" type="radio" value="yes"
                 span.radio-text yes
               label for="radio-no" 
-                input#radio-no.radio-btn name="video-recipe" type="radio" value="no" /
+                input#radio-no.radio-btn name="video-recipe" type="radio" value="no"
                 span.radio-text no
-              br/
-              br/
+              br
+              br
               label for="video-embed"  Video Embed Code
               textarea#video-embed.short-text cols="30" name="embed-code" rows="10" 
               .row
                 .col-sm-6
                   label for="yield"  Yield
-                  input#yield name="yield" type="text" /
+                  input#yield name="yield" type="text"
                 .col-sm-6
                   label for="servings"  Servings
-                  input#servings name="servings" type="text" /
+                  input#servings name="servings" type="text"
               .row
                 .col-sm-4
                   label for="prep-time"  Preparation Time
-                  input#prep-time name="prep-time" type="text" /
+                  input#prep-time name="prep-time" type="text"
                 .col-sm-4
                   label for="cook-time"  Cook Time
-                  input#cook-time name="cook-time" type="text" /
+                  input#cook-time name="cook-time" type="text"
                 .col-sm-4
                   label for="ready-in"  Ready In
-                  input#ready-in name="ready-in" type="text" /
+                  input#ready-in name="ready-in" type="text"
               label for="tags"  Tags
-              input#tags name="tags" type="text" /
+              input#tags name="tags" type="text"
               .row
                 .col-sm-6
                   label for="recipe-type"  Recipe Type
@@ -114,8 +114,8 @@
       .col-md-4.col-lg-3
         aside
           .side-bar
-            = render "layouts/themes/recipe/widget_search"
+            = render 'layouts/themes/recipe/widget_search'
             
-            = render "layouts/themes/recipe/widget_latest_news"
+            = render 'layouts/themes/recipe/widget_latest_news'
       
-            = render "layouts/themes/recipe/widget_social"
+            = render 'layouts/themes/recipe/widget_social'

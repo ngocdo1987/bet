@@ -1,8 +1,11 @@
 = render 'shared/errors', obj: @recipe
 
-div.row
-    div class="well col-md-8 col-md-offset-2 crud-form"
+.row
+    .well.col-md-8.col-md-offset-2.crud-form
         = form_for @recipe do |f|
+            = f.label :chef_id
+            = f.collection_select(:chef_id, @chefs, :id, :chefname)
+            
             = f.label :name
             = f.text_field :name
             

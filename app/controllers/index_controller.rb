@@ -1,14 +1,13 @@
 class IndexController < ApplicationController
     layout :custom_layout
+    before_filter :custom_header, :only => [:index, :recipes, :recipe, :chefs, :chef, :blog, :contact, :submit_recipe]
     
     def index
-        @header = "header"
-        @mt = "Food & Taste - Quality recipes"
+        @mt = 'Food & Taste - Quality recipes'
     end
     
     def recipes
-        @header = "header1"
-        @mt = "List recipes"
+        @mt = 'List recipes'
     end
     
     def recipe
@@ -17,9 +16,8 @@ class IndexController < ApplicationController
     end
     
     def chefs
-        @header = "header1"
         @chefs = Chef.all
-        @mt = "Our chefs"
+        @mt = 'Our chefs'
     end
     
     def chef
@@ -28,18 +26,15 @@ class IndexController < ApplicationController
     end    
     
     def blog
-        @header = "header1"
-        @mt = "Blog"     
+        @mt = 'Blog'   
     end
     
-    def contact
-        @header = "header1"    
-        @mt = "Contact"     
+    def contact   
+        @mt = 'Contact'    
     end
     
     def submit_recipe
-        @header = "header1"
-        @mt = "Submit recipe"     
+        @mt = 'Submit recipe'     
     end
     
     def whois
@@ -93,7 +88,7 @@ class IndexController < ApplicationController
                     
                 @result = "Message sent successfully with sid #{message.sid}!"  
             else
-                @result = "Please enter phone number and message!"
+                @result = 'Please enter phone number and message!'
             end
         end
     end
@@ -112,5 +107,16 @@ class IndexController < ApplicationController
             else
                 'application'
             end
-        end    
+        end
+        
+        def custom_header
+            case action_name
+            when 'index'
+                @header = 'header'
+            when 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'submit_recipe'
+                @header = 'header1'
+            else
+                @header = ''
+            end
+        end
 end

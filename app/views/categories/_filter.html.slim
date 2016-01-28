@@ -1,10 +1,10 @@
-div class="row filter-row"
-    div class="col-md-12"
+.row.filter-row
+    .col-md-12
         = form_tag("/categories", method: "get") do
-            div.col-md-3
+            .col-md-3
                 = text_field_tag :name, "", placeholder: "Name", class: "form-control"
-            div.col-md-3
+            .col-md-3
                 = text_field_tag :slug, "", placeholder: "Slug", class: "form-control"    
             
-            div.col-md-3
+            .col-md-3
                 = submit_tag "Search", class: "btn btn-success"

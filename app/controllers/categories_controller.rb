@@ -3,7 +3,7 @@ class CategoriesController < ApplicationController
     
     def index
         @categories = Ar.ancestry_ar(Category, params)
-        @mt = "List categories"
+        @mt = 'List categories'
     end
     
     def show
@@ -14,16 +14,16 @@ class CategoriesController < ApplicationController
     def new
         @category = Category.new
         @ancestry_categories = Ar.ancestry(Category)
-        @mt = "Create category"
+        @mt = 'Create category'
     end
     
     def create
         @category = Category.new(category_params)
         @ancestry_categories = Ar.ancestry(Category)
-        @mt = "Create category"
+        @mt = 'Create category'
         
         if @category.save
-            flash[:success] = "Your category was created successfully!"
+            flash[:success] = 'Your category was created successfully!'
             redirect_to categories_path
         else
             render :new    
@@ -42,7 +42,7 @@ class CategoriesController < ApplicationController
         @mt = "Edit #{@category.name}"
         
         if @category.update(category_params)
-            flash[:success] = "Your category was updated successfully!"
+            flash[:success] = 'Your category was updated successfully!'
             redirect_to category_path(@category)
         else
             render :edit     

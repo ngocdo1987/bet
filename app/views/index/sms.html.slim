@@ -4,18 +4,18 @@ h3
         |  Send SMS via Twilio API
     
 = form_tag("/sms", method: "post") do 
-    div.row.contact-form
-        div.col-md-8.col-xs-8.col-sm-8.col-lg-8
+    .row.contact-form
+        .col-md-8.col-xs-8.col-sm-8.col-lg-8
             = text_field_tag :phone_number, "", placeholder: "Phone number"
             
-        div.col-md-4.col-xs-4.col-sm-4.col-lg-4
+        .col-md-4.col-xs-4.col-sm-4.col-lg-4
             = submit_tag "Send SMS", class: "btn btn-color hover-animate"
             
-        div.col-md-12.col-xs-12.col-sm-12.col-lg-12 
+        .col-md-12.col-xs-12.col-sm-12.col-lg-12 
             = text_area_tag :message, "", rows: 5, placeholder: "Message"
             
-div.row
-    div.col-md-12.col-xs-12.col-sm-12.col-lg-12
+.row
+    .col-md-12.col-xs-12.col-sm-12.col-lg-12
         - if @result.blank? == false
             font color="red"
                 = @result
