@@ -1,10 +1,10 @@
 .row.filter-row
-    .col-md-12
-        = form_tag("/categories", method: "get") do
-            .col-md-3
-                = text_field_tag :name, "", placeholder: "Name", class: "form-control"
-            .col-md-3
-                = text_field_tag :slug, "", placeholder: "Slug", class: "form-control"    
-            
-            .col-md-3
-                = submit_tag "Search", class: "btn btn-success"
+  .col-md-12
+    = form_tag("/categories", method: "get") do
+      .col-md-3
+        = text_field_tag :name, "", placeholder: "Name", class: "form-control"
+      .col-md-3
+        = text_field_tag :slug, "", placeholder: "Slug", class: "form-control"    
+      
+      .col-md-3
+        = submit_tag "Search", class: "btn btn-success"

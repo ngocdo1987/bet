@@ -1,41 +1,41 @@
 h1 List teams
 
 h5
-    = link_to "Add team", new_team_path, class: "btn btn-warning btn-small"
+  = link_to "Add team", new_team_path, class: "btn btn-warning btn-small"
 
 = render 'filter'
 
 center
-    = will_paginate
+  = will_paginate
 
 .row
-    .col-md-12
-        table.table
-            tr
-                th Name
-                th Image
-                th League
-                th Total matches
-                th Total points
-                th
-            - @teams.each do |team|
-                tr
-                    td
-                        = link_to team.name, edit_team_path(team)
-                    td
-                        = image_tag(team.image.url, size: "80x80", class: "gravatar") if team.image?
-                    td
-                        = team.league.league_name
-                    td
-                        = team.total_matches
-                    td
-                        = team.total_points
-                    td
-                        = link_to "Show", team_path(team)
-                        = " | "
-                        = link_to "Edit", edit_team_path(team)
-                        = " | " 
-                        = link_to "Delete"
+  .col-md-12
+    table.table
+      tr
+        th Name
+        th Image
+        th League
+        th Total matches
+        th Total points
+        th
+      - @teams.each do |team|
+        tr
+          td
+            = link_to team.name, edit_team_path(team)
+          td
+            = image_tag(team.image.url, size: "80x80", class: "gravatar") if team.image?
+          td
+            = team.league.league_name
+          td
+            = team.total_matches
+          td
+            = team.total_points
+          td
+            = link_to "Show", team_path(team)
+            = " | "
+            = link_to "Edit", edit_team_path(team)
+            = " | " 
+            = link_to "Delete"
 
 center
-    = will_paginate
+  = will_paginate

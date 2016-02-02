@@ -1,13 +1,13 @@
 p
-    h1 #{@league.league_name}
+  h1 #{@league.league_name}
 
 .row
-    .col-md-12
-        p League name: #{@league.league_name}
-        p
-            = image_tag(@league.league_image.url, size: "150x150", class: "gravatar") if @league.league_image?
-        p League type: #{@league.league_type}
-        p Active: #{@league.active}
+  .col-md-12
+    p League name: #{@league.league_name}
+    p
+      = image_tag(@league.league_image.url, size: "150x150", class: "gravatar") if @league.league_image?
+    p League type: #{@league.league_type}
+    p Active: #{@league.active}
 
 h5
-    = link_to "Return to leagues listing", leagues_path, class: "btn btn-warning btn-small"
+  = link_to "Return to leagues listing", leagues_path, class: "btn btn-warning btn-small"

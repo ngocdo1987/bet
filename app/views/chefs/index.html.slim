@@ -1,33 +1,33 @@
 h1 List chefs
 
 h5
-    = link_to "Add chef", new_chef_path, class: "btn btn-warning btn-small"
+  = link_to "Add chef", new_chef_path, class: "btn btn-warning btn-small"
     
 = render 'filter'    
 
 center
-    = will_paginate
+  = will_paginate
 
 .row
-    .col-md-12
-        table.table
-            tr
-                th Chef name
-                th Email
-                th
-            - @chefs.each do |chef|    
-                tr
-                    td
-                        = chef.chefname
-                    td
-                        = chef.email
-                    td
-                        = link_to "Show", chef_path(chef)
-                        = " | "
-                        = link_to "Edit", edit_chef_path(chef) 
-                        = " | "
-                        = link_to "Delete"
+  .col-md-12
+    table.table
+      tr
+        th Chef name
+        th Email
+        th
+      - @chefs.each do |chef|    
+        tr
+          td
+            = chef.chefname
+          td
+            = chef.email
+          td
+            = link_to "Show", chef_path(chef)
+            = " | "
+            = link_to "Edit", edit_chef_path(chef) 
+            = " | "
+            = link_to "Delete"
                 
 
 center
-    = will_paginate
+  = will_paginate

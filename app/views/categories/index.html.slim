@@ -1,28 +1,28 @@
 h1 List categories
 
 h5
-    = link_to "Add category", new_category_path, class: "btn btn-warning btn-small"
+  = link_to "Add category", new_category_path, class: "btn btn-warning btn-small"
 
 = render 'filter'
 
 
 .row
-    .col-md-12
-        table.table
-            tr
-                th Name
-                th Slug
-                th
-            - @categories.each do |category|
-                tr
-                    td
-                        = link_to category[:name], edit_category_path(category)
-                    td
-                        = category[:slug]
-                    td
-                        = link_to "Show", category_path(category)
-                        = " | "
-                        = link_to "Edit", edit_category_path(category) 
-                        = " | "
-                        = link_to "Delete"
+  .col-md-12
+    table.table
+      tr
+        th Name
+        th Slug
+        th
+      - @categories.each do |category|
+        tr
+          td
+            = link_to category[:name], edit_category_path(category)
+          td
+            = category[:slug]
+          td
+            = link_to "Show", category_path(category)
+            = " | "
+            = link_to "Edit", edit_category_path(category) 
+            = " | "
+            = link_to "Delete"
 

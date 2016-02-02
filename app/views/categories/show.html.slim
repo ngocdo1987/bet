@@ -1,11 +1,11 @@
 p
-    h1 #{@category.name}
+  h1 #{@category.name}
 
 .row
-    .col-md-12
-        p Name: #{@category.name}
-        p Slug: #{@category.slug}
-        p Parent id: #{@category.parent_id}
+  .col-md-12
+    p Name: #{@category.name}
+    p Slug: #{@category.slug}
+    p Parent id: #{@category.parent_id}
 
 h5
-    = link_to "Return to categories listing", categories_path, class: "btn btn-warning btn-small"
+  = link_to "Return to categories listing", categories_path, class: "btn btn-warning btn-small"

@@ -1,18 +1,18 @@
 p
-    h1 #{@match.home_team} vs #{@match.away_team}
+  h1 #{@match.home_team} vs #{@match.away_team}
 
 .row
-    .col-md-12
-        p League: #{@match.league.league_name}
-        p Home number: #{@match.home_number}
-        p Away number: #{@match.away_number}
-        p Match time: #{@match.match_time}
-        p Active: #{@match.active}
-        p Home score: #{@match.home_score}
-        p Away score: #{@match.away_score}
-        p Calculated: (@match.calculated == 1 ? 'Yes' : 'No')
-        p Created at: #{@match.created_at}
-        p Updated at: #{@match.updated_at}
+  .col-md-12
+    p League: #{@match.league.league_name}
+    p Home number: #{@match.home_number}
+    p Away number: #{@match.away_number}
+    p Match time: #{@match.match_time}
+    p Active: #{@match.active}
+    p Home score: #{@match.home_score}
+    p Away score: #{@match.away_score}
+    p Calculated: (@match.calculated == 1 ? 'Yes' : 'No')
+    p Created at: #{@match.created_at}
+    p Updated at: #{@match.updated_at}
 
 h5
-    = link_to "Return to matches listing", matches_path, class: "btn btn-warning btn-small"
+  = link_to "Return to matches listing", matches_path, class: "btn btn-warning btn-small"

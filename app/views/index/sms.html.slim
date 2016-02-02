@@ -1,21 +1,21 @@
 h3
-    = @mt 
-    i
-        |  Send SMS via Twilio API
+  = @mt 
+  i
+    | Send SMS via Twilio API
     
 = form_tag("/sms", method: "post") do 
-    .row.contact-form
-        .col-md-8.col-xs-8.col-sm-8.col-lg-8
-            = text_field_tag :phone_number, "", placeholder: "Phone number"
-            
-        .col-md-4.col-xs-4.col-sm-4.col-lg-4
-            = submit_tag "Send SMS", class: "btn btn-color hover-animate"
-            
-        .col-md-12.col-xs-12.col-sm-12.col-lg-12 
-            = text_area_tag :message, "", rows: 5, placeholder: "Message"
+  .row.contact-form
+    .col-md-8.col-xs-8.col-sm-8.col-lg-8
+      = text_field_tag :phone_number, "", placeholder: "Phone number"
+        
+    .col-md-4.col-xs-4.col-sm-4.col-lg-4
+      = submit_tag "Send SMS", class: "btn btn-color hover-animate"
+        
+    .col-md-12.col-xs-12.col-sm-12.col-lg-12 
+      = text_area_tag :message, "", rows: 5, placeholder: "Message"
             
 .row
-    .col-md-12.col-xs-12.col-sm-12.col-lg-12
-        - if @result.blank? == false
-            font color="red"
-                = @result
+  .col-md-12.col-xs-12.col-sm-12.col-lg-12
+    - if @result.blank? == false
+      font color="red"
+        = @result

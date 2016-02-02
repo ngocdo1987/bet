@@ -1,7 +1,7 @@
 .row.filter-row
-    .col-md-6.pull-right
-        = form_tag("/videos", method: "get") do
-            .col-md-6
-                = text_field_tag :name, "", placeholder: "Search ...", class: "form-control"
-            .col-md-6
-                = submit_tag "Search", class: "btn btn-success"
+  .col-md-6.pull-right
+    = form_tag("/videos", method: "get") do
+      .col-md-6
+        = text_field_tag :name, "", placeholder: "Search ...", class: "form-control"
+      .col-md-6
+        = submit_tag "Search", class: "btn btn-success"

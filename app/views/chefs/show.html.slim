@@ -1,19 +1,19 @@
 p
-    h1
-        = @chef.chefname
+  h1
+    = @chef.chefname
 
 .row
-    .col-md-4.pull-right.center
-        = gravatar_for @chef, size: 200
-        p
-            h5
-                = @chef.chefname
+  .col-md-4.pull-right.center
+    = gravatar_for @chef, size: 200
+    p
+      h5
+        = @chef.chefname
             
-    div.col-md-8
-        = link_to "Edit this chef", edit_chef_path(@chef), class: "btn btn-success pull-right"
-        
-        h3
-            = @chef.email
+  div.col-md-8
+    = link_to "Edit this chef", edit_chef_path(@chef), class: "btn btn-success pull-right"
+    
+    h3
+      = @chef.email
 
 h5
-    = link_to "Return to chefs listing", chefs_path, class: "btn btn-warning btn-small"
+  = link_to "Return to chefs listing", chefs_path, class: "btn btn-warning btn-small"

@@ -1,15 +1,15 @@
 h3
-    = @mt
-    i
-        |  Upload image to imgur.com via API
+  = @mt
+  i
+    | Upload image to imgur.com via API
 
 = form_tag '/imgur_uploader', multipart: true do
-    .row.contact-form
-        .col-md-8.col-xs-8.col-sm-8.col-lg-8
-            = file_field_tag :image
-            
-        .col-md-4.col-xs-4.col-sm-4.col-lg-4
-            = submit_tag "UPLOAD", class: "btn btn-color hover-animate"
+  .row.contact-form
+    .col-md-8.col-xs-8.col-sm-8.col-lg-8
+      = file_field_tag :image
+        
+    .col-md-4.col-xs-4.col-sm-4.col-lg-4
+      = submit_tag "UPLOAD", class: "btn btn-color hover-animate"
             
 .row
-    .col-md-12
+  .col-md-12
