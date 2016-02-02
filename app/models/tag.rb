@@ -1,3 +1,3 @@
 class Tag < ActiveRecord::Base
-    has_ancestry        
+  has_ancestry        
 end
