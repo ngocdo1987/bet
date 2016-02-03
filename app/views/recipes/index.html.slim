@@ -1,25 +1,32 @@
 h1 List recipes
 
 h5
-  = link_to "Add repice", new_recipe_path, class: "btn btn-warning btn-small"
+  = link_to 'Add repice', new_recipe_path, class: 'btn btn-warning btn-small'
 
 center
   = will_paginate
 
-- @recipes.each do |recipe|
-  .row
-    .col-md-2
-      section.chef_info.center
-        
-    .col-lg-8.well
-      h4
-        = link_to recipe.name, recipe_path(recipe)
-      p
-        = recipe.summary
-      p
-        span.quite
-          small
-            = time_ago_in_words(recipe.created_at)
+.row
+  .col-md-12
+    table.table
+      tr
+        th Name
+        th Summary
+        th Chef
+        th
+      - @recipes.each do |recipe|
+        tr
+          td 
+            = link_to recipe.name, recipe_path(recipe)
+          td #{recipe.summary}
+          td 
+            = link_to recipe.chef.chefname, chef_path(recipe.chef)
+          td
+            = link_to 'Show', recipe_path(recipe)
+            = " | "
+            = link_to 'Edit', edit_recipe_path(recipe) 
+            = " | "
+            = link_to 'Delete', recipe, data: {:confirm => "Are you sure to delete #{recipe.name}?"}, :method => :delete
 
 center
   = will_paginate

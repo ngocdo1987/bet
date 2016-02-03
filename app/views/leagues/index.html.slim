@@ -1,9 +1,9 @@
 h1 List leagues
 
 h5
-  = link_to "Add league", new_league_path, class: "btn btn-warning btn-small"
+  = link_to 'Add league', new_league_path, class: 'btn btn-warning btn-small'
 
-= render "filter"
+= render 'filter'
 
 center
   = will_paginate
@@ -22,17 +22,15 @@ center
           td
             = link_to league.league_name, edit_league_path(league)
           td
-            = image_tag league.league_image.url, size: "80x80", class: "gravatar" if league.league_image?
+            = image_tag league.league_image.url, size: '80x80', class: 'gravatar' if league.league_image?
+          td #{league.league_type}
+          td #{league.active}
           td
-            = league.league_type
-          td
-            = league.active
-          td
-            = link_to "Show", league_path(league)
+            = link_to 'Show', league_path(league)
             = " | "
-            = link_to "Edit", edit_league_path(league) 
+            = link_to 'Edit', edit_league_path(league) 
             = " | "
-            = link_to "Delete"
+            = link_to 'Delete', league, data: {:confirm => "Are you sure to delete #{league.league_name}?"}, :method => :delete
 
 center
   = will_paginate

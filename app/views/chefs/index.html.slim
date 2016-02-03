@@ -1,7 +1,7 @@
 h1 List chefs
 
 h5
-  = link_to "Add chef", new_chef_path, class: "btn btn-warning btn-small"
+  = link_to 'Add chef', new_chef_path, class: 'btn btn-warning btn-small'
     
 = render 'filter'    
 
@@ -17,16 +17,14 @@ center
         th
       - @chefs.each do |chef|    
         tr
+          td #{chef.chefname}
+          td #{chef.email}
           td
-            = chef.chefname
-          td
-            = chef.email
-          td
-            = link_to "Show", chef_path(chef)
+            = link_to 'Show', chef_path(chef)
             = " | "
-            = link_to "Edit", edit_chef_path(chef) 
+            = link_to 'Edit', edit_chef_path(chef) 
             = " | "
-            = link_to "Delete"
+            = link_to 'Delete', chef, data: {:confirm => "Are you sure to delete #{chef.chefname}?"}, :method => :delete
                 
 
 center

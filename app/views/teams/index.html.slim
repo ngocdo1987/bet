@@ -1,7 +1,7 @@
 h1 List teams
 
 h5
-  = link_to "Add team", new_team_path, class: "btn btn-warning btn-small"
+  = link_to 'Add team', new_team_path, class: 'btn btn-warning btn-small'
 
 = render 'filter'
 
@@ -24,18 +24,15 @@ center
             = link_to team.name, edit_team_path(team)
           td
             = image_tag(team.image.url, size: "80x80", class: "gravatar") if team.image?
+          td #{team.league.league_name}
+          td #{team.total_matches}
+          td #{team.total_points}
           td
-            = team.league.league_name
-          td
-            = team.total_matches
-          td
-            = team.total_points
-          td
-            = link_to "Show", team_path(team)
+            = link_to 'Show', team_path(team)
             = " | "
-            = link_to "Edit", edit_team_path(team)
+            = link_to 'Edit', edit_team_path(team)
             = " | " 
-            = link_to "Delete"
+            = link_to 'Delete', team, data: {:confirm => "Are you sure to delete #{team.name}?"}, :method => :delete
 
 center
   = will_paginate

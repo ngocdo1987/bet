@@ -1,10 +1,9 @@
 h1 List categories
 
 h5
-  = link_to "Add category", new_category_path, class: "btn btn-warning btn-small"
+  = link_to 'Add category', new_category_path, class: 'btn btn-warning btn-small'
 
 = render 'filter'
-
 
 .row
   .col-md-12
@@ -17,12 +16,11 @@ h5
         tr
           td
             = link_to category[:name], edit_category_path(category)
+          td #{category[:slug]}
           td
-            = category[:slug]
-          td
-            = link_to "Show", category_path(category)
+            = link_to 'Show', category_path(category)
             = " | "
-            = link_to "Edit", edit_category_path(category) 
+            = link_to 'Edit', edit_category_path(category) 
             = " | "
-            = link_to "Delete"
+            = link_to 'Delete', category, data: {:confirm => "Are you sure to delete #{category[:name]}?"}, :method => :delete
 

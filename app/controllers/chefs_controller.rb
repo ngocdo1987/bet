@@ -1,5 +1,5 @@
 class ChefsController < ApplicationController
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
+  before_action :set_chef, only: [:show, :edit, :update, :destroy]
   require './lib/ar'
     
   def index
