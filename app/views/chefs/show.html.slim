@@ -3,7 +3,7 @@ p
 
 .row
   .col-md-4.pull-right.center
-    = gravatar_for @chef, size: 200
+    = image_tag(@chef.image.url, size: "200x200", class: "gravatar") if @chef.image?
     p
       h5 #{@chef.chefname}
             

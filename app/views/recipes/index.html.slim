@@ -15,6 +15,7 @@ center
         th
           input#check_all type="checkbox"
         th Name
+        th Image
         th Summary
         th Chef
         th
@@ -24,6 +25,8 @@ center
             input type="checkbox" id="#{recipe.id}"
           td 
             = link_to recipe.name, recipe_path(recipe)
+          td
+            = image_tag(recipe.image.url, size: "100x100", class: "gravatar") if recipe.image?
           td #{recipe.summary}
           td 
             = link_to recipe.chef.chefname, chef_path(recipe.chef)

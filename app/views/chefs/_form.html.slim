@@ -9,8 +9,26 @@
       = f.label :image
       = f.file_field :image, accept: 'image/jpeg,image/png,image/gif'
       
+      = f.label :position
+      = f.text_field :position
+      
+      = f.label :description
+      = f.text_area :description, :class => "tinymce", :rows => 15
+      
       = f.label :email
       = f.email_field :email
+      
+      = f.label :facebook
+      = f.text_field :facebook
+      
+      = f.label :twitter
+      = f.text_field :twitter
+      
+      = f.label :linkedin
+      = f.text_field :linkedin
+      
+      = f.label :gplus
+      = f.text_field :gplus
      
       = f.submit(@chef.new_record? ? "Create chef" : "Edit chef", class: "btn btn-success")
       

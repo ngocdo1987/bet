@@ -13,7 +13,9 @@ class Chef < ActiveRecord::Base
   def self.all_filters
     {
       chefname: 'ILIKE', 
-      email: 'ILIKE'
+      email: 'ILIKE', 
+      position: 'ILIKE',
+      description: 'ILIKE'
     }
   end     
   

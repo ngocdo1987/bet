@@ -14,19 +14,24 @@ center
       tr
         th 
           input#check_all type="checkbox"
-        th Chef name
+        th Name
         th Image
+        th Position
         th Email
+        th Description
         th
       - @chefs.each do |chef|    
         tr
           td
             input type="checkbox" value="#{chef.id}"
-          td #{chef.chefname}
+          td
+            = link_to chef.chefname, edit_chef_path(chef)
           td
             = image_tag(chef.image.url, size: "100x100", class: "gravatar") if chef.image?
-            = chef.image
+          td #{chef.position}  
           td #{chef.email}
+          td
+            = simple_format chef.description
           td
             = link_to 'Show', chef_path(chef)
             = " | "

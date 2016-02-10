@@ -1,10 +1,17 @@
-.row.filter-row
-  .col-md-12
-    = form_tag("/chefs", method: "get") do
+= form_tag("/chefs", method: "get") do
+  .row.filter-row
+    .col-md-12
       .col-md-3
         = text_field_tag :chefname, "", placeholder: "Chef name", class: "form-control"
+      .col-md-3
+        = text_field_tag :position, "", placeholder: "Position", class: "form-control"  
       .col-md-3
         = text_field_tag :email, "", placeholder: "Email", class: "form-control"
       .col-md-3
         = submit_tag "Search", class: "btn btn-success"
+        
+  .row.filter-row     
+    .col-md-12
       .col-md-3
+        = text_field_tag :description, "", placeholder: "Description", class: "form-control"
+    

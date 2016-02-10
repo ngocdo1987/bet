@@ -5,7 +5,7 @@ p
 .row
   .col-md-4.pull-right.center
     - if @recipe.chef
-      = gravatar_for @recipe.chef, size: 200
+      = image_tag(@recipe.image.url, size: "200x200", class: "gravatar") if @recipe.image?
       p
         h5 Brought to you by: #{@recipe.chef.chefname}
   
