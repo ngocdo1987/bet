@@ -6,8 +6,8 @@ class Category < ActiveRecord::Base
   
   def self.all_filters
     {
-      name: 'LIKE', 
-      slug: 'LIKE'
+      name: 'ILIKE', 
+      slug: 'ILIKE'
     }
   end
 end

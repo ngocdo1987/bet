@@ -7,7 +7,7 @@ class League < ActiveRecord::Base
   
   def self.all_filters
     {
-      league_name: 'LIKE', 
+      league_name: 'ILIKE', 
       league_type: '=',
       active: '='
     }

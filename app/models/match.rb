@@ -12,8 +12,8 @@ class Match < ActiveRecord::Base
   
   def self.all_filters
     {
-      home_team: 'LIKE', 
-      away_team: 'LIKE',
+      home_team: 'ILIKE', 
+      away_team: 'ILIKE',
       league_id: '=',
       active: '='
     } 

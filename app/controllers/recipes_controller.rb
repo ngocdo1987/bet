@@ -1,9 +1,10 @@
 class RecipesController < ApplicationController
   before_action :set_recipe, only: [:show, :edit, :update, :destroy] 
-  before_action :set_chefs, only: [:new, :create, :edit, :update]
+  before_action :set_chefs, only: [:index, :new, :create, :edit, :update]
+  require './lib/ar'
     
   def index
-    @recipes = Recipe.paginate(page: params[:page], per_page: 5)
+    @recipes = Ar.search(Recipe, params)
     @mt = 'List recipes'
   end
     

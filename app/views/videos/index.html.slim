@@ -6,17 +6,21 @@ h5
 = render 'filter'
 
 center
-    = will_paginate
+  = will_paginate
 
 .row
   .col-md-12
     table.table
       tr
+        th
+          input#check_all type="checkbox"
         th Name
         th URL
         th
       - @videos.each do |video|
         tr
+          td
+            input type="checkbox" value="#{video.id}"
           td
             = link_to video.name, edit_video_path(video)
           td

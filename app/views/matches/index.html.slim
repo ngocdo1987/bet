@@ -12,6 +12,8 @@ center
   .col-md-12
     table.table
       tr
+        th
+          input#check_all type="checkbox"
         th Home team
         th Away team
         th League
@@ -20,6 +22,8 @@ center
         th
       - @matches.each do |match|
         tr
+          td
+            input type="checkbox" value="#{match.id}"
           td
             = link_to "(#{match.home_number}) #{match.home_team}", edit_match_path(match)
           td

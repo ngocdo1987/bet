@@ -12,12 +12,20 @@ center
   .col-md-12
     table.table
       tr
+        th 
+          input#check_all type="checkbox"
         th Chef name
+        th Image
         th Email
         th
       - @chefs.each do |chef|    
         tr
+          td
+            input type="checkbox" value="#{chef.id}"
           td #{chef.chefname}
+          td
+            = image_tag(chef.image.url, size: "100x100", class: "gravatar") if chef.image?
+            = chef.image
           td #{chef.email}
           td
             = link_to 'Show', chef_path(chef)

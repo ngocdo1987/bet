@@ -12,6 +12,8 @@ center
   .col-md-12
     table.table
       tr
+        th
+          input#check_all type="checkbox"
         th League name
         th League image
         th League type
@@ -19,6 +21,8 @@ center
         th
       - @leagues.each do |league|
         tr
+          td
+            input type="checkbox" value="#{league.id}"
           td
             = link_to league.league_name, edit_league_path(league)
           td

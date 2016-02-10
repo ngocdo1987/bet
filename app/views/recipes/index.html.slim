@@ -3,6 +3,8 @@ h1 List recipes
 h5
   = link_to 'Add repice', new_recipe_path, class: 'btn btn-warning btn-small'
 
+= render 'filter'
+
 center
   = will_paginate
 
@@ -10,12 +12,16 @@ center
   .col-md-12
     table.table
       tr
+        th
+          input#check_all type="checkbox"
         th Name
         th Summary
         th Chef
         th
       - @recipes.each do |recipe|
         tr
+          td
+            input type="checkbox" id="#{recipe.id}"
           td 
             = link_to recipe.name, recipe_path(recipe)
           td #{recipe.summary}
