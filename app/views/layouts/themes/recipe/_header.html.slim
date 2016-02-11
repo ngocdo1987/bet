@@ -1,48 +1,52 @@
 <!--header-->
 header
-    div class="header header-main fadeIn"
-        div.container
-            div.row
-                div.col-lg-2
-                    div.logo-wrapper
-                        = link_to image_tag('/themes/recipes/images/logo.png'), root_path
-                            
-                div.col-lg-10
-                    div.outer-nav
-                        div.wrapper-links
-                            ul.header-social-icons
-                                li
-                                    a href="#"
-                                        i class="fa fa-facebook"
-                                li
-                                    a href="#"
-                                        i class="fa fa-twitter"
-                                li
-                                    a href="#"
-                                        i class="fa fa-google-plus"
-                                
-                            span class="sign-in-buttons"
-                                = link_to 'Login', '#', class: 'login'
-                                = link_to 'Register', '#', class: 'register'
-                        
-                        div class="wrapper-main-nav"
-                            nav class="nav-collapse responsive-menu"
-                                ul.main-menu
-                                    li
-                                        = link_to 'Home', root_path
-                                    
-                                    li
-                                        = link_to 'List Recipes', '/list-recipes'
-                                    
-                                    li
-                                        = link_to 'Our Chefs', '/our-chefs'
-                                        
-                                    li
-                                        = link_to 'Blog', '/blog'
-                                    
-                                    li
-                                        = link_to 'Contact', '/contact'
-                                        
-                                    li
-                                        = link_to 'Submit recipe', '/submit-recipe', class: 'submit-recipe'
+  div class="header header-main fadeIn"
+    div.container
+      div.row
+        div.col-lg-2
+          div.logo-wrapper
+            = link_to image_tag('/themes/recipes/images/logo.png'), root_path
+                    
+        div.col-lg-10
+          div.outer-nav
+            div.wrapper-links
+              ul.header-social-icons
+                li
+                  a href="#"
+                    i class="fa fa-facebook"
+                li
+                  a href="#"
+                    i class="fa fa-twitter"
+                li
+                  a href="#"
+                    i class="fa fa-google-plus"
+                  
+              span class="sign-in-buttons"
+                - if user_signed_in?
+                  = link_to 'Edit Profile', edit_user_registration_path, class: 'login'
+                  = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'register'
+                - else
+                  = link_to 'Sign Up', new_user_registration_path, class: 'login'
+                  = link_to 'Login', new_user_session_path, class: 'register'
+            
+            div class="wrapper-main-nav"
+              nav class="nav-collapse responsive-menu"
+                ul.main-menu
+                  li
+                    = link_to 'Home', root_path
+                  
+                  li
+                    = link_to 'List Recipes', '/list-recipes'
+                  
+                  li
+                    = link_to 'Our Chefs', '/our-chefs'
+                      
+                  li
+                    = link_to 'Blog', '/blog'
+                  
+                  li
+                    = link_to 'Contact', '/contact'
+                      
+                  li
+                    = link_to 'Submit recipe', '/submit-recipe', class: 'submit-recipe'
 <!--header ends-->
