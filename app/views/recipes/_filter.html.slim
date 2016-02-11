@@ -2,16 +2,17 @@
   .row.filter-row
     .col-md-12
       .col-md-3
-        = text_field_tag :name, "", placeholder: "Name", class: "form-control"
+        = text_field_tag :name, params[:name], placeholder: "Name", class: "form-control"
       .col-md-3
-        = text_field_tag :summary, "", placeholder: "Summary", class: "form-control"
+        = text_field_tag :summary, params[:summary], placeholder: "Summary", class: "form-control"
       .col-md-3
-        = text_field_tag :description, "", placeholder: "Description", class: "form-control"
+        = text_field_tag :description, params[:description], placeholder: "Description", class: "form-control"
       .col-md-3
         = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", recipes_path, class: "btn btn-success"
         
   .row.filter-row      
     .col-md-12
       .col-md-3
-        = select_tag :chef_id, options_from_collection_for_select(@chefs, 'id', 'chefname'), include_blank: "Chef", class: "form-control"
+        = select_tag :chef_id, options_from_collection_for_select(@chefs, 'id', 'chefname', params[:chef_id]), include_blank: "Chef", class: "form-control"
         

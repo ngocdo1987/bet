@@ -2,13 +2,14 @@
   .col-md-12
     = form_tag("/leagues", method: "get") do
       .col-md-3
-        = select_tag :league_type, options_for_select([['League type', ''], ['Football', 'Football'], ['Basketball', 'Basketball']]), class: "form-control"    
+        = select_tag :league_type, options_for_select([['League type', ''], ['Football', 'Football'], ['Basketball', 'Basketball']], params[:league_type]), class: "form-control"    
       
       .col-md-3
-        = select_tag :active, options_for_select([['Active', ''], ['True', 1], ['False', 0]]), class: "form-control"    
+        = select_tag :active, options_for_select([['Active', ''], ['True', 1], ['False', 0]], params[:active]), class: "form-control"    
       
       .col-md-3
-        = text_field_tag :league_name, "", placeholder: "Search ...", class: "form-control"
+        = text_field_tag :league_name, params[:league_name], placeholder: "Search ...", class: "form-control"
       
       .col-md-3
         = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", leagues_path, class: "btn btn-success"

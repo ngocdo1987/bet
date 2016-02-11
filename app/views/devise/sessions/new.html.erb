@@ -1,7 +1,7 @@
-<h2>Log in</h2>
-
 <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
   <div class="well col-md-6 col-md-offset-3 crud-form">
+    <center><h2>Log in</h2></center>
+    
     <div class="field">
       <%= f.label :email %><br />
       <%= f.email_field :email, autofocus: true %>

@@ -11,6 +11,8 @@
       
       = f.label :image
       = f.file_field :image, accept: 'image/jpeg,image/png,image/gif'
+      = image_tag(@team.image.url, size: "100x100", class: "gravatar") if @team.image?
+      .clear
       
       = f.label :description
       = f.text_area :description, :class => "tinymce", :rows => 15

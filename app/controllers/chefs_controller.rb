@@ -1,5 +1,4 @@
 class ChefsController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_chef, only: [:show, :edit, :update, :destroy]
   require './lib/ar'
     

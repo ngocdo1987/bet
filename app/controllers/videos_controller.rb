@@ -1,5 +1,4 @@
 class VideosController < ApplicationController
-  before_action :authenticate_user!
   before_action :set_video, only: [:show, :edit, :update, :destroy]
   require './lib/ar'
     

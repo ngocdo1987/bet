@@ -112,11 +112,11 @@ class IndexController < ApplicationController
     def custom_header
       case action_name
       when 'index'
-          @header = 'header'
+        @header = 'header'
       when 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'submit_recipe'
-          @header = 'header1'
+        @header = 'header1'
       else
-          @header = ''
+        @header = ''
       end
     end
 end

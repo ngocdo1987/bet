@@ -11,6 +11,8 @@
       
       = f.label :image
       = f.file_field :image, accept: 'image/jpeg,image/png,image/gif'
+      = image_tag(@recipe.image.url, size: "100x100", class: "gravatar") if @recipe.image?
+      .clear
       
       = f.label :summary
       = f.text_field :summary

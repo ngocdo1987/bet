@@ -1,0 +1,18 @@
+p
+  h1
+    = @user.username
+        
+.row
+  .col-md-12
+    p Username: #{@user.username}
+    p Email: #{@user.email}
+    p Reset password sent at: #{@user.reset_password_sent_at}
+    p Remember created at: #{@user.remember_created_at}
+    p Sign in count: #{@user.sign_in_count}
+    p Current sign in at: #{@user.current_sign_in_at}
+    p Last sign in at: #{@user.last_sign_in_at}
+    p Created at: #{@user.created_at}
+    p Updated at: #{@user.updated_at}
+
+h5
+  = link_to "Return to users listing", users_path, class: "btn btn-warning btn-small"

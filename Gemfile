@@ -41,8 +41,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
 gem 'slim'
 gem 'slim-rails'
 
-# Devise
+# Devise & Cancan
 gem 'devise'
+gem 'cancan'
 
 # Imgur
 gem 'curb'

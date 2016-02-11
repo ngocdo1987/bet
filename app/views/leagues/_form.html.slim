@@ -8,6 +8,8 @@
       
       = f.label :league_image
       = f.file_field :league_image, accept: 'image/jpeg,image/png,image/gif'
+      = image_tag(@league.league_image.url, size: "100x100", class: "gravatar") if @league.league_image?
+      .clear
       
       = f.label :league_type
       = f.text_field :league_type

@@ -3,13 +3,14 @@
   
     .col-md-12
       .col-md-3
-        = text_field_tag :name, "", placeholder: "Name", class: "form-control"
+        = text_field_tag :name, params[:name], placeholder: "Name", class: "form-control"
   
       .col-md-3
-        = text_field_tag :description, "", placeholder: "Description", class: "form-control"
+        = text_field_tag :description, params[:description], placeholder: "Description", class: "form-control"
   
       .col-md-3
-        = select_tag :league_id, options_from_collection_for_select(@leagues, 'id', 'league_name'), include_blank: "League", class: "form-control"
+        = select_tag :league_id, options_from_collection_for_select(@leagues, 'id', 'league_name', params[:league_id]), include_blank: "League", class: "form-control"
   
       .col-md-3
         = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", teams_path, class: "btn btn-success"

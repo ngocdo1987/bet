@@ -1,0 +1,12 @@
+= form_tag("/users", method: "get") do
+  .row.filter-row
+    .col-md-12
+      .col-md-3
+        = text_field_tag :username, params[:username], placeholder: "Username", class: "form-control"
+      .col-md-3
+        = text_field_tag :email, params[:email], placeholder: "Email", class: "form-control"  
+      .col-md-3
+        = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", users_path, class: "btn btn-success"
+
+    

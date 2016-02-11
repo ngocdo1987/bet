@@ -2,16 +2,17 @@
   .row.filter-row
     .col-md-12
       .col-md-3
-        = text_field_tag :chefname, "", placeholder: "Chef name", class: "form-control"
+        = text_field_tag :chefname, params[:chefname], placeholder: "Chef name", class: "form-control"
       .col-md-3
-        = text_field_tag :position, "", placeholder: "Position", class: "form-control"  
+        = text_field_tag :position, params[:position], placeholder: "Position", class: "form-control"  
       .col-md-3
-        = text_field_tag :email, "", placeholder: "Email", class: "form-control"
+        = text_field_tag :email, params[:email], placeholder: "Email", class: "form-control"
       .col-md-3
-        = submit_tag "Search", class: "btn btn-success"
+        = submit_tag "Search", class: "btn btn-success" 
+        = link_to "Reset", chefs_path, class: "btn btn-success"
         
   .row.filter-row     
     .col-md-12
       .col-md-3
-        = text_field_tag :description, "", placeholder: "Description", class: "form-control"
+        = text_field_tag :description, params[:description], placeholder: "Description", class: "form-control"
     

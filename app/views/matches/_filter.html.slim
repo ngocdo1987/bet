@@ -2,14 +2,15 @@
   .row.filter-row
     .col-md-12
       .col-md-3
-        = text_field_tag :home_team, "", placeholder: "Home team", class: "form-control"
+        = text_field_tag :home_team, params[:home_team], placeholder: "Home team", class: "form-control"
       .col-md-3
-        = text_field_tag :away_team, "", placeholder: "Away team", class: "form-control"
+        = text_field_tag :away_team, params[:away_team], placeholder: "Away team", class: "form-control"
       .col-md-3
-        = select_tag :league_id, options_from_collection_for_select(@leagues, 'id', 'league_name'), include_blank: "League", class: "form-control"
+        = select_tag :league_id, options_from_collection_for_select(@leagues, 'id', 'league_name', params[:league_id]), include_blank: "League", class: "form-control"
       .col-md-3
         = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", matches_path, class: "btn btn-success"
   .row.filter-row
     .col-md-12
       .col-md-3
-        = select_tag :active, options_for_select([['Active', ''], ['True', true], ['False', false]]), class: "form-control"
+        = select_tag :active, options_for_select([['Active', ''], ['True', true], ['False', false]], params[:active]), class: "form-control"
