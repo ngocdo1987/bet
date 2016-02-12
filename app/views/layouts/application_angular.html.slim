@@ -1,16 +1,17 @@
 doctype html
-html
+html ng-app='recipe_app'
   head
     title #{@mt}
     = stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true
-    = javascript_include_tag 'application', 'data-turbolinks-track' => true
+    = javascript_include_tag 'application_angular', 'data-turbolinks-track' => true
     = csrf_meta_tags
   body
     = render 'layouts/navigation'
     
     .container
       = render 'layouts/messages'
-  
-      == yield    
+      
+      .container ng-view=''
+        
       
       = render 'layouts/footer'

@@ -17,4 +17,8 @@
 //= require tinymce
 //= require moment
 //= require bootstrap-datetimepicker
+//= require angular
+//= require angular-route
+//= require angular-resource
+//= require angular-ui-bootstrap
 //= require_tree .

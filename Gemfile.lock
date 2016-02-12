@@ -38,6 +38,8 @@ GEM
       tzinfo (~> 1.1)
     ancestry (2.1.0)
       activerecord (>= 3.0.0)
+    angular-ui-bootstrap-rails (0.14.3)
+    angularjs-rails (1.4.8)
     arel (6.0.3)
     autoprefixer-rails (6.1.1)
       execjs
@@ -201,6 +203,8 @@ PLATFORMS
 
 DEPENDENCIES
   ancestry
+  angular-ui-bootstrap-rails
+  angularjs-rails
   autoprefixer-rails
   bootstrap-sass (~> 3.3.6)
   bootstrap-will_paginate

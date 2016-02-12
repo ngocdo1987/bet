@@ -97,6 +97,16 @@ class IndexController < ApplicationController
     render :layout => false        
   end
     
+  def angular
+    if cookies[:angular].blank?
+      cookies[:angular] = 1
+    else  
+      cookies.delete :angular  
+    end
+    
+    redirect_to :back
+  end  
+    
   private
     def custom_layout
       case action_name

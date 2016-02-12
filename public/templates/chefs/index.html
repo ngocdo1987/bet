@@ -1,0 +1,47 @@
+<h1>List chefs</h1>
+
+<h5>
+  <a href="#/chefs/new" class="btn btn-warning btn-small">Add chef</a>
+</h5>
+    
+<div ng-include src="'/templates/chefs/_filter.html'"></div>   
+
+<div class="row">
+  <div class="col-md-12">
+    <table class="table">
+      <tr>
+        <th> 
+          <input id="check_all" type="checkbox" />
+        </th>  
+        <th>Name</th>
+        <th>Image</th>
+        <th>Position</th>
+        <th>Email</th>
+        <th>Description</th>
+        <th></th>
+      </tr>   
+      <tr ng-show="chefs.length" ng-repeat="chef in chefs">
+        <td>
+          <input type="checkbox" value="{{chef.id}}" />
+        </td>  
+        <td>
+          <a href="#/chefs/{{chef.id}}/edit">
+            {{chef.chefname}}
+          </a>
+        </td>
+        <td>
+          <img src="{{chef.image.image.url}}" width="100" height="100" class="gravatar" />
+        </td>  
+        <td>{{chef.position}}</td>  
+        <td>{{chef.email}}</td>  
+        <td>{{chef.description}}</td>
+        <td>
+          <a href="">Show</a> | 
+          <a href="#/chefs/{{chef.id}}/edit">Edit</a> | 
+          <a href="" ng-click="deleteChef(chef.id)">Delete</a>
+        </td>  
+      </tr>    
+    </table>        
+  </div>          
+</div>            
+

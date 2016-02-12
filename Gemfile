@@ -45,6 +45,10 @@ gem 'slim-rails'
 gem 'devise'
 gem 'cancan'
 
+# Angular
+gem 'angularjs-rails'
+gem 'angular-ui-bootstrap-rails' #for bootstrap UI
+
 # Imgur
 gem 'curb'
 

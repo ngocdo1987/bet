@@ -4,11 +4,22 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   
   before_action :authenticate
+  layout :angular_layout
   
   private
     def authenticate
       if ['categories', 'chefs', 'leagues', 'matches', 'recipes', 'tags', 'teams', 'users', 'videos'].include? params[:controller]
         authenticate_user!      
+      end
+    end
+    
+    def angular_layout
+      if ['categories', 'chefs', 'leagues', 'matches', 'recipes', 'tags', 'teams', 'users', 'videos'].include? params[:controller]
+        if cookies[:angular].blank?
+          'application'
+        else
+          'application_angular'
+        end
       end
     end
 end

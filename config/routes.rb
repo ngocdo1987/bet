@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   devise_for :users
   root 'index#index'
   
+  get '/angular', to: 'index#angular'
   get '/list-recipes', to: 'index#recipes'
   get '/our-chefs', to: 'index#chefs'
   get '/blog', to: 'index#blog'
