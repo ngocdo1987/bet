@@ -20,25 +20,25 @@
         <th>Description</th>
         <th></th>
       </tr>   
-      <tr ng-show="chefs.length" ng-repeat="chef in chefs">
+      <tr ng-show="p.length" ng-repeat="s in p">
         <td>
-          <input type="checkbox" value="{{chef.id}}" />
+          <input type="checkbox" value="{{s.id}}" />
         </td>  
         <td>
-          <a href="#/chefs/{{chef.id}}/edit">
-            {{chef.chefname}}
+          <a href="#/chefs/{{s.id}}/edit">
+            {{s.chefname}}
           </a>
         </td>
         <td>
-          <img src="{{chef.image.image.url}}" width="100" height="100" class="gravatar" />
+          <img src="{{s.image.image.url}}" width="100" height="100" class="gravatar" />
         </td>  
-        <td>{{chef.position}}</td>  
-        <td>{{chef.email}}</td>  
-        <td>{{chef.description}}</td>
+        <td>{{s.position}}</td>  
+        <td>{{s.email}}</td>  
+        <td>{{s.description}}</td>
         <td>
           <a href="">Show</a> | 
-          <a href="#/chefs/{{chef.id}}/edit">Edit</a> | 
-          <a href="" ng-click="deleteChef(chef.id)">Delete</a>
+          <a href="#/chefs/{{s.id}}/edit">Edit</a> | 
+          <a href="" ng-click="deleteChef(s.id)">Delete</a>
         </td>  
       </tr>    
     </table>        
