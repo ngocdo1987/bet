@@ -28,5 +28,17 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/ryanb/cancan/wiki/Defining-Abilities
+    
+    user ||= User.new # guest user (not logged in)
+    
+    case user.role
+    when 'admin'
+      can :manage, [User, Recipe, Chef, League, Match, Team, Video, Category, Tag]
+    when 'mod'
+      can :manage, [Recipe, Chef, Category, Tag] 
+    else
+    
+    end
+    
   end
 end

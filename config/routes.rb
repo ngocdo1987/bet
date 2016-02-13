@@ -50,5 +50,8 @@ Rails.application.routes.draw do
   
   resources :categories
   resources :tags
-  resources :users
+  scope "/admin" do
+    resources :users
+  end
+  #resources :users
 end

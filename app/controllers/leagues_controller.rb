@@ -1,4 +1,5 @@
 class LeaguesController < ApplicationController
+  load_and_authorize_resource
   before_action :set_league, only: [:show, :edit, :update, :destroy]
   require './lib/ar'
     

@@ -11,5 +11,14 @@
       
       = f.label :password
       = f.password_field :password
+      
+      = f.label :first_name
+      = f.text_field :first_name
+      
+      = f.label :last_name
+      = f.text_field :last_name
+      
+      = f.label :role
+      = f.select(:role, [['admin', 'admin'], ['mod', 'mod'], ['user', 'user']])   
      
       = f.submit(@user.new_record? ? "Create user" : "Edit user", class: "btn btn-success")

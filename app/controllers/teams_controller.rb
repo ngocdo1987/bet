@@ -1,4 +1,5 @@
 class TeamsController < ApplicationController
+  load_and_authorize_resource
   before_action :set_team, only: [:show, :edit, :update, :destroy]
   before_action :set_leagues, only: [:index, :new, :create, :edit, :update]
   require './lib/ar'

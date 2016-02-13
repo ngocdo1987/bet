@@ -16,6 +16,9 @@ center
           input#check_all type="checkbox"
         th Username
         th Email
+        th First name
+        th Last name
+        th Role
         th
       - @users.each do |user|    
         tr
@@ -24,6 +27,9 @@ center
           td
             = link_to user.username, edit_user_path(user)
           td #{user.email}
+          td #{user.first_name}
+          td #{user.last_name}
+          td #{user.role}
           td
             = link_to 'Show', user_path(user)
             = " | "

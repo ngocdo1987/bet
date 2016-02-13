@@ -7,7 +7,10 @@ class User < ActiveRecord::Base
   def self.all_filters
     {
       username: 'ILIKE', 
-      email: 'ILIKE'
+      email: 'ILIKE',
+      first_name: 'ILIKE',
+      last_name: 'ILIKE',
+      role: '='
     }
   end        
 end

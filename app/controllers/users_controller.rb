@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  load_and_authorize_resource
   before_action :set_user, only: [:show, :edit, :update, :destroy]
   require './lib/ar'
   
@@ -53,6 +54,12 @@ class UsersController < ApplicationController
     end
     
     def user_params
-      params.require(:user).permit(:username, :password, :email)
+      
+      if params[:user][:password].blank?
+        params[:user].delete(:password)
+        params[:user].delete(:password_confirmation)
+      end
+      
+      params.require(:user).permit(:username, :password, :email, :first_name, :last_name, :role)
     end
 end
