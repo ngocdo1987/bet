@@ -98,10 +98,10 @@ class IndexController < ApplicationController
   end
     
   def angular
-    if cookies[:angular].blank?
-      cookies[:angular] = 1
+    if session[:angular].blank?
+      session[:angular] = 1
     else  
-      cookies.delete :angular  
+      session.delete :angular  
     end
     
     redirect_to :back

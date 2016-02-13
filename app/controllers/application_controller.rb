@@ -15,7 +15,7 @@ class ApplicationController < ActionController::Base
     
     def angular_layout
       if ['categories', 'chefs', 'leagues', 'matches', 'recipes', 'tags', 'teams', 'users', 'videos'].include? params[:controller]
-        if cookies[:angular].blank?
+        if session[:angular].blank?
           'application'
         else
           'application_angular'

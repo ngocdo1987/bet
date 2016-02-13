@@ -61,7 +61,7 @@ nav class="navbar navbar-default navbar-fixed-top"
       ul class="nav navbar-nav navbar-right"
         - if user_signed_in?
           li
-            - if cookies[:angular].blank?
+            - if session[:angular].blank?
               = link_to "<font color='red'>Angular: Off</font>".html_safe, "/angular" 
             - else
               = link_to "<font color='blue'>Angular: On</font>".html_safe, "/angular"
