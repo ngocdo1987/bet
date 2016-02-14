@@ -6,6 +6,13 @@ class ApplicationController < ActionController::Base
   #before_action :authenticate
   layout :angular_layout
   
+  # FIX CANCAN ERROR -> http://stackoverflow.com/questions/17335329/activemodelforbiddenattributeserror-when-creating-new-user
+  before_filter do
+    resource = controller_name.singularize.to_sym
+    method = "#{resource}_params"
+    params[resource] &&= send(method) if respond_to?(method, true)
+  end
+
   rescue_from CanCan::AccessDenied do |exception|
     render :file => "#{Rails.root}/public/403.html", :status => 403, :layout => false
     ## to avoid deprecation warnings with Rails 3.2.x (and incidentally using Ruby 1.9.3 hash syntax)
