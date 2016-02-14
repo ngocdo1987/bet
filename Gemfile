@@ -49,6 +49,9 @@ gem 'cancan'
 gem 'angularjs-rails'
 gem 'angular-ui-bootstrap-rails' #for bootstrap UI
 
+# Fake data
+gem 'faker'
+
 # Imgur
 gem 'curb'
 
