@@ -1,6 +1,6 @@
-.row.filter-row
-  .col-md-12
-    = form_tag("/videos", method: "get") do
+= form_tag(videos_path, method: "get") do
+  .row.filter-row
+    .col-md-12
       .col-md-3
         = text_field_tag :name, params[:name], placeholder: "Name", class: "form-control"
       .col-md-3

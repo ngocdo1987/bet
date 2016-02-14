@@ -10,11 +10,11 @@ nav class="navbar navbar-default navbar-fixed-top"
     div id="navbar" class="navbar-collapse collapse"
       ul class="nav navbar-nav"
         - if can?(:manage, User)
-          li
+          li class=('active' if controller_name == 'users')
             = link_to "User", users_path
         
         - if can?(:manage, Recipe) || can?(:manage, Chef)    
-          li.dropdown
+          li.dropdown class=('active' if ['recipes', 'chefs'].include? controller_name)
             = link_to "Cooking <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"
             ul.dropdown-menu
               - if can?(:manage, Recipe)
@@ -26,7 +26,7 @@ nav class="navbar navbar-default navbar-fixed-top"
                   = link_to "Chefs", chefs_path
                   
         - if can?(:manage, League) || can?(:manage, Match) || can?(:manage, Team) || can?(:manage, Video)
-          li.dropdown
+          li.dropdown class=('active' if ['leagues', 'matches', 'teams', 'videos'].include? controller_name)
             = link_to "Soccer <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"
             ul.dropdown-menu
               - if can?(:manage, League)
@@ -46,7 +46,7 @@ nav class="navbar navbar-default navbar-fixed-top"
                   = link_to "Videos", videos_path
         
         - if can?(:manage, Category) || can?(:manage, Tag)  
-          li.dropdown
+          li.dropdown class=('active' if ['categories', 'tags'].include? controller_name)
             = link_to "Blog <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"
             ul.dropdown-menu  
               - if can?(:manage, Category)

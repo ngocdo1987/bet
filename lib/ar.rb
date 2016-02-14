@@ -4,6 +4,7 @@ module Ar
         
     model.all_filters.each_pair do |k, v|
       filter_var = all_params[k].blank? ? '' : all_params[k]
+      # ILIKE for PostgreSQL
       if v == 'LIKE' || v == 'ILIKE'
         secure_var = model.sanitize("%#{filter_var}%")   
       else
