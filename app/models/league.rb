@@ -1,4 +1,8 @@
 class League < ActiveRecord::Base
+  has_many :assign_teams, :dependent => :destroy
+  has_many :seasons, :through => :assign_teams
+  has_many :teams, :through => :assign_teams
+  
   has_many :matches
   validates :league_name, presence: true, length: { minimum: 3 }
   validates :league_type, presence: true, length: { minimum: 5 }

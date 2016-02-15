@@ -1,0 +1,35 @@
+h1 List seasons
+
+h5
+  = link_to 'Add season', new_season_path, class: 'btn btn-warning btn-small'
+
+= render 'filter'
+
+center
+  = will_paginate
+
+.row
+  .col-md-12
+    table.table
+      tr
+        th
+          input#check_all type="checkbox"
+        th Name
+        th Slug
+        th
+      - @seasons.each do |season|
+        tr
+          td
+            input type="checkbox" value="#{season.id}"
+          td
+            = link_to season.name, edit_season_path(season)
+          td #{season.slug}
+          td
+            = link_to 'Show', season_path(season)
+            = " | "
+            = link_to 'Edit', edit_season_path(season) 
+            = " | "
+            = link_to 'Delete', season, data: {:confirm => "Are you sure to delete season #{season.name}?"}, :method => :delete
+
+center
+  = will_paginate

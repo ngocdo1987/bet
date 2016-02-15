@@ -16,9 +16,7 @@ center
           input#check_all type="checkbox"
         th Name
         th Image
-        th League
-        th Total matches
-        th Total points
+        th Description
         th
       - @teams.each do |team|
         tr
@@ -28,9 +26,8 @@ center
             = link_to team.name, edit_team_path(team)
           td
             = image_tag(team.image.url, size: "80x80", class: "gravatar") if team.image?
-          td #{team.league.league_name}
-          td #{team.total_matches}
-          td #{team.total_points}
+          td 
+            = simple_format team.description
           td
             = link_to 'Show', team_path(team)
             = " | "

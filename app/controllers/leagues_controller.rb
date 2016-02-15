@@ -1,6 +1,6 @@
 class LeaguesController < ApplicationController
   load_and_authorize_resource
-  before_action :set_league, only: [:show, :edit, :update, :destroy]
+  before_action :set_league, only: [:show, :edit, :update, :destroy, :teams]
   require './lib/ar'
     
   def index
@@ -46,6 +46,16 @@ class LeaguesController < ApplicationController
     @league.destroy
     flash[:success] = 'Your league was deleted successfully!'
     redirect_to leagues_path
+  end
+  
+  def new_teams
+    @mt = "List teams in #{@league.league_name}"
+    @seasons = Season.all
+    @teams = Team.all
+  end
+  
+  def create_teams
+    
   end
     
   private

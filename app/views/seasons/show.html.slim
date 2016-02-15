@@ -1,0 +1,12 @@
+p
+  h1 #{@season.name}
+
+.row
+  .col-md-12
+    p Name: #{@season.name}
+    p Slug: #{@season.slug}
+    p Created at: #{@season.created_at}
+    p Updated at: #{@season.updated_at}
+
+h5
+  = link_to "Return to seasons listing", seasons_path, class: "btn btn-warning btn-small"

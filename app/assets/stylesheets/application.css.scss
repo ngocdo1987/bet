@@ -1,13 +1,14 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import 'bootstrap-datetimepicker';
+@import 'token-input-facebook';
 
 body {
   min-height: 2000px;
   padding-top: 70px;
 }
 
-.crud-form input, .crud-form textarea, .crud-form select {
+.crud-form input, .crud-form textarea, .crud-form select, .crud-form a.btn {
   border: 1px solid #d2d2d2;
   border-radius: 5px;
   width: 100%;

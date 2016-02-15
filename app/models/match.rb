@@ -1,8 +1,9 @@
 class Match < ActiveRecord::Base
   belongs_to :league
-  has_many :odd_spreads
-  has_many :odd_money_lines
-  has_many :odd_total_points
+  
+  has_many :odd_spreads, :dependent => :destroy
+  has_many :odd_money_lines, :dependent => :destroy
+  has_many :odd_total_points, :dependent => :destroy
   
   validates :league_id, presence: true
   validates :home_team, presence: true

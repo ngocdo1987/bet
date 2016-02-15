@@ -11,10 +11,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160213091551) do
+ActiveRecord::Schema.define(version: 20160215111045) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "assign_teams", force: :cascade do |t|
+    t.integer "league_id"
+    t.integer "season_id"
+    t.integer "team_id"
+  end
+
+  add_index "assign_teams", ["league_id", "season_id", "team_id"], name: "index_assign_teams_on_league_id_and_season_id_and_team_id", unique: true, using: :btree
 
   create_table "bet_money_lines", force: :cascade do |t|
     t.integer  "user_id"
@@ -162,6 +170,13 @@ ActiveRecord::Schema.define(version: 20160213091551) do
     t.text     "steps"
     t.string   "cooking_time"
     t.string   "level"
+  end
+
+  create_table "seasons", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "tags", force: :cascade do |t|

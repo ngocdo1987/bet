@@ -17,6 +17,7 @@
 //= require tinymce
 //= require moment
 //= require bootstrap-datetimepicker
+//= require rails-jquery-tokeninput
 //= require angular
 //= require angular-route
 //= require angular-resource

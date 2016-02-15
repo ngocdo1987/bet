@@ -1,0 +1,17 @@
+= render 'shared/page_title', title: @mt
+
+.row
+  .well.col-md-8.col-md-offset-2.crud-form
+    = form_tag(create_teams_league_path(@league), method: "post") do
+      
+      = label_tag 'Season'
+      = select_tag :season_id, options_from_collection_for_select(@seasons, 'id', 'name'), include_blank: "Season", class: "form-control"
+      
+      = label_tag 'Teams'
+      
+      
+      .row
+        .col-md-6
+          = submit_tag "Save teams", class: "btn btn-success"
+        .col-md-6
+          = link_to "Back", leagues_path, class: "btn btn-success"

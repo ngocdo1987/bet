@@ -15,11 +15,19 @@ class VideosController < ApplicationController
   def new
     @video = Video.new
     @mt = 'Create video'
+    
+    # For test
+    @names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
+    @options = { theme: 'facebook' }
   end
     
   def create
     @video = Video.new(video_params)
     @mt = 'Create video'
+    
+    # For test
+    @names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
+    
     if @video.save
       flash[:success] = 'Your video was created successfully!'
       redirect_to videos_path
@@ -30,10 +38,17 @@ class VideosController < ApplicationController
     
   def edit
     @mt = "Edit #{@video.name}"
+    
+    # For test
+    @names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
   end
     
   def update
     @mt = "Edit #{@video.name}"
+    
+    # For test
+    @names = [{ id: 1, name: 'John' }, { id: 2, name: 'Mike' }]
+    
     if @video.update(video_params)
       flash[:success] = 'Your video was updated successfully!'
       redirect_to video_path(@video)

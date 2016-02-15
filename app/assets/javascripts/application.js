@@ -17,4 +17,5 @@
 //= require tinymce
 //= require moment
 //= require bootstrap-datetimepicker
+//= require rails-jquery-tokeninput
 //= require_tree .

@@ -9,4 +9,6 @@
       = f.label :url
       = f.text_field :url
       
+      = f.text_field :url, 'data-tokeninput' => { collection: @names, options: @options }.to_json
+      
       = f.submit(@video.new_record? ? 'Create video' : 'Edit video', class: "btn btn-success")

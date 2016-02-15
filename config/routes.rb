@@ -40,12 +40,19 @@ Rails.application.routes.draw do
   resources :recipes
   resources :chefs
   
-  resources :leagues
+  resources :leagues do
+    member do
+      get 'new_teams'
+      post 'create_teams'
+    end
+  end
+  
   resources :matches
   resources :teams
   resources :odd_spreads
   resources :odd_money_lines
   resources :odd_total_points
+  resources :seasons
   resources :videos
   
   resources :categories

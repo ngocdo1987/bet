@@ -52,6 +52,9 @@ gem 'angular-ui-bootstrap-rails' #for bootstrap UI
 # Fake data
 gem 'faker'
 
+# Textarea autocomplete multiple 
+gem 'rails-jquery-tokeninput'
+
 # Imgur
 gem 'curb'
 

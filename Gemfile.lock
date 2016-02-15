@@ -131,6 +131,8 @@ GEM
       rails-deprecated_sanitizer (>= 1.0.1)
     rails-html-sanitizer (1.0.2)
       loofah (~> 2.0)
+    rails-jquery-tokeninput (0.2.6)
+      jquery-rails (>= 2)
     rails_12factor (0.0.3)
       rails_serve_static_assets
       rails_stdout_logging
@@ -224,6 +226,7 @@ DEPENDENCIES
   momentjs-rails (>= 2.9.0)
   pg
   rails (= 4.2.4)
+  rails-jquery-tokeninput
   rails_12factor
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)

@@ -30,11 +30,13 @@ center
           td #{league.league_type}
           td #{league.active}
           td
+            = link_to 'Add teams', new_teams_league_path(league)
+            = " | "
             = link_to 'Show', league_path(league)
             = " | "
             = link_to 'Edit', edit_league_path(league) 
             = " | "
-            = link_to 'Delete', league, data: {:confirm => "Are you sure to delete #{league.league_name}?"}, :method => :delete
+            = link_to 'Delete', league, data: {:confirm => "Are you sure to delete league #{league.league_name}?"}, :method => :delete
 
 center
   = will_paginate
