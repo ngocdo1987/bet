@@ -49,8 +49,8 @@ nav class="navbar navbar-default navbar-fixed-top"
                 li
                   = link_to "Videos", videos_path
         
-        - if can?(:manage, Category) || can?(:manage, Tag)  
-          li.dropdown class=('active' if ['categories', 'tags'].include? controller_name)
+        - if can?(:manage, Category) || can?(:manage, Tag) || can?(:manage, Post)  
+          li.dropdown class=('active' if ['categories', 'tags', 'posts'].include? controller_name)
             = link_to "Blog <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"
             ul.dropdown-menu  
               - if can?(:manage, Category)
@@ -60,6 +60,10 @@ nav class="navbar navbar-default navbar-fixed-top"
               - if can?(:manage, Tag)    
                 li
                   = link_to "Tags", tags_path  
+              
+              - if can?(:manage, Post)
+                li
+                  = link_to "Posts", posts_path
             
         li.dropdown
           = link_to "Mini Tools <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"

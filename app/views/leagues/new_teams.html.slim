@@ -8,10 +8,17 @@
       = select_tag :season_id, options_from_collection_for_select(@seasons, 'id', 'name'), include_blank: "Season", class: "form-control"
       
       = label_tag 'Teams'
-      
+      = text_field_tag :team_ids
       
       .row
         .col-md-6
           = submit_tag "Save teams", class: "btn btn-success"
         .col-md-6
           = link_to "Back", leagues_path, class: "btn btn-success"
+          
+javascript:
+  $(document).ready(function() {
+      $("#team_ids").tokenInput("/teams.json", {
+          theme: "facebook"
+      });
+  });

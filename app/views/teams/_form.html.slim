@@ -3,8 +3,6 @@
 .row
   .well.col-md-8.col-md-offset-2.crud-form
     = form_for(@team, html: {multipart: true}) do |f|
-      = f.label :league_id
-      = f.collection_select(:league_id, @leagues, :id, :league_name)
       
       = f.label :name
       = f.text_field :name
@@ -16,12 +14,6 @@
       
       = f.label :description
       = f.text_area :description, :class => "tinymce", :rows => 15
-      
-      = f.label :total_matches
-      = f.number_field :total_matches
-      
-      = f.label :total_points
-      = f.number_field :total_points
       
       = f.submit(@team.new_record? ? 'Create team' : 'Edit team', class: "btn btn-success")
 

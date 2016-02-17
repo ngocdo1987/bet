@@ -1,15 +1,12 @@
-p#notice = notice
+p
+  h1 #{@tag.name}
 
-p
-  strong Name:
-  = @tag.name
-p
-  strong Slug:
-  = @tag.slug
-p
-  strong Ancestry:
-  = @tag.ancestry
+.row
+  .col-md-12
+    p Name: #{@tag.name}
+    p Slug: #{@tag.slug}
+    p Created at: #{@tag.created_at}
+    p Updated at: #{@tag.updated_at}
 
-= link_to 'Edit', edit_tag_path(@tag)
-'|
-= link_to 'Back', tags_path
+h5
+  = link_to "Return to tags listing", tags_path, class: "btn btn-warning btn-small"

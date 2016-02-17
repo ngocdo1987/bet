@@ -48,7 +48,13 @@ Rails.application.routes.draw do
   end
   
   resources :matches
-  resources :teams
+  
+  resources :teams do
+    member do
+      get 'search'
+    end
+  end
+  
   resources :odd_spreads
   resources :odd_money_lines
   resources :odd_total_points
@@ -57,6 +63,8 @@ Rails.application.routes.draw do
   
   resources :categories
   resources :tags
+  resources :posts
+  
   scope "/admin" do
     resources :users
   end

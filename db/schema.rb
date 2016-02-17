@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160215111045) do
+ActiveRecord::Schema.define(version: 20160216140155) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -157,6 +157,16 @@ ActiveRecord::Schema.define(version: 20160215111045) do
   end
 
   add_index "odd_total_points", ["match_id"], name: "index_odd_total_points_on_match_id", using: :btree
+
+  create_table "posts", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "image"
+    t.text     "description"
+    t.text     "content"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "recipes", force: :cascade do |t|
     t.string   "name"

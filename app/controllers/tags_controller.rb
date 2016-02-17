@@ -1,75 +1,61 @@
 class TagsController < ApplicationController
   load_and_authorize_resource
-  before_action :set_tag, only: [:show, :edit, :update, :destroy]
-
-  # GET /tags
-  # GET /tags.json
+  before_action :set_tag, only: [:show, :edit, :update, :destroy]    
+  require './lib/ar'
+    
   def index
-    @tags = Tag.all
+    @tags = Ar.search(Tag, params)
+    @mt = 'List tags'
   end
-
-  # GET /tags/1
-  # GET /tags/1.json
+    
   def show
+    @mt = "Show #{@tag.name}"          
   end
-
-  # GET /tags/new
+    
   def new
     @tag = Tag.new
+    @mt = 'Create tag'
   end
-
-  # GET /tags/1/edit
-  def edit
-  end
-
-  # POST /tags
-  # POST /tags.json
+    
   def create
     @tag = Tag.new(tag_params)
-
-    respond_to do |format|
-      if @tag.save
-        format.html { redirect_to @tag, notice: 'Tag was successfully created.' }
-        format.json { render :show, status: :created, location: @tag }
-      else
-        format.html { render :new }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    @mt = 'Create tag'
+        
+    if @tag.save
+      flash[:success] = 'Your tag was created successfully!'
+      redirect_to tags_path
+    else
+      render :new    
     end
   end
-
-  # PATCH/PUT /tags/1
-  # PATCH/PUT /tags/1.json
+    
+  def edit
+    @mt = "Edit #{@tag.name}"
+  end
+    
   def update
-    respond_to do |format|
-      if @tag.update(tag_params)
-        format.html { redirect_to @tag, notice: 'Tag was successfully updated.' }
-        format.json { render :show, status: :ok, location: @tag }
-      else
-        format.html { render :edit }
-        format.json { render json: @tag.errors, status: :unprocessable_entity }
-      end
+    @mt = "Edit #{@tag.name}"
+        
+    if @tag.update(tag_params)
+      flash[:success] = 'Your tag was updated successfully!'
+      redirect_to tag_path(@tag)
+    else
+      render :edit     
     end
   end
-
-  # DELETE /tags/1
-  # DELETE /tags/1.json
+    
   def destroy
     @tag.destroy
-    respond_to do |format|
-      format.html { redirect_to tags_url, notice: 'Tag was successfully destroyed.' }
-      format.json { head :no_content }
-    end
+    flash[:success] = 'Your tag was deleted successfully!'
+    redirect_to tags_path      
   end
-
+    
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_tag
-      @tag = Tag.find(params[:id])
+      @tag = Tag.find(params[:id])    
     end
-
-    # Never trust parameters from the scary internet, only allow the white list through.
+        
     def tag_params
-      params.require(:tag).permit(:name, :slug, :parent_id)
+      params.require(:tag).permit(:name, :slug)    
     end
 end

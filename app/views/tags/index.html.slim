@@ -1,25 +1,37 @@
-h1 Listing tags
+h1 List tags
 
-table
-  thead
-    tr
-      th Name
-      th Slug
-      th Ancestry
-      th
-      th
-      th
+h5
+  = link_to 'Add tag', new_tag_path, class: 'btn btn-warning btn-small'
 
-  tbody
-    - @tags.each do |tag|
+= render 'filter'
+
+center
+  = will_paginate
+
+.row
+  .col-md-12
+    table.table
       tr
-        td = tag.name
-        td = tag.slug
-        td = tag.ancestry
-        td = link_to 'Show', tag
-        td = link_to 'Edit', edit_tag_path(tag)
-        td = link_to 'Destroy', tag, data: {:confirm => 'Are you sure?'}, :method => :delete
+        th
+          input#check_all type="checkbox"
+        th Name
+        th Slug
+        th
+      - @tags.each do |tag|
+        tr
+          td
+            input type="checkbox" value="#{tag.id}"
+          td
+            = link_to tag.name, edit_tag_path(tag)
+          
+          td #{tag.slug}
+          td
+           
+            = link_to 'Show', tag_path(tag)
+            = " | "
+            = link_to 'Edit', edit_tag_path(tag) 
+            = " | "
+            = link_to 'Delete', tag, data: {:confirm => "Are you sure to delete tag #{tag.name}?"}, :method => :delete
 
-br
-
-= link_to 'New Tag', new_tag_path
+center
+  = will_paginate

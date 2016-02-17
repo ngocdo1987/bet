@@ -51,7 +51,7 @@ class LeaguesController < ApplicationController
   def new_teams
     @mt = "List teams in #{@league.league_name}"
     @seasons = Season.all
-    @teams = Team.all
+    
   end
   
   def create_teams

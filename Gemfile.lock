@@ -94,6 +94,7 @@ GEM
       thor (>= 0.14, < 2.0)
     json (1.8.3)
     jwt (1.5.2)
+    libv8 (3.16.14.13)
     loofah (2.0.3)
       nokogiri (>= 1.5.9)
     mail (2.6.3)
@@ -145,6 +146,7 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (10.4.2)
     rdoc (4.2.0)
+    ref (2.0.0)
     responders (2.1.1)
       railties (>= 4.2.0, < 5.1)
     sass (3.4.19)
@@ -177,6 +179,9 @@ GEM
       activesupport (>= 3.0)
       sprockets (>= 2.8, < 4.0)
     temple (0.7.6)
+    therubyracer (0.12.2)
+      libv8 (~> 3.16.14.0)
+      ref
     thor (0.19.1)
     thread_safe (0.3.5)
     tilt (2.0.1)
@@ -219,6 +224,7 @@ DEPENDENCIES
   coffee-rails (~> 4.1.0)
   curb
   devise
+  execjs
   faker
   jbuilder (~> 2.0)
   jquery-rails
@@ -234,6 +240,7 @@ DEPENDENCIES
   slim
   slim-rails
   spring
+  therubyracer
   tinymce-rails
   turbolinks
   twilio-ruby

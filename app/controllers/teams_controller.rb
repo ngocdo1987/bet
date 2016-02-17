@@ -8,6 +8,10 @@ class TeamsController < ApplicationController
     @teams = Ar.search(Team, params)
     @mt = 'List teams'
   end
+  
+  #def search
+    #@teams = Team.where('name ILIKE ?', params[:q])  
+  #end
     
   def show
     @mt = "Show #{@team.name}"
@@ -61,6 +65,6 @@ class TeamsController < ApplicationController
     end
     
     def team_params
-      params.require(:team).permit(:name, :image, :description, :total_matches, :total_points, :league_id)        
+      params.require(:team).permit(:name, :image, :description)        
     end
 end
