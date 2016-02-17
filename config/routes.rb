@@ -50,8 +50,8 @@ Rails.application.routes.draw do
   resources :matches
   
   resources :teams do
-    member do
-      get 'search'
+    collection do
+      post 'search'
     end
   end
   

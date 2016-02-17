@@ -9,9 +9,12 @@ class TeamsController < ApplicationController
     @mt = 'List teams'
   end
   
-  #def search
-    #@teams = Team.where('name ILIKE ?', params[:q])  
-  #end
+  def search
+    league_id = params[:league_id]
+    season_id = params[:season_id]
+    
+    @teams = AssignTeam.select('teams.name, teams.id').joins(:team).where('assign_teams.league_id = ? AND assign_teams.season_id = ?', league_id, season_id)
+  end
     
   def show
     @mt = "Show #{@team.name}"

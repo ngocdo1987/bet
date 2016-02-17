@@ -3,12 +3,13 @@
 .row
   .well.col-md-8.col-md-offset-2.crud-form
     = form_tag(create_teams_league_path(@league), method: "post") do
+      = hidden_field_tag :league_id, @league.id
       
       = label_tag 'Season'
       = select_tag :season_id, options_from_collection_for_select(@seasons, 'id', 'name'), include_blank: "Season", class: "form-control"
       
       = label_tag 'Teams'
-      = text_field_tag :team_ids
+      = text_field_tag :team_ids, '', data: { load: ''}
       
       .row
         .col-md-6
@@ -18,7 +19,25 @@
           
 javascript:
   $(document).ready(function() {
-      $("#team_ids").tokenInput("/teams.json", {
-          theme: "facebook"
-      });
+    $('#season_id').on('change', function(){
+      if($(this).val() > 0) {
+        var league_id = $('#league_id').val();
+        var season_id = $('#season_id').val();
+      
+        $.post('/teams/search', {
+          league_id: league_id,
+          season_id: season_id
+        }, function(data){
+          //alert(data);
+          if(data != '') {
+            $('#team_ids').tokenInput("add", data);
+          }
+        });
+      }
+    });
+    
+    $('#team_ids').tokenInput("/teams.json", {
+        theme: "facebook",
+        prePopulate: $("#team_ids").data('load')
+    });
   });
