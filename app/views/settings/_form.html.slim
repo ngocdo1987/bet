@@ -1,0 +1,12 @@
+= render 'shared/errors', obj: @setting
+
+.row
+  .well.col-md-8.col-md-offset-2.crud-form
+    = form_for(@setting, html: {multipart: true}) do |f|
+      = f.label :name
+      = f.text_field :name
+      
+      = f.label :value
+      = f.text_field :value
+      
+      = f.submit(@setting.new_record? ? 'Create setting' : 'Edit setting', class: "btn btn-success")

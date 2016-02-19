@@ -1,0 +1,13 @@
+= form_tag(settings_path, method: "get") do
+  .row.filter-row
+    .col-md-12
+      
+      .col-md-3
+        = text_field_tag :name, params[:name], placeholder: "Name", class: "form-control"
+        
+      .col-md-3
+        = text_field_tag :value, params[:value], placeholder: "Name", class: "form-control"  
+      
+      .col-md-3
+        = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", settings_path, class: "btn btn-success"

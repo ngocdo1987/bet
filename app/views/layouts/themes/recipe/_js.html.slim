@@ -8,3 +8,8 @@
 = javascript_include_tag '/themes/recipes/js/jquery.validate.min', 'data-turbolinks-track' => true
 = javascript_include_tag '/themes/recipes/js/jquery.swipebox', 'data-turbolinks-track' => true
 = javascript_include_tag '/themes/recipes/js/custom', 'data-turbolinks-track' => true
+javascript:
+  $(document).ready(function(){
+    $('ul.pagination li.active').attr('class', 'current');
+    $('ul.pagination').attr('class', 'page-nav');
+  });

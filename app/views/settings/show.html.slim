@@ -1,0 +1,12 @@
+p
+  h1 #{@setting.name}
+
+.row
+  .col-md-12
+    p Name: #{@setting.name}
+    p Value: #{@setting.slug}
+    p Created at: #{@setting.created_at}
+    p Updated at: #{@setting.updated_at}
+
+h5
+  = link_to "Return to settings listing", settings_path, class: "btn btn-warning btn-small"

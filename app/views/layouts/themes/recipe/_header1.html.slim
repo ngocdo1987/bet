@@ -23,17 +23,22 @@ header
               .wrapper-links
                 ul.header-social-icons
                   li
-                    a href="#" 
+                    a href="#{@all_settings['facebook']}" target="_blank"
                       i.fa.fa-facebook
                   li
-                    a href="#" 
+                    a href="#{@all_settings['twitter']}" target="_blank"
                       i.fa.fa-twitter
                   li
-                    a href="#" 
+                    a href="#{@all_settings['gplus']}" target="_blank"
                       i.fa.fa-google-plus
+                      
                 span.sign-in-buttons
-                  a.login href="#"  Login
-                  a.register href="#"  Register
+                  - if user_signed_in?
+                    = link_to 'Edit Profile', edit_user_registration_path, class: 'login'
+                    = link_to 'Logout', destroy_user_session_path, method: :delete, class: 'register'
+                  - else
+                    = link_to 'Sign Up', new_user_registration_path, class: 'login'
+                    = link_to 'Login', new_user_session_path, class: 'register'
               nav.nav-collapse
                 ul.main-menu.right
                   li

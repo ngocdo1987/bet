@@ -1,0 +1,37 @@
+h1 List settings
+
+h5
+  = link_to 'Add setting', new_setting_path, class: 'btn btn-warning btn-small'
+
+= render 'filter'
+
+center
+  = will_paginate
+
+.row
+  .col-md-12
+    table.table
+      tr
+        th
+          input#check_all type="checkbox"
+        th Name
+        th Value
+        th
+      - @settings.each do |setting|
+        tr
+          td
+            input type="checkbox" value="#{setting.id}"
+          td
+            = link_to setting.name, edit_setting_path(setting)
+          
+          td #{setting.value}
+          td
+           
+            = link_to 'Show', setting_path(setting)
+            = " | "
+            = link_to 'Edit', edit_setting_path(setting) 
+            = " | "
+            = link_to 'Delete', setting, data: {:confirm => "Are you sure to delete setting #{setting.name}?"}, :method => :delete
+
+center
+  = will_paginate

@@ -1,59 +1,57 @@
 <!--footer-->
 div class="footer footer-variant-one footer-boxed animate-footer"
-    div.container
-        div.footer-inner
-            div.text-center
-                a class="logo-footer wow animated zoomIn" href="index.html"
-                    = image_tag '/themes/recipes/images/logo2.png', alt: 'Logo'
-                p class="wow animated flipInX"
-                    = "Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore"
-                    br
-                    = "magna aliquyam erat, with an extra ordinary design and quality development features in low"
+  div.container
+    div.footer-inner
+      div.text-center
+        a class="logo-footer wow animated zoomIn" href="index.html"
+          = image_tag '/themes/recipes/images/logo2.png', alt: 'Logo'
+        p class="wow animated flipInX"
+          = @all_settings['description']
 
-            div.subs-social-options
-                div class="row custom-row-footer"
-                    div class="col-md-6 custom-col-options"
-                        div.left-side
-                            div class="widget widget-footer news-letter-signup"
-                                h2 Newsletter Signup
+      div.subs-social-options
+        div class="row custom-row-footer"
+          div class="col-md-6 custom-col-options"
+            div.left-side
+              div class="widget widget-footer news-letter-signup"
+                h2 Newsletter Signup
 
-                                form class="subs-form" action="#" method="post"
-                                    div.email-field
-                                        input type="email" name="email" placeholder="Enter you email address"
-                                        button
-                                            i class="fa fa-paper-plane-o"
-                                        
-                    div.col-md-6
-                        div.right-side
-                            div class="widget widget-footer social-icons"
-                                h2 Get Social with Us
-                                ul
-                                    li
-                                        a href="#"
-                                            i class="fa fa-facebook"
-                                    li
-                                        a href="#"
-                                            i class="fa fa-twitter"
-                                    li
-                                        a href="#"
-                                            i class="fa fa-linkedin"
-                                    li
-                                        a href="#"
-                                            i class="fa fa-google-plus"
-                                    li
-                                        a href="#"
-                                            i class="fa fa-youtube-play"
-                                    li
-                                        a href="#"
-                                            i class="fa fa-flickr"
-                                    
-            div class="footer-copyright text-center wow animated flipInX"
-                p 
-                    = "&copy; Copyright 2015 All Rights Reserved by "
-                    a href="#"
-                        = "Majestic Themes"
-            
-            div class="corner-image wow animated fadeInRight"
-                = image_tag '/themes/recipes/images/footer-corner-image.jpg', alt: 'image'
+                form class="subs-form" action="#" method="post"
+                  div.email-field
+                    input type="email" name="email" placeholder="Enter you email address"
+                    button
+                      i class="fa fa-paper-plane-o"
+                              
+          div.col-md-6
+            div.right-side
+              div class="widget widget-footer social-icons"
+                h2 Get Social with Us
+                ul
+                  li
+                    a href="#{@all_settings['facebook']}" target="_blank"
+                      i class="fa fa-facebook"
+                  li
+                    a href="#{@all_settings['twitter']}" target="_blank"
+                      i class="fa fa-twitter"
+                  li
+                    a href="#{@all_settings['linkedin']}" target="_blank"
+                      i class="fa fa-linkedin"
+                  li
+                    a href="#{@all_settings['gplus']}" target="_blank"
+                      i class="fa fa-google-plus"
+                  li
+                    a href="#{@all_settings['youtube']}" target="_blank"
+                      i class="fa fa-youtube-play"
+                  li
+                    a href="#{@all_settings['flickr']}" target="_blank"
+                      i class="fa fa-flickr"
+                              
+      div class="footer-copyright text-center wow animated flipInX"
+        p 
+          = "&copy; Copyright 2015 All Rights Reserved by ".html_safe
+          a href="#"
+            = "Majestic Themes"
+      
+      div class="corner-image wow animated fadeInRight"
+        = image_tag '/themes/recipes/images/footer-corner-image.jpg', alt: 'image'
 
 <!--footer ends-->

@@ -1,6 +1,7 @@
 class IndexController < ApplicationController
   layout :custom_layout
   before_action :custom_header, :only => [:index, :recipes, :recipe, :chefs, :chef, :blog, :contact, :send_email, :submit_recipe]
+  before_action :set_settings, :only => [:index, :recipes, :recipe, :chefs, :chef, :blog, :contact, :send_email, :submit_recipe]
     
   def index
     @mt = 'Food & Taste - Quality recipes'
@@ -12,6 +13,7 @@ class IndexController < ApplicationController
     
   def recipes
     @mt = 'List recipes'
+    @recipes = Recipe.paginate(page: params[:page], per_page: 9).order(created_at: :desc) 
   end
     
   def recipe
@@ -32,7 +34,7 @@ class IndexController < ApplicationController
     
   def blog
     @mt = 'Blog'  
-    @posts = Post.all
+    @posts = Post.paginate(page: params[:page], per_page: 5).order(created_at: :desc) 
     @categories = Category.all
     @tags = Tag.all
   end
@@ -151,6 +153,15 @@ class IndexController < ApplicationController
         @header = 'header1'
       else
         @header = ''
+      end
+    end
+    
+    def set_settings
+      settings = Setting.all
+      @all_settings = Hash.new
+      
+      settings.each do |setting|
+        @all_settings.store(setting.name, setting.value)
       end
     end
     
