@@ -16,6 +16,10 @@ class Team < ActiveRecord::Base
     }    
   end
   
+  def self.find_by_league_and_season(league_id, season_id)
+    AssignTeam.select('teams.name, teams.id').joins(:team).where('assign_teams.league_id = ? AND assign_teams.season_id = ?', league_id, season_id)
+  end
+  
   private
     def image_size
       if image.size > 5.megabytes

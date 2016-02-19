@@ -12,8 +12,13 @@ class TeamsController < ApplicationController
   def search
     league_id = params[:league_id]
     season_id = params[:season_id]
+    @teams = Team.find_by_league_and_season(league_id, season_id)
+  end
     
-    @teams = AssignTeam.select('teams.name, teams.id').joins(:team).where('assign_teams.league_id = ? AND assign_teams.season_id = ?', league_id, season_id)
+  def search_auto_complete
+    unless params[:q].blank?
+      @teams = Team.where("name ILIKE ?", "%#{params[:q]}%")  
+    end
   end
     
   def show

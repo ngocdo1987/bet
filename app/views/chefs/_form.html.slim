@@ -32,6 +32,9 @@
       
       = f.label :gplus
       = f.text_field :gplus
+      
+      = f.label :home
+      = f.select(:home, [['True', true], ['False', false]])
      
       = f.submit(@chef.new_record? ? "Create chef" : "Edit chef", class: "btn btn-success")
       

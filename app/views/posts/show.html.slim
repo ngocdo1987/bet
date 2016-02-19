@@ -1,0 +1,15 @@
+p
+  h1 #{@post.name}
+
+.row
+  .col-md-12
+    p Name: #{@post.name}
+    p
+      = image_tag(@post.image.url, size: "150x150", class: "gravatar") if @post.image?
+    p Description: #{@post.description}
+    p Content: #{@post.content}
+    p Created at: #{@post.created_at}
+    p Updated at: #{@post.updated_at}
+
+h5
+  = link_to "Return to posts listing", posts_path, class: "btn btn-warning btn-small"

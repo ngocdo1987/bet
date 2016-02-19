@@ -51,22 +51,33 @@ class LeaguesController < ApplicationController
   def new_teams
     @mt = "Save teams for #{@league.league_name}"
     @seasons = Season.all
-    #@teams = Team.select('id, name').as_json
+    league_id = @league.id
+    
+    if params[:season_id].blank?
+      @teams = ''
+    else
+      season_id = params[:season_id]
+      @teams = Team.find_by_league_and_season(league_id, season_id).as_json
+    end
   end
   
   def create_teams
     @mt = "Save teams for #{@league.league_name}"
-    league_id = params[:league_id]
+    league_id = @league.id
     season_id = params[:season_id]
     team_ids = params[:team_ids]
     team_ids = team_ids.split(",")
     
-    team_ids.each do |team_id|
-      @assign_team = AssignTeam.new(league_id: league_id, season_id: season_id, team_id: team_id)
-      @assign_team.save
+    teams = Team.find_by_league_and_season(league_id, season_id)
+    current_team_ids = Array.new
+    teams.each do |team|
+      current_team_ids.push(team.id.to_s)  
     end
     
-    redirect_to new_teams_league_path(@league)
+    AssignTeam.update_master(league_id, season_id, team_ids, current_team_ids) 
+    
+    flash[:success] = "Save teams for #{@league.league_name} successfully!"
+    redirect_to new_teams_league_path(@league) + "?season_id=#{season_id}"
   end
     
   private

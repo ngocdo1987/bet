@@ -52,6 +52,7 @@ Rails.application.routes.draw do
   resources :teams do
     collection do
       post 'search'
+      get 'search_auto_complete'
     end
   end
   

@@ -2,15 +2,71 @@ p
   h1 #{@chef.chefname}
 
 .row
-  .col-md-4.pull-right.center
+  .col-md-2
+    | Chef name: 
+  .col-md-10
+    = @chef.chefname
+hr    
+.row
+  .col-md-2
+    | Image:
+  .col-md-10
     = image_tag(@chef.image.url, size: "200x200", class: "gravatar") if @chef.image?
-    p
-      h5 #{@chef.chefname}
-            
-  div.col-md-8
-    = link_to "Edit this chef", edit_chef_path(@chef), class: "btn btn-success pull-right"
-    
-    h3 #{@chef.email}
+hr    
+.row
+  .col-md-2
+    | Position
+  .col-md-10
+    = @chef.position
+hr    
+.row
+  .col-md-2
+    | Description
+  .col-md-10
+    = simple_format @chef.description
+hr    
+.row
+  .col-md-2
+    | Email
+  .col-md-10
+    = @chef.email
+hr    
+.row
+  .col-md-2
+    | Facebook
+  .col-md-10
+    = @chef.facebook
+hr    
+.row
+  .col-md-2
+    | Twitter
+  .col-md-10
+    = @chef.twitter
+hr    
+.row
+  .col-md-2
+    | Linkedin
+  .col-md-10
+    = @chef.linkedin  
+hr    
+.row
+  .col-md-2
+    | Google Plus
+  .col-md-10
+    = @chef.gplus
+hr    
+.row
+  .col-md-2
+    | Created at
+  .col-md-10
+    = @chef.created_at    
+hr    
+.row
+  .col-md-2
+    | Updated at
+  .col-md-10
+    = @chef.updated_at
+
 
 h5
-  = link_to "Return to chefs listing", chefs_path, class: "btn btn-warning btn-small"
+  = link_to "Chefs listing", chefs_path, class: "btn btn-warning btn-small"

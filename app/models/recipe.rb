@@ -12,7 +12,9 @@ class Recipe < ActiveRecord::Base
       chef_id: '=',
       name: 'ILIKE',
       summary: 'ILIKE',
-      description: 'ILIKE'
+      description: 'ILIKE',
+      featured: '=',
+      hot: '='
     }
   end
   

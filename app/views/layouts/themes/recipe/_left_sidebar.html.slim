@@ -1,15 +1,14 @@
 <!--left slider-->
 div.slider-left
-    div class="custom-margin" id="sync1"
-        div
-            = link_to image_tag('/themes/recipes/images/temp-images/slide1.jpg'), '#'
+  div class="custom-margin" id="sync1"
+    - featured_recipes.each do |featured_recipe|
+      div
+        = link_to image_tag(featured_recipe.image.url), '#'
 
-        div
-            = link_to image_tag('/themes/recipes/images/temp-images/slide2.jpg'), '#'
     
-    span.custom-arrows
-        span.left-arrow
-            i class='fa fa-arrow-left'
-        span.right-arrow
-            i class='fa fa-arrow-right'
+  span.custom-arrows
+    span.left-arrow
+      i class='fa fa-arrow-left'
+    span.right-arrow
+      i class='fa fa-arrow-right'
 <!--left slider ends-->

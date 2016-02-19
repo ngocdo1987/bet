@@ -3,40 +3,28 @@
 .wrapper-head-chef
   .head-chef
     .left-side
-      = link_to image_tag('/themes/recipes/images/temp-images/head-chef.jpg', alt: 'head chef'), '#'
+      = link_to image_tag(@head_chef.image.url, alt: 'head chef'), '#'
     .right-side
       h3
-        a href="#"  Johnathan Doe
+        a href="#" #{@head_chef.chefname}
       span.type head chef
-      ul.expertise
-        li
-          a href="#" 
-            | fast food
-        li
-          a href="#" 
-            | dessert
-        li
-          a href="#" 
-            | chinese cuisine
+      
       .separator-chef
-      p
-        | I find that the biggest difference between being a chef in New York City and
-        | being a chef. The Bay Area is that in NYC you work to MAKE the food taste
-        | good. Out here you work to LET the food taste good!
+      p #{@head_chef.description.html_safe}
       br/
       a.button-default.theme-filled.video-button href="#"  Watch Video
       ul.social-icons-chef
         li
-          a href="#" 
+          a href="#{@head_chef.facebook}" 
             i.fa.fa-facebook
         li
-          a href="#" 
+          a href="#{@head_chef.twitter}" 
             i.fa.fa-twitter
         li
-          a href="#" 
+          a href="#{@head_chef.linkedin}" 
             i.fa.fa-linkedin
         li
-          a href="#" 
+          a href="#{@head_chef.gplus}" 
             i.fa.fa-google-plus
   .bg-corner-head-chef
     = image_tag '/themes/recipes/images/temp-images/bg-corner-shef.jpg', alt: 'image'

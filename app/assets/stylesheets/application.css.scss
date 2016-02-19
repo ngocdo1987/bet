@@ -8,7 +8,7 @@ body {
   padding-top: 70px;
 }
 
-.crud-form input, .crud-form textarea, .crud-form select, .crud-form a.btn {
+.crud-form input, .crud-form textarea, .crud-form select, .crud-form a.btn, ul.token-input-list-facebook {
   border: 1px solid #d2d2d2;
   border-radius: 5px;
   width: 100%;
@@ -25,9 +25,4 @@ input {
 
 .clear {
   clear: both;
-}
-
-ul.token-input-list-facebook {
-  width: 100% !important;
-  border-radius: 5px;
 }

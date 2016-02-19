@@ -1,15 +1,15 @@
 = render 'shared/page_title', title: @mt
 
 .row
-  .well.col-md-8.col-md-offset-2.crud-form
+  .well.col-md-6.crud-form
     = form_tag(create_teams_league_path(@league), method: "post") do
       = hidden_field_tag :league_id, @league.id
       
       = label_tag 'Season'
-      = select_tag :season_id, options_from_collection_for_select(@seasons, 'id', 'name'), include_blank: "Season", class: "form-control"
+      = select_tag :season_id, options_from_collection_for_select(@seasons, 'id', 'name', params[:season_id]), include_blank: "Season", class: "form-control"
       
       = label_tag 'Teams'
-      = text_field_tag :team_ids, '', data: { load: ''}
+      = text_field_tag :team_ids, '', data: { load: @teams}
       
       .row
         .col-md-6
@@ -24,20 +24,25 @@ javascript:
         var league_id = $('#league_id').val();
         var season_id = $('#season_id').val();
       
-        $.post('/teams/search', {
+        $.post('/teams/search.json', {
           league_id: league_id,
           season_id: season_id
         }, function(data){
-          //alert(data);
-          if(data != '') {
-            $('#team_ids').tokenInput("add", data);
+          $('#team_ids').tokenInput("clear");
+          
+          if(Object.keys(data).length > 0) {
+            
+            for(var index in data) { 
+              $('#team_ids').tokenInput("add", data[index]);
+            }
+            
           }
         });
       }
     });
     
-    $('#team_ids').tokenInput("/teams.json", {
-        theme: "facebook",
-        prePopulate: $("#team_ids").data('load')
+    $('#team_ids').tokenInput("/teams/search_auto_complete.json", {
+      theme: "facebook",
+      prePopulate: $("#team_ids").data('load')
     });
   });

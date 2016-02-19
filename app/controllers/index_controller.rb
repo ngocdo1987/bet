@@ -4,6 +4,9 @@ class IndexController < ApplicationController
     
   def index
     @mt = 'Food & Taste - Quality recipes'
+    @featured_recipes = Recipe.where(featured: true)
+    @hot_recipes = Recipe.where(hot: true).limit(6).as_json
+    @home_chefs = Chef.where(home: true).limit(4)
   end
     
   def recipes
@@ -16,6 +19,7 @@ class IndexController < ApplicationController
   end
     
   def chefs
+    @head_chef = Chef.where("position = 'Head Chef'").first
     @chefs = Chef.all
     @mt = 'Our chefs'
   end

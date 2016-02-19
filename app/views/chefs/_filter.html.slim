@@ -15,4 +15,7 @@
     .col-md-12
       .col-md-3
         = text_field_tag :description, params[:description], placeholder: "Description", class: "form-control"
+      
+      .col-md-3
+        = select_tag :home, options_for_select([['Home', ''], ['True', 1], ['False', 0]], params[:home]), class: "form-control"      
     

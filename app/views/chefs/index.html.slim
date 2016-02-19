@@ -19,6 +19,7 @@ center
         th Position
         th Email
         th Description
+        th Home
         th
       - @chefs.each do |chef|    
         tr
@@ -32,6 +33,7 @@ center
           td #{chef.email}
           td
             = simple_format chef.description
+          td #{chef.home}  
           td
             = link_to 'Show', chef_path(chef)
             = " | "

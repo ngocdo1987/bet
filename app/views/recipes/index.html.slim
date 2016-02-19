@@ -18,6 +18,8 @@ center
         th Image
         th Summary
         th Chef
+        th Featured
+        th Hot
         th
       - @recipes.each do |recipe|
         tr
@@ -30,6 +32,8 @@ center
           td #{recipe.summary}
           td 
             = link_to recipe.chef.chefname, chef_path(recipe.chef)
+          td #{recipe.featured}
+          td #{recipe.hot}
           td
             = link_to 'Show', recipe_path(recipe)
             = " | "

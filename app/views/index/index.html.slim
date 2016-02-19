@@ -3,17 +3,17 @@ section class='wrapper-home-slider slider-main'
   .container
     .home-slider
       .slider-box
-        = render 'layouts/themes/recipe/left_sidebar'
+        = render 'layouts/themes/recipe/left_sidebar', featured_recipes: @featured_recipes
                 
-        = render 'layouts/themes/recipe/right_sidebar'
+        = render 'layouts/themes/recipe/right_sidebar', featured_recipes: @featured_recipes
                 
 = render 'layouts/themes/recipe/search_bar'
 
-= render 'layouts/themes/recipe/hot_recipes'
+= render 'layouts/themes/recipe/hot_recipes', hot_recipes: @hot_recipes
 
 = render 'layouts/themes/recipe/good_food'
 
-= render 'layouts/themes/recipe/our_chefs'
+= render 'layouts/themes/recipe/our_chefs', home_chefs: @home_chefs
 
 = render 'layouts/themes/recipe/lastest_news'
 

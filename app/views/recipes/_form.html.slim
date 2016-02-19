@@ -32,6 +32,12 @@
       = f.label :level
       = f.text_field :level
       
+      = f.label :featured
+      = f.select(:featured, [['True', true], ['False', false]])
+      
+      = f.label :hot
+      = f.select(:hot, [['True', true], ['False', false]])
+      
       = f.submit(@recipe.new_record? ? 'Create recipe' : 'Edit recipe', class: "btn btn-success")
       
 javascript:

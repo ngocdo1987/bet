@@ -6,25 +6,17 @@ module Ar
       filter_var = all_params[k].blank? ? '' : all_params[k]
       # ILIKE for PostgreSQL
       if v == 'LIKE' || v == 'ILIKE'
-        if all_params[:q].blank?
-          secure_var = model.sanitize("%#{filter_var}%")   
-        else
-          secure_var = model.sanitize("%#{all_params[:q]}%")     
-        end
+        secure_var = model.sanitize("%#{filter_var}%")
       else
         secure_var = model.sanitize("#{filter_var}")
       end
       
-      if filter_var != '' || all_params[:q].blank? == false    
+      if filter_var != ''  
         conditions.push("#{k} #{v} #{secure_var}")
       end  
     end
     
-    if all_params[:q].blank?    
-      conditions = conditions.join(" AND ")
-    else
-      conditions = conditions.join(" OR ")
-    end
+    conditions = conditions.join(" AND ")
         
     model.where(conditions).paginate(page: all_params[:page], per_page: 10)   
   end
