@@ -6,67 +6,68 @@ section.wrapper-hot-recipes
       
     .container-hot-recipes
       .hot-row
-        .full-image.col-size
-          a href="#" 
-            figure.inner-full-image
-              = image_tag(hot_recipes[0]['image']['url'])
-              figcaption #{hot_recipes[0]['name']}
-      
-        .split-images.col-size
-          .split-images-inner
-            .intro-first
-              .recipe-box
-                .intro.bg-color1
-                  .heading-recipe
-                    h3
-                      = link_to hot_recipes[1]['name'], '#'
-                  
-                .image
-                  = link_to image_tag(hot_recipes[1]['image']['url']), "#"
-            
-            .image-first
-              .recipe-box
-                .intro.bg-color2
-                  .heading-recipe
-                    h3
-                      = link_to hot_recipes[2]['name'], '#'
-                  
-                .image
-                  = link_to image_tag(hot_recipes[2]['image']['url']), "#"
+        - unless hot_recipes.blank?
+          .full-image.col-size
+            a href="#" 
+              figure.inner-full-image
+                = image_tag(hot_recipes[0]['image']['url'])
+                figcaption #{hot_recipes[0]['name']}
         
-        .split-images.col-size
-          .split-images-inner
-            .image-first
-              .recipe-box
-                .intro.bg-color3
-                  .heading-recipe
-                    h3
-                      = link_to hot_recipes[3]['name'], '#'
-                  
-                .image
-                  = link_to image_tag(hot_recipes[3]['image']['url']), "#"
-            
-            .intro-first
-              .recipe-box
-                .intro.bg-color4
-                  .heading-recipe
-                    h3
-                      = link_to hot_recipes[4]['name'], '#'
-                  
-                .image
-                  = link_to image_tag(hot_recipes[4]['image']['url']), "#"
-
-        .split-images.col-size
-          .split-images-inner
-            .intro-first
-              .recipe-box
-                .intro.bg-color5
-                  .heading-recipe
-                    h3
-                      = link_to hot_recipes[5]['name'], '#'
+          .split-images.col-size
+            .split-images-inner
+              .intro-first
+                .recipe-box
+                  .intro.bg-color1
+                    .heading-recipe
+                      h3
+                        = link_to hot_recipes[1]['name'], '#'
                     
-                .image
-                  = link_to image_tag(hot_recipes[5]['image']['url']), "#"
+                  .image
+                    = link_to image_tag(hot_recipes[1]['image']['url']), "#"
+              
+              .image-first
+                .recipe-box
+                  .intro.bg-color2
+                    .heading-recipe
+                      h3
+                        = link_to hot_recipes[2]['name'], '#'
+                    
+                  .image
+                    = link_to image_tag(hot_recipes[2]['image']['url']), "#"
+          
+          .split-images.col-size
+            .split-images-inner
+              .image-first
+                .recipe-box
+                  .intro.bg-color3
+                    .heading-recipe
+                      h3
+                        = link_to hot_recipes[3]['name'], '#'
+                    
+                  .image
+                    = link_to image_tag(hot_recipes[3]['image']['url']), "#"
+              
+              .intro-first
+                .recipe-box
+                  .intro.bg-color4
+                    .heading-recipe
+                      h3
+                        = link_to hot_recipes[4]['name'], '#'
+                    
+                  .image
+                    = link_to image_tag(hot_recipes[4]['image']['url']), "#"
+  
+          .split-images.col-size
+            .split-images-inner
+              .intro-first
+                .recipe-box
+                  .intro.bg-color5
+                    .heading-recipe
+                      h3
+                        = link_to hot_recipes[5]['name'], '#'
+                      
+                  .image
+                    = link_to image_tag(hot_recipes[5]['image']['url']), "#"
       
       .corner-image.hot
         = image_tag("/themes/recipes/images/slider-bg-corner2.png")
