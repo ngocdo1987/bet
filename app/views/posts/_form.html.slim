@@ -20,6 +20,9 @@
       = f.label :content
       = f.text_area :content, :class => "tinymce", :rows => 15
       
+      = f.label :home
+      = f.select(:home, [['True', true], ['False', false]])
+      
       = f.submit(@post.new_record? ? 'Create post' : 'Edit post', class: "btn btn-success")
       
 javascript:

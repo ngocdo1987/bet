@@ -1,0 +1,13 @@
+p
+  h1 #{@location.name}
+
+.row
+  .col-md-12
+    p Name: #{@location.name}
+    p Address: #{@location.address}
+    p Phone: #{@location.phone}
+    p Fax: #{@location.fax}
+    p Email: #{@location.email}
+
+h5
+  = link_to "Return to locations listing", locations_path, class: "btn btn-warning btn-small"

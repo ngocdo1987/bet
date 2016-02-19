@@ -17,6 +17,7 @@ center
         th Name
         th Image
         th Description
+        th Home
         th
       - @posts.each do |post|
         tr
@@ -26,7 +27,9 @@ center
             = link_to post.name, edit_post_path(post)
           td
             = image_tag(post.image.url, size: "100x100", class: "gravatar") if post.image?
-          td #{post.description}
+          td 
+            = simple_format post.description
+          td #{post.home}
           
           td
             = link_to 'Show', post_path(post)

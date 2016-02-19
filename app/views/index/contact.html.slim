@@ -7,73 +7,41 @@ section.recipes-home-body.inner-page
       h2 Our Locations
       .contact-container
         .row
-          .col-md-4
-            section.contact-option-single
-              h3 Registered office
-              p
-                | Recipe north street, opp secure garden. Hotel
-                | View, City State Office, Melbournebr
-                br/
-                | Australia. 123456
-              ul.contact-options
-                li.phone
-                  span> Phone:
-                  | +123 4567 890
-                li.fax
-                  span> Fax:
-                  | +123 4567 890
-                li.email
-                  span Email:
-                  a href="#"  info@foodandtaste.com
-          .col-md-4
-            section.contact-option-single
-              h3 Our Restaurant
-              p
-                | Recipe north street, opp secure garden. Hotel
-                | View, City State Office, Melbourne
-                br/
-                | Australia. 123456
-              ul.contact-options
-                li.phone
-                  span> Phone:
-                  | +123 4567 890
-                li.fax
-                  span> Fax:
-                  | +123 4567 890
-                li.email
-                  span Email:
-                  a href="#"  info@foodandtaste.com
-          .col-md-4
-            section.contact-option-single
-              h3 Other Office
-              p
-                | Recipe north street, opp secure garden. Hotel
-                | View, City State Office, Melbourne
-                br/
-                | Australia. 123456
-              ul.contact-options
-                li.phone
-                  span> Phone:
-                  | +123 4567 890
-                li.fax
-                  span> Fax:
-                  | +123 4567 890
-                li.email
-                  span Email:
-                  a href="#"  info@foodandtaste.com
+          - @locations.each do |location|
+            .col-md-4
+              section.contact-option-single
+                h3 #{location.name}
+                p #{location.address}
+                  
+                ul.contact-options
+                  li.phone
+                    span Phone: 
+                    = location.phone
+                  li.fax
+                    span Fax: 
+                    = location.fax
+                  li.email
+                    span Email:
+                    = location.email
+          
         .separator-post
         .row
           .col-md-6
             .contact-option-single
-              h3 Quick Contact
+              h3#quick_contact Quick Contact
+              
+              = render 'shared/errors', obj: @contact_form
+              = render 'layouts/messages'
+              
               fieldset
-                form#contact-form action="" method="post" novalidate="novalidate" 
-                  input.required name="name" placeholder="Name" title=("*Enter Your Name") type="text" /
-                  input.required name="email" placeholder=("Email Address") title=("*enter valid email address") type="email" /
-                  input.number name="number" placeholder=("Phone Number") type="number" /
-                  textarea#message.required cols="30" name="message" placeholder="Message" rows="10" title=("*type your message") 
-                  button type="submit"  submit message
+                = form_for @contact_form, :url => '/send-email#quick_contact', :html=> {:id => 'contact-form', :novalidate => 'novalidate'} do |f|
+                  = f.text_field :name, :placeholder => 'Name', :title => '*Enter Your Name'  
+                  = f.text_field :email, :placeholder => 'Email Address', :title => '*Enter valid email address'
+                  = f.text_field :phone, :placeholder => 'Phone Number', :title => '*Enter Your Phone'
+                  = f.text_area :message, :cols => 30, :rows => 10, :id => 'message', :placeholder => 'Message', :title => '* Type your message'
+                  = f.submit 'submit message'
                   img#contact-loader alt="Loading..." src="/themes/recipes/images/loader2.gif" /
+                
               .error-container
               #message-sent
           .col-md-6

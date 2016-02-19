@@ -9,7 +9,8 @@ class Post < ActiveRecord::Base
     {
       name: 'ILIKE', 
       description: 'ILIKE',
-      content: 'ILIKE'
+      content: 'ILIKE',
+      home: '='
     }
   end
   

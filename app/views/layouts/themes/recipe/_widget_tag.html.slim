@@ -1,23 +1,6 @@
-/! tags widget
 .widget.tags-widget
   h2 Tags
   ul
-    li
-      a href="#"  loren
-    li
-      a href="#"  food
-    li
-      a href="#"  chicken
-    li
-      a href="#"  dolor
-    li
-      a href="#"  amet
-    li
-      a href="#"  fusicon
-    li
-      a href="#"  corn
-    li
-      a href="#"  hot chicken
-    li
-      a href="#"  lorem
-/! tags widget ends
+    - tags.each do |tag|
+      li
+        = link_to tag.name, '#'

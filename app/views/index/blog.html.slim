@@ -11,10 +11,10 @@
           .side-bar
             = render 'layouts/themes/recipe/widget_search'
             
-            = render 'layouts/themes/recipe/widget_category'
+            = render 'layouts/themes/recipe/widget_category', categories: @categories
             
             = render 'layouts/themes/recipe/widget_latest_news'
             
-            = render 'layouts/themes/recipe/widget_tag'
+            = render 'layouts/themes/recipe/widget_tag', tags: @tags
 
 <!--main content area ends-->   

@@ -456,13 +456,15 @@
                 $('#contact-form').resetForm();
             }
         };
-
+        
+        /*
         $('#contact-form').validate({
             errorLabelContainer: $("div.error-container"),
             submitHandler: function (form) {
                    $(form).ajaxSubmit(contact_options);
             }
         });
+        */
     }
 
 

@@ -1,0 +1,42 @@
+h1 List locations
+
+h5
+  = link_to 'Add location', new_location_path, class: 'btn btn-warning btn-small'
+
+= render 'filter'
+
+center
+  = will_paginate
+
+.row
+  .col-md-12
+    table.table
+      tr
+        th
+          input#check_all type="checkbox"
+        th Name
+        th Address
+        th Phone
+        th Fax
+        th Email
+        th
+      - @locations.each do |location|
+        tr
+          td
+            input type="checkbox" value="#{location.id}"
+          td
+            = link_to location.name, edit_location_path(location)
+          td #{location.address}
+          td #{location.phone}
+          td #{location.fax}
+          td #{location.email}
+          td
+            
+            = link_to 'Show', location_path(location)
+            = " | "
+            = link_to 'Edit', edit_location_path(location) 
+            = " | "
+            = link_to 'Delete', location, data: {:confirm => "Are you sure to delete location #{location.name}?"}, :method => :delete
+
+center
+  = will_paginate

@@ -14,3 +14,8 @@
       .col-md-3
         = submit_tag "Search", class: "btn btn-success"
         = link_to "Reset", posts_path, class: "btn btn-success"
+        
+  .row.filter-row
+    .col-md-12
+      .col-md-3
+        = select_tag :home, options_for_select([['Home', ''], ['True', 1], ['False', 0]], params[:home]), class: "form-control"  

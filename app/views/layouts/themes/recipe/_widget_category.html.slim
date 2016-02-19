@@ -1,13 +1,6 @@
-/! widget category
 .widget.category-widget
   h2 Categories
   ul
-    li
-      a href="#"  good dishes
-    li
-      a href="#"  seasonal eats
-    li
-      a href="#"  recipes
-    li
-      a href="#"  potato
-/! widget category ends
+    - categories.each do |category|
+      li
+        = link_to category.name, '#'

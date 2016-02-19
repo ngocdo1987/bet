@@ -78,5 +78,14 @@ Rails.application.configure do
   config.active_record.dump_schema_after_migration = false
   
   # Change localhost to domain
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
+  config.action_mailer.delivery_method = :smtp
+  config.action_mailer.smtp_settings = {
+    address:              'smtp.sendgrid.net',
+    port:                 587,
+    domain:               'cookcook.club',
+    user_name:            'ngocdo',
+    password:             '4nhNg0cM3oC0n28021987',
+    authentication:       'plain',
+    enable_starttls_auto: true  
+  }
 end

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/our-chefs', to: 'index#chefs'
   get '/blog', to: 'index#blog'
   get '/contact', to: 'index#contact'
+  post '/send-email', to: 'index#send_email'
   get '/submit-recipe', to: 'index#submit_recipe'
   
   get '/whois', to: 'index#whois'
@@ -39,6 +40,7 @@ Rails.application.routes.draw do
   
   resources :recipes
   resources :chefs
+  resources :locations
   
   resources :leagues do
     member do

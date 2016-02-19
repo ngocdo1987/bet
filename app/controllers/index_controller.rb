@@ -1,12 +1,13 @@
 class IndexController < ApplicationController
   layout :custom_layout
-  before_action :custom_header, :only => [:index, :recipes, :recipe, :chefs, :chef, :blog, :contact, :submit_recipe]
+  before_action :custom_header, :only => [:index, :recipes, :recipe, :chefs, :chef, :blog, :contact, :send_email, :submit_recipe]
     
   def index
     @mt = 'Food & Taste - Quality recipes'
     @featured_recipes = Recipe.where(featured: true)
     @hot_recipes = Recipe.where(hot: true).limit(6).as_json
     @home_chefs = Chef.where(home: true).limit(4)
+    @home_posts = Post.where(home: true).limit(4)
   end
     
   def recipes
@@ -30,11 +31,30 @@ class IndexController < ApplicationController
   end    
     
   def blog
-    @mt = 'Blog'   
+    @mt = 'Blog'  
+    @posts = Post.all
+    @categories = Category.all
+    @tags = Tag.all
   end
     
   def contact   
     @mt = 'Contact'    
+    @locations = Location.limit(3)
+    @contact_form = ContactForm.new
+  end
+    
+  def send_email
+    @mt = 'Contact'  
+    @locations = Location.limit(3)
+    @contact_form = ContactForm.new(contact_form_params)
+    if @contact_form.validate
+      ContactMailer.send_contact_email(contact_form_params).deliver
+      flash[:success] = 'Send email successfully!'
+      
+      redirect_to '/contact#quick_contact'
+    else
+      render :contact
+    end
   end
     
   def submit_recipe
@@ -114,12 +134,12 @@ class IndexController < ApplicationController
   private
     def custom_layout
       case action_name
-      when 'index', 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'submit_recipe'
-          'recipe'
+      when 'index', 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'send_email', 'submit_recipe'
+        'recipe'
       when 'whois', 'domain_check', 'web_capture', 'imgur_uploader', 'sms'
-          'mini_tools'
+        'mini_tools'
       else
-          'application'
+        'application'
       end
     end
         
@@ -127,10 +147,14 @@ class IndexController < ApplicationController
       case action_name
       when 'index'
         @header = 'header'
-      when 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'submit_recipe'
+      when 'recipes', 'recipe', 'chefs', 'chef', 'blog', 'contact', 'send_email', 'submit_recipe'
         @header = 'header1'
       else
         @header = ''
       end
+    end
+    
+    def contact_form_params
+      params.require(:contact_form).permit(:name, :email, :phone, :message)  
     end
 end
