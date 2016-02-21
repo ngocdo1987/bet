@@ -33,9 +33,9 @@ class Ability
     
     case user.role
     when 'admin'
-      can :manage, [User, Setting, Recipe, Chef, Location, League, Season, Match, Team, Video, Category, Tag, Post]
+      can :manage, [User, Setting, Recipe, Chef, Cuisine, Location, League, Season, Match, Team, Video, Category, Tag, Post]
     when 'mod'
-      can :manage, [Recipe, Chef, Location, Category, Tag, Post] 
+      can :manage, [Recipe, Chef, Cuisine, Location, Category, Tag, Post] 
     else
     
     end

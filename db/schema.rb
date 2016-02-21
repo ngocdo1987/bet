@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160219150057) do
+ActiveRecord::Schema.define(version: 20160221152318) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -105,6 +105,23 @@ ActiveRecord::Schema.define(version: 20160219150057) do
     t.boolean  "home"
   end
 
+  create_table "cuisines", force: :cascade do |t|
+    t.string   "name"
+    t.string   "slug"
+    t.string   "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "ingredients", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "ingredients", ["recipe_id"], name: "index_ingredients_on_recipe_id", using: :btree
+
   create_table "leagues", force: :cascade do |t|
     t.string   "league_name"
     t.string   "league_type"
@@ -130,17 +147,33 @@ ActiveRecord::Schema.define(version: 20160219150057) do
     t.string   "away_team"
     t.integer  "home_number"
     t.integer  "away_number"
-    t.integer  "home_score",  limit: 2
-    t.integer  "away_score",  limit: 2
+    t.integer  "home_score",   limit: 2
+    t.integer  "away_score",   limit: 2
     t.datetime "match_time"
     t.string   "status"
     t.boolean  "calculated"
     t.boolean  "active"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "season_id"
+    t.integer  "home_team_id"
+    t.integer  "away_team_id"
   end
 
+  add_index "matches", ["away_team_id"], name: "index_matches_on_away_team_id", using: :btree
+  add_index "matches", ["home_team_id"], name: "index_matches_on_home_team_id", using: :btree
   add_index "matches", ["league_id"], name: "index_matches_on_league_id", using: :btree
+  add_index "matches", ["season_id"], name: "index_matches_on_season_id", using: :btree
+
+  create_table "nutritions", force: :cascade do |t|
+    t.integer  "recipe_id"
+    t.string   "name"
+    t.string   "weight"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "nutritions", ["recipe_id"], name: "index_nutritions_on_recipe_id", using: :btree
 
   create_table "odd_money_lines", force: :cascade do |t|
     t.integer  "match_id"

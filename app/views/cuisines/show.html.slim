@@ -1,0 +1,14 @@
+p
+  h1 #{@cuisine.name}
+
+.row
+  .col-md-12
+    p Name: #{@cuisine.name}
+    p Slug: #{@cuisine.slug}
+    p Description: 
+      = simple_format @cuisine.description
+    p Created at: #{@cuisine.created_at}
+    p Updated at: #{@cuisine.updated_at}
+
+h5
+  = link_to "Return to cuisines listing", cuisines_path, class: "btn btn-warning btn-small"

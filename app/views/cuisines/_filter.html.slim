@@ -1,0 +1,13 @@
+= form_tag(cuisines_path, method: "get") do
+  .row.filter-row
+    .col-md-12
+      
+      .col-md-3
+        = text_field_tag :name, params[:name], placeholder: "Name", class: "form-control"
+        
+      .col-md-3
+        = text_field_tag :description, params[:description], placeholder: "Name", class: "form-control"  
+      
+      .col-md-3
+        = submit_tag "Search", class: "btn btn-success"
+        = link_to "Reset", cuisines_path, class: "btn btn-success"

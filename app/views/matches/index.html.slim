@@ -15,6 +15,7 @@ center
         th
           input#check_all type="checkbox"
         th Home team
+        th
         th Away team
         th League
         th Match time
@@ -26,6 +27,8 @@ center
             input type="checkbox" value="#{match.id}"
           td
             = link_to "(#{match.home_number}) #{match.home_team}", edit_match_path(match)
+          td 
+            = "#{match.home_score} - #{match.away_score}"  
           td
             = link_to "(#{match.away_number}) #{match.away_team}", edit_match_path(match)
           td #{match.league.league_name}

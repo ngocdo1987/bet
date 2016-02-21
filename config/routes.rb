@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   
   get '/angular', to: 'index#angular'
   get '/list-recipes', to: 'index#recipes'
+  get '/recipe/:slug/:id', to: 'index#recipe'
   get '/our-chefs', to: 'index#chefs'
   get '/blog', to: 'index#blog'
   get '/contact', to: 'index#contact'
@@ -40,6 +41,7 @@ Rails.application.routes.draw do
   
   resources :recipes
   resources :chefs
+  resources :cuisines
   resources :locations
   
   resources :leagues do

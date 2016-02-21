@@ -3,7 +3,7 @@ class Team < ActiveRecord::Base
   has_many :leagues, :through => :assign_teams
   has_many :seasons, :through => :assign_teams
   
-  validates :name, presence: true, length: { minimum: 3 }
+  validates :name, presence: true, length: { minimum: 3 }, uniqueness: true
   mount_uploader :image, TeamImageUploader
   validate :image_size
   

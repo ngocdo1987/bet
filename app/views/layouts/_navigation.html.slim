@@ -22,8 +22,8 @@ nav class="navbar navbar-default navbar-fixed-top"
                 li
                   = link_to "Settings", settings_path
         
-        - if can?(:manage, Recipe) || can?(:manage, Chef) || can?(:manage, Location)    
-          li.dropdown class=('active' if ['recipes', 'chefs', 'locations'].include? controller_name)
+        - if can?(:manage, Recipe) || can?(:manage, Chef) || can?(:manage, Cuisine) || can?(:manage, Location)    
+          li.dropdown class=('active' if ['recipes', 'chefs', 'cuisines', 'locations'].include? controller_name)
             = link_to "Cooking <span class=\"caret\"></span>".html_safe, "javascript:void(0)", class: "dropdown-toggle", "data-toggle": "dropdown", role:"button", "aria-haspopup": "true", "aria-expanded": "false"
             ul.dropdown-menu
               - if can?(:manage, Recipe)
@@ -33,6 +33,10 @@ nav class="navbar navbar-default navbar-fixed-top"
               - if can?(:manage, Chef)
                 li
                   = link_to "Chefs", chefs_path
+                  
+              - if can?(:manage, Cuisine)
+                li
+                  = link_to "Cuisines", cuisines_path
                   
               - if can?(:manage, Location)
                 li

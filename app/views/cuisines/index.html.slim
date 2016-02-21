@@ -1,0 +1,37 @@
+h1 List cuisines
+
+h5
+  = link_to 'Add cuisine', new_cuisine_path, class: 'btn btn-warning btn-small'
+
+= render 'filter'
+
+center
+  = will_paginate
+
+.row
+  .col-md-12
+    table.table
+      tr
+        th
+          input#check_all type="checkbox"
+        th Name
+        th Description
+        th
+      - @cuisines.each do |cuisine|
+        tr
+          td
+            input type="checkbox" value="#{cuisine.id}"
+          td
+            = link_to cuisine.name, edit_cuisine_path(cuisine)
+          td
+            = simple_format cuisine.description
+          td
+            
+            = link_to 'Show', cuisine_path(cuisine)
+            = " | "
+            = link_to 'Edit', edit_cuisine_path(cuisine) 
+            = " | "
+            = link_to 'Delete', cuisine, data: {:confirm => "Are you sure to delete cuisine #{cuisine.name}?"}, :method => :delete
+
+center
+  = will_paginate
