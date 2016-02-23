@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160221152318) do
+ActiveRecord::Schema.define(version: 20160223100806) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -115,7 +115,7 @@ ActiveRecord::Schema.define(version: 20160221152318) do
 
   create_table "ingredients", force: :cascade do |t|
     t.integer  "recipe_id"
-    t.string   "name"
+    t.string   "ingredient_name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -167,8 +167,8 @@ ActiveRecord::Schema.define(version: 20160221152318) do
 
   create_table "nutritions", force: :cascade do |t|
     t.integer  "recipe_id"
-    t.string   "name"
-    t.string   "weight"
+    t.string   "nutrition_name"
+    t.string   "nutrition_weight"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -228,13 +228,15 @@ ActiveRecord::Schema.define(version: 20160221152318) do
     t.datetime "updated_at"
     t.integer  "chef_id"
     t.string   "image"
-    t.text     "ingredients"
     t.text     "steps"
     t.string   "cooking_time"
     t.string   "level"
     t.boolean  "featured"
     t.boolean  "hot"
+    t.integer  "cuisine_id"
   end
+
+  add_index "recipes", ["cuisine_id"], name: "index_recipes_on_cuisine_id", using: :btree
 
   create_table "seasons", force: :cascade do |t|
     t.string   "name"

@@ -1,6 +1,11 @@
 class Recipe < ActiveRecord::Base
   belongs_to :chef
+  belongs_to :cuisine
+  has_many :ingredients
+  has_many :nutritions
+  
   validates :chef_id, presence: true
+  validates :cuisine_id, presence: true
   validates :name, presence: true, length: { minimum: 5, maximum: 100 }
   validates :summary, presence: true, length: { minimum: 5, maximum: 200 }
   validates :description, presence: true, length: { minimum: 5, maximum: 5000 }
@@ -10,6 +15,7 @@ class Recipe < ActiveRecord::Base
   def self.all_filters
     {
       chef_id: '=',
+      cuisine_id: '=',
       name: 'ILIKE',
       summary: 'ILIKE',
       description: 'ILIKE',

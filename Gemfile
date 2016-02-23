@@ -56,6 +56,9 @@ gem 'faker'
 # Textarea autocomplete multiple 
 gem 'rails-jquery-tokeninput'
 
+# Nested from
+gem 'cocoon'
+
 # Imgur
 gem 'curb'
 

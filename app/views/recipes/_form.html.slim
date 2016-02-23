@@ -1,10 +1,14 @@
 = render 'shared/errors', obj: @recipe
 
-.row
-  .well.col-md-8.col-md-offset-2.crud-form
-    = form_for(@recipe, html: {multipart: true}) do |f|
+.row.crud-form
+  = form_for(@recipe, html: {multipart: true}) do |f|
+    .well.col-md-6.crud-form
+    
       = f.label :chef_id
       = f.collection_select(:chef_id, @chefs, :id, :chefname)
+      
+      = f.label :cuisine_id
+      = f.collection_select(:cuisine_id, @cuisines, :id, :name)
       
       = f.label :name
       = f.text_field :name
@@ -19,9 +23,6 @@
       
       = f.label :description
       = f.text_area :description, :class => "tinymce", :rows => 15
-      
-      = f.label :ingredients
-      = f.text_area :ingredients, :class => "tinymce", :rows => 15
       
       = f.label :steps
       = f.text_area :steps, :class => "tinymce", :rows => 15
@@ -40,6 +41,53 @@
       
       = f.submit(@recipe.new_record? ? 'Create recipe' : 'Edit recipe', class: "btn btn-success")
       
+    .col-md-6.crud-form  
+      center
+        b Ingredients
+        
+      - if @ingredients.blank? == false
+        table.table
+          tr
+            th Name
+            th
+          - @ingredients.each do |i|  
+            tr
+              td #{i.ingredient_name}
+              td Delete
+            
+        
+      = f.fields_for :ingredients do |i|
+        = i.label :ingredient_name
+        = i.text_field :ingredient_name
+        
+        - unless @recipe.new_record?
+          = link_to 'Add ingredient', 'javascript:void(0)', class: "btn btn-success"
+          
+      center
+        b Nutritions
+        
+      - if @nutritions.blank? == false
+        table.table
+          tr
+            th Name
+            th Weight
+            th
+          - @nutritions.each do |n|  
+            tr
+              td #{n.nutrition_name}
+              td #{n.nutrition_weight}
+              td Delete  
+        
+      = f.fields_for :nutritions do |n|
+        = n.label :nutrition_name
+        = n.text_field :nutrition_name
+        
+        = n.label :nutrition_weight
+        = n.text_field :nutrition_weight
+        
+        - unless @recipe.new_record?
+          = link_to 'Add nutrition', 'javascript:void(0)', class: "btn btn-success"
+    
 javascript:
   $('#recipe_image').bind('change', function(){
     size_in_megabytes = this.files[0].size/1024/1024;

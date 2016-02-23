@@ -18,6 +18,7 @@ center
         th Image
         th Summary
         th Chef
+        th Cuisine
         th Featured
         th Hot
         th
@@ -31,7 +32,9 @@ center
             = image_tag(recipe.image.url, size: "100x100", class: "gravatar") if recipe.image?
           td #{recipe.summary}
           td 
-            = link_to recipe.chef.chefname, chef_path(recipe.chef)
+            = link_to recipe.chef.chefname, chef_path(recipe.chef) unless recipe.chef.blank?
+          td 
+            = link_to recipe.cuisine.name, cuisine_path(recipe.cuisine) unless recipe.cuisine.blank?
           td #{recipe.featured}
           td #{recipe.hot}
           td

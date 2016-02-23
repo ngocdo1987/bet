@@ -15,6 +15,9 @@
     .col-md-12
       .col-md-3
         = select_tag :chef_id, options_from_collection_for_select(@chefs, 'id', 'chefname', params[:chef_id]), include_blank: "Chef", class: "form-control"
+        
+      .col-md-3
+        = select_tag :cuisine_id, options_from_collection_for_select(@cuisines, 'id', 'name', params[:cuisine_id]), include_blank: "Cuisine", class: "form-control"  
       
       .col-md-3
         = select_tag :featured, options_for_select([['Featured', ''], ['True', 1], ['False', 0]], params[:featured]), class: "form-control"  

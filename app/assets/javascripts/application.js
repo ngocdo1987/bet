@@ -18,4 +18,5 @@
 //= require moment
 //= require bootstrap-datetimepicker
 //= require rails-jquery-tokeninput
+//= require cocoon
 //= require_tree .
